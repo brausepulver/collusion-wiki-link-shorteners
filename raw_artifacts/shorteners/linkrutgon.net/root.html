@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="csrf-token" content="aROoEXsqEOcIx56k5f8SoNQwdLyWrnnJli9P9LcH">
+
+    <title> Dashboard - denho.link</title>
+    <!-- Favicon -->
+    <link href="/images/favicon.ico" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="/css/app.css" rel="stylesheet">
+</head>
+<body class="">
+
+<div class="main-content">
+    <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
+    <div class="container px-4">
+        <a class="navbar-brand" href="https://linkrutgon.net">
+            <img src="/images/urlhum.png" style="background:white; border-radius:20px;"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse-main">
+            <!-- Collapse header -->
+            <div class="navbar-collapse-header d-md-none">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <a href="https://linkrutgon.net">
+                            <img src="/images/urlhum.png" style="background:white; border-radius: 20px;">
+                        </a>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Navbar items -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" href="https://linkrutgon.net">
+                        <i class="ni ni-planet"></i>
+                        <span class="nav-link-inner--text">Dashboard</span>
+                    </a>
+                </li>
+                                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" href="https://linkrutgon.net/register">
+                        <i class="ni ni-circle-08"></i>
+                        <span class="nav-link-inner--text">Register</span>
+                    </a>
+                </li>
+                                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" href="https://linkrutgon.net/login">
+                        <i class="ni ni-key-25"></i>
+                        <span class="nav-link-inner--text">Login</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>        <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+    <div class="container-fluid col-lg-8 col-md-10 col-sm-12">
+        <div class="header-body  anonymous ">
+            <!-- Card stats -->
+            <div class="row">
+                <div class="col-xl-4 col-lg-4">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Short URLs created</h5>
+                                    <span class="h2 font-weight-bold mb-0">582</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Users</h5>
+                                    <span class="h2 font-weight-bold mb-0">544</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                        <i class="fas fa-chart-pie"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Referers</h5>
+                                    <span class="h2 font-weight-bold mb-0">0</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                                        <i class="fas fa-link"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    <div class="container-fluid col-lg-8  col-md-10 col-sm-12 mt--7">
+                    <form method="POST" action="/url">
+    <div class="row">
+        <div class="col
+                            anonymous-box-container
+            ">
+
+            <div class="card shadow
+                                anonymous-create-box
+        ">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                                                        
+                            
+                            
+                            <h3 class="mb-0">Create new Short URL</h3>
+                            <div class="input-group ml-2 mt-2">
+                                <input type="hidden" name="_token" value="aROoEXsqEOcIx56k5f8SoNQwdLyWrnnJli9P9LcH">                                <input type="url" class="form-control" id="longUrl" name="url"
+                                       placeholder="https://website.com" required>
+                                <div class="input-group-append">
+                                    <input type="submit" class="btn btn-primary">
+                                </div>
+                                <div id="url_short_Pt3QHuXz0rswfM1Y_wrap" style="display:none;">
+        <input name="url_short_Pt3QHuXz0rswfM1Y" type="text" value="" id="url_short_Pt3QHuXz0rswfM1Y">
+        <input name="url_longer" type="text" value="eyJpdiI6ImEzQ3Y4YVBaMFJKdEhYR2pxSms2Y1E9PSIsInZhbHVlIjoiNFRldXZLZ2dYWHNIck5TcVB2ZzY1Zz09IiwibWFjIjoiN2EwZTYwNzFhOTYzZTJkNmQwY2FmY2UxOWMyYTliZDYyZDI4Y2JkNGMwYTg1YWQ4ZmI2MTc5MDAyZTg3YWM5NiJ9">
+    </div>
+
+                            </div>
+                            <a class="btn btn-sm btn-secondary mt-2" id="options-toggle"><i
+                                        class="ni ni-settings-gear-65"></i>Options</a>
+
+                            <div id="options-panel" class="card mt-3" style="display:none;">
+                                <div class="card-body">
+                                    <label class="text-left" for="customUrl" style="float:left;">Custom Short URL</label>
+                                        <a id="retarget-device" data-toggle="modal" data-target="#targetModal" class="ml-4 btn btn-sm btn-info text-white">
+                                            Retarget
+                                        <i class="ni ni-mobile-button"></i></a>
+                                    <p class="text-right" id="customUrlResult"></p>
+                                    <div class="form-group" id="customUrlcontainer">
+                                        <input type="text" class="form-control" id="customUrl" name="customUrl">
+                                    </div>
+                                    <br>
+                                    <label class="text-left" for="privateUrl" style="float:left;">Hide from Public URLs page</label>
+                                    <div class="form-group text-right" id="privateUrlcontainer">
+                                        <label class="custom-toggle">
+                                            <input type="hidden" name="privateUrl" value="0">
+                                            <input type="checkbox" name="privateUrl" value="1">
+                                            <span class="custom-toggle-slider rounded-circle"></span>
+                                        </label>
+                                    </div>
+                                    <br>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal" tabindex="-1" role="dialog" id="targetModal">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Imposta targetizzazione dispositivo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="text-left" style="float:left;">Windows (PC)</label>
+                                <input type="url" class="form-control" name="windows"
+                                       placeholder="https://website.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="text-left" style="float:left;">Mac OS (PC)</label>
+                                <input type="url" class="form-control" name="macos"
+                                       placeholder="https://website.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="text-left" style="float:left;">Android</label>
+                                <input type="url" class="form-control"  name="android"
+                                       placeholder="https://website.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="text-left" style="float:left;">iOS</label>
+                                <input type="url" class="form-control" name="ios"
+                                       placeholder="https://website.com">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Salva</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>                <div class="row mt-5">
+                            <div class="
+        col-12
+        mb-5 mb-xl-0">
+    <div class="card shadow">
+        <div class="card-header border-0">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="mb-0">Latest URLs</h3>
+                </div>
+                <div class="col text-right">
+                    <a href="https://linkrutgon.net/url/public" class="btn btn-sm btn-primary">See all</a>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <!-- Projects table -->
+            <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">Short URL</th>
+                    <th scope="col">Long URL</th>
+                    <th scope="col">Clicks</th>
+                                    </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <th scope="row">
+                            Rv3M6
+                        </th>
+                        <td>
+                            https://www.youtube.com/watch?v=o_Oke1J1ySU
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            <a href="/Rv3M6+" class="mr-2">
+                                <i class="fa fa-chart-bar fa-2x"></i>
+                            </a>
+                                                </td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">
+                            note-sakura
+                        </th>
+                        <td>
+                            https://duckduckgo.com/?ia=web&amp;q=note.sakura.ne.jp
+                        </td>
+                        <td>
+                            14
+                        </td>
+                        <td>
+                            <a href="/note-sakura+" class="mr-2">
+                                <i class="fa fa-chart-bar fa-2x"></i>
+                            </a>
+                                                </td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">
+                            cfvn
+                        </th>
+                        <td>
+                            https://l.facebook.com/l.php?u=https%3A%2F%2Fdiscord.gg%2FTP88cAKtu%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExMTR1Ulg2dk9jaDFVUnl3UHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR7GC-aN_7zt8PrYRaBRE5xlcc4TckSwP5iGEXzVbZEQeARxPKKhMH3wLeknSQ_aem_ZeV-veQ-EEJw8i750UHnIg&amp;h=AUC3kTVrNzsVD0S7EI189tGvuIohs8RbxDaL8-Gp4KyxXNnaTIimFgQIJjNPNLpTrwDKSVP0vqbkM_iqmKa-PXEm3qqlHzohex5bnTm2yomVTni_qMgpdjJzW7V-saBhguCPL3--pM8N-M0
+                        </td>
+                        <td>
+                            39
+                        </td>
+                        <td>
+                            <a href="/cfvn+" class="mr-2">
+                                <i class="fa fa-chart-bar fa-2x"></i>
+                            </a>
+                                                </td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">
+                            payVp
+                        </th>
+                        <td>
+                            https://away.vk.com/away.php?to=https://frype.com/?lng=en&amp;rh=1
+                        </td>
+                        <td>
+                            62
+                        </td>
+                        <td>
+                            <a href="/payVp+" class="mr-2">
+                                <i class="fa fa-chart-bar fa-2x"></i>
+                            </a>
+                                                </td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">
+                            RwrX9
+                        </th>
+                        <td>
+                            https://vkupiprodai.ru/user/33037c6219e1675001bb1f24eed95193b319e2d/
+                        </td>
+                        <td>
+                            70
+                        </td>
+                        <td>
+                            <a href="/RwrX9+" class="mr-2">
+                                <i class="fa fa-chart-bar fa-2x"></i>
+                            </a>
+                                                </td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">
+                            prrbp
+                        </th>
+                        <td>
+                            https://www.youtube.com/watch?v=3-go-p5YoCE
+                        </td>
+                        <td>
+                            76
+                        </td>
+                        <td>
+                            <a href="/prrbp+" class="mr-2">
+                                <i class="fa fa-chart-bar fa-2x"></i>
+                            </a>
+                                                </td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">
+                            RAQBR
+                        </th>
+                        <td>
+                            https://brittanypetros0074.fandom.com
+                        </td>
+                        <td>
+                            106
+                        </td>
+                        <td>
+                            <a href="/RAQBR+" class="mr-2">
+                                <i class="fa fa-chart-bar fa-2x"></i>
+                            </a>
+                                                </td>
+                    </tr>
+                                    <tr>
+                        <th scope="row">
+                            url--shortener
+                        </th>
+                        <td>
+                            https://come.ac/freeurlshortener
+                        </td>
+                        <td>
+                            96
+                        </td>
+                        <td>
+                            <a href="/url--shortener+" class="mr-2">
+                                <i class="fa fa-chart-bar fa-2x"></i>
+                            </a>
+                                                </td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+            
+                    </div>
+        <div class="container m-auto">
+    <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+    <div class="col-xl-6">
+        <div class="copyright text-center text-xl-left text-muted">
+            &copy; 2026 <a href="https://linkrutgon.net" class="font-weight-bold ml-1" target="_blank">denho.link</a> -
+            Design by <a href="https://www.creative-tim.com">Creative Tim</a>
+        </div>
+
+    </div>
+    <div class="col-xl-6">
+        <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+                            <li class="nav-item">
+                    <a href="https://linkrutgon.net/url/public" class="nav-link" target="_blank">Latest URLs</a>
+                </li>
+            
+            
+
+                    </ul>
+    </div>
+</div>    </footer>
+</div>    </div>
+</div>
+
+
+
+
+
+    <script src="/js/app.js"></script>
+ 
+
+
+</body>
+</html>

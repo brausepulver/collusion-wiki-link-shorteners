@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>markdown.new - Markdown for Agents | Cloudflare-Powered URL to Markdown</title>
+  <meta name="description" content="Convert any URL to clean, AI-ready Markdown using Cloudflare's native text/markdown content type. 80% fewer tokens than raw HTML. Powered by Markdown for Agents, Browser Rendering, and Workers AI.">
+  <meta name="keywords" content="markdown for agents, URL to markdown, cloudflare markdown, AI markdown, text/markdown, browser rendering, workers AI, LLM tokens">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://markdown.new">
+  <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://markdown.new">
+  <meta property="og:title" content="markdown.new - Markdown for Agents">
+  <meta property="og:description" content="Convert any URL to AI-ready Markdown. 80% fewer tokens than HTML. Powered by Cloudflare.">
+  <meta property="og:image" content="https://markdown.new/og-image.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://markdown.new">
+  <meta name="twitter:title" content="markdown.new - Markdown for Agents">
+  <meta name="twitter:description" content="Convert any URL to AI-ready Markdown. 80% fewer tokens than HTML.">
+  <meta name="twitter:image" content="https://markdown.new/og-image.jpg">
+
+  <meta name="theme-color" content="#000000">
+  <meta name="application-name" content="markdown.new">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "markdown.new",
+    "url": "https://markdown.new",
+    "description": "Convert any URL to clean, AI-ready Markdown using Cloudflare Markdown for Agents. 80% fewer tokens than raw HTML.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": [
+      "Cloudflare Markdown for Agents (Accept: text/markdown)",
+      "Cloudflare Browser Rendering fallback",
+      "Cloudflare Workers AI toMarkdown fallback",
+      "80% token reduction vs HTML",
+      "x-markdown-tokens header support",
+      "Live markdown preview",
+      "Copy and download functionality"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is markdown.new?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "markdown.new converts any public URL into clean, structured Markdown optimized for LLMs and AI agents. It strips away HTML bloat while preserving headings, lists, links, and tables — making web content AI-ready with up to 80% fewer tokens."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I use markdown.new?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Three ways, no signup needed. Browser: prepend https://markdown.new/ to any URL. cURL or API: POST a JSON body with your target URL. Add method (auto, ai, browser) and retain_images (true/false) as options."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is markdown.new free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, always. No subscriptions or paywalls. It's an open utility for developers, AI builders, and teams. Just respect the fair usage limits."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the rate limits?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "500 requests per day per IP address. Exceeding the limit returns HTTP 429. Check the x-rate-limit-remaining header to track usage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the conversion pipeline work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It uses a three-tier fallback chain. Tier 1: requests with Accept: text/markdown for native Markdown. Tier 2: Cloudflare Workers AI toMarkdown(). Tier 3: headless browser rendering for JS-heavy pages. The fastest successful tier wins."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it legal to convert web pages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, for public pages. markdown.new uses standard HTTP requests and doesn't store or republish content. Always respect each site's Terms of Service and robots.txt."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --background: #000;
+      --foreground: #fff;
+      --accent: #f6821f;
+      --accent-hover: #e5750e;
+      --accent-light: rgba(246, 130, 31, 0.1);
+      --accent-glow: rgba(246, 130, 31, 0.15);
+      --gray-100: #f5f5f5;
+      --gray-200: #e5e5e5;
+      --gray-300: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --gray-700: #404040;
+      --gray-800: #262626;
+      --gray-900: #171717;
+      --success: #10b981;
+      --error: #f43f5e;
+      --radius: 8px;
+      --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    input, button, select, textarea { font: inherit; }
+
+    html, body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100%;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--foreground);
+      text-decoration: none;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.35rem 0.75rem;
+      background: var(--accent-light);
+      border: 1px solid rgba(246, 130, 31, 0.25);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cf-badge:hover {
+      background: rgba(246, 130, 31, 0.18);
+      border-color: rgba(246, 130, 31, 0.4);
+    }
+
+    .cf-badge svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.35rem 0.75rem;
+      background: var(--gray-900);
+      border: 1px solid var(--gray-700);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gray-300);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav-badge:hover {
+      background: var(--gray-800);
+      border-color: var(--gray-600);
+      color: var(--foreground);
+    }
+
+    .nav-badge svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .badge-new {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.1rem 0.375rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 4px;
+      font-size: 0.5625rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-left: 0.375rem;
+    }
+
+    main {
+      flex: 1;
+      padding: 1rem 0 2rem;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    h1 .accent { color: var(--accent); }
+
+    .subtitle {
+      font-size: 1.125rem;
+      color: var(--gray-400);
+      margin-bottom: 1.5rem;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-cf {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--gray-900);
+      border: 1px solid var(--gray-800);
+      border-radius: 100px;
+      font-size: 0.875rem;
+    }
+
+    .hero-badge .badge-icon {
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    .hero-badge .badge-text {
+      color: var(--gray-400);
+    }
+
+    .hero-badge strong {
+      color: var(--foreground);
+    }
+
+    .hero-badge .number {
+      font-weight: 800;
+      font-size: 1.125rem;
+      color: var(--accent);
+    }
+
+    .converter {
+      background-color: var(--gray-900);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid var(--gray-800);
+    }
+
+    .url-input-group {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .url-input-group input {
+      flex: 1;
+      padding: 0.875rem 1rem;
+      background-color: var(--gray-800);
+      border: 1px solid var(--gray-700);
+      border-radius: var(--radius);
+      color: var(--foreground);
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .url-input-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .url-input-group input::placeholder { color: var(--gray-500); }
+
+    .btn {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn:hover { background-color: var(--accent-hover); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-secondary {
+      background-color: var(--gray-800);
+      color: var(--foreground);
+      border: 1px solid var(--gray-600);
+    }
+    .btn-secondary:hover { background-color: var(--gray-700); border-color: var(--gray-500); }
+
+    .result {
+      display: none;
+      margin-top: 2rem;
+      background: var(--gray-900);
+      border: 1px solid var(--gray-800);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .result.visible { display: block; }
+
+    .raw-content { padding: 1.5rem; max-height: 500px; overflow: auto; }
+    .raw-content pre { font-family: var(--font-mono); font-size: 0.875rem; white-space: pre-wrap; word-break: break-word; color: var(--gray-300); margin: 0; line-height: 1.6; }
+
+    .result-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 1rem 1.5rem; background: var(--gray-800); border-bottom: 1px solid var(--gray-700); flex-wrap: wrap; gap: 0.75rem; }
+    .result-title { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .result-meta-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem; }
+    .result-meta { color: var(--gray-400); font-size: 0.875rem; }
+    .method-badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; background: rgba(246, 130, 31, 0.15); color: var(--accent); border: 1px solid rgba(246, 130, 31, 0.3); }
+    .duration-badge { display: inline-flex; align-items: center; font-size: 0.75rem; font-weight: 500; padding: 0.2rem 0.5rem; border-radius: 4px; background: var(--gray-900); color: var(--gray-400); border: 1px solid var(--gray-700); }
+    .result-actions { display: flex; gap: 0.5rem; }
+    .result-actions .btn { padding: 0.5rem 1.25rem; font-size: 0.875rem; font-weight: 600; border: 1px solid var(--gray-600); }
+
+    .loading { display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 2rem; color: var(--gray-400); }
+    .spinner { width: 20px; height: 20px; border: 2px solid var(--gray-700); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error-message { color: var(--error); padding: 1.5rem; text-align: center; }
+    .success-icon { color: var(--success); }
+
+    .usage-hint { text-align: center; margin-top: 2rem; padding: 1.5rem; background: var(--gray-900); border: 1px solid var(--gray-800); border-radius: var(--radius); }
+    .usage-hint code { background: var(--gray-800); padding: 0.5rem 1rem; border-radius: var(--radius); font-family: var(--font-mono); font-size: 1rem; }
+    .usage-hint p { color: var(--gray-400); font-size: 0.875rem; margin-top: 0.75rem; }
+
+    /* Pipeline Section */
+    .pipeline-section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--gray-800); }
+    .section-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; text-align: center; letter-spacing: -0.02em; }
+    .section-subtitle { color: var(--gray-400); text-align: center; margin-bottom: 2.5rem; max-width: 620px; margin-left: auto; margin-right: auto; font-size: 1rem; line-height: 1.6; }
+
+    .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--gray-800); border: 1px solid var(--gray-800); border-radius: var(--radius); overflow: hidden; margin-bottom: 2rem; }
+    .tier-card { background: var(--gray-900); padding: 1.75rem 1.5rem; }
+    .tier-label { display: inline-block; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.5rem; border-radius: 4px; margin-bottom: 0.75rem; }
+    .tier-label.primary { background: var(--accent); color: #fff; }
+    .tier-label.fallback { background: var(--gray-700); color: var(--gray-300); }
+    .tier-title { font-size: 1.0625rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .tier-desc { color: var(--gray-400); font-size: 0.875rem; line-height: 1.55; margin-bottom: 1rem; }
+    .tier-code { background: var(--gray-800); border-radius: 6px; padding: 0.75rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--gray-300); line-height: 1.5; overflow-x: auto; }
+    .tier-code .kw { color: #c792ea; } .tier-code .str { color: #c3e88d; } .tier-code .cm { color: var(--gray-500); }
+
+    /* Why Section */
+    .why-section { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--gray-800); }
+    .comparison-box { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--gray-800); border: 1px solid var(--gray-800); border-radius: var(--radius); overflow: hidden; margin-bottom: 2rem; }
+    .comparison-side { background: var(--gray-900); padding: 1.5rem; }
+    .comparison-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+    .comparison-label.html-label { color: var(--gray-500); }
+    .comparison-label.md-label { color: var(--accent); }
+    .comparison-code { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--gray-400); line-height: 1.6; white-space: pre-wrap; word-break: break-all; }
+    .comparison-code.md-code { color: var(--gray-200); }
+    .comparison-tokens { text-align: center; font-size: 0.875rem; color: var(--gray-500); margin-top: 0.75rem; }
+    .comparison-tokens strong { color: var(--foreground); }
+
+    .stat-row { display: flex; justify-content: center; gap: 3rem; padding: 1.25rem 0; }
+    .stat-item { text-align: center; }
+    .stat-value { font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.25rem; }
+    .stat-desc { font-size: 0.8125rem; color: var(--gray-500); }
+
+    /* Options Section */
+    .options-section { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--gray-800); }
+    .options-table { max-width: 600px; margin: 0 auto 2rem; border: 1px solid var(--gray-800); border-radius: var(--radius); overflow: hidden; }
+    .options-table-header { display: grid; grid-template-columns: 1fr 1.5fr 0.75fr; gap: 1rem; padding: 0.75rem 1.25rem; background: var(--gray-800); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-400); }
+    .options-table-row { display: grid; grid-template-columns: 1fr 1.5fr 0.75fr; gap: 1rem; padding: 0.75rem 1.25rem; background: var(--gray-900); border-top: 1px solid var(--gray-800); font-size: 0.875rem; color: var(--gray-300); align-items: center; }
+    .options-table-row code { background: var(--gray-800); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.8125rem; }
+    .options-examples { display: grid; gap: 1rem; max-width: 600px; margin: 0 auto; }
+    .option-example { background: var(--gray-900); border: 1px solid var(--gray-800); border-radius: var(--radius); overflow: hidden; }
+    .option-example-label { padding: 0.625rem 1rem; font-size: 0.75rem; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--gray-800); }
+    .option-example .tier-code { border-radius: 0; border: none; margin: 0; }
+
+    /* Response Section */
+    .response-section { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--gray-800); }
+    .response-box { background: var(--gray-900); border: 1px solid var(--gray-800); border-radius: var(--radius); overflow: hidden; margin-bottom: 2rem; }
+    .response-header-bar { padding: 0.75rem 1.25rem; background: var(--gray-800); border-bottom: 1px solid var(--gray-700); font-family: var(--font-mono); font-size: 0.8125rem; color: var(--gray-400); display: flex; align-items: center; gap: 0.5rem; }
+    .response-header-bar .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); }
+    .response-body { padding: 1.25rem; font-family: var(--font-mono); font-size: 0.8125rem; line-height: 1.7; color: var(--gray-300); overflow-x: auto; }
+    .response-body .h-key { color: #89ddff; } .response-body .h-val { color: #c3e88d; } .response-body .h-comment { color: var(--gray-500); font-style: italic; }
+
+    /* Use Cases */
+    .use-cases-section { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--gray-800); }
+    .use-case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 720px; margin: 0 auto 2rem; }
+    .use-case-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem 1.25rem; background: var(--gray-900); border: 1px solid var(--gray-800); border-radius: var(--radius); transition: border-color 0.2s; }
+    .use-case-item:hover { border-color: var(--gray-700); }
+    .use-case-icon { color: var(--accent); font-size: 1.125rem; margin-top: 0.125rem; }
+    .use-case-text { color: var(--gray-300); font-size: 0.9375rem; }
+
+    
+    .faq-section { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--gray-800); }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 1px; background: var(--gray-800); border: 1px solid var(--gray-800); border-radius: var(--radius); overflow: hidden; }
+    .faq-list details { background: var(--gray-900); }
+    .faq-list summary { padding: 1.125rem 1.5rem; font-size: 0.9375rem; font-weight: 600; color: var(--foreground); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s; }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: '+'; font-size: 1.25rem; color: var(--gray-500); transition: transform 0.2s; flex-shrink: 0; margin-left: 1rem; }
+    .faq-list details[open] summary::after { content: '\2212'; color: var(--accent); }
+    .faq-list summary:hover { color: var(--accent); }
+    .faq-list .faq-answer { padding: 0 1.5rem 1.25rem; color: var(--gray-400); font-size: 0.875rem; line-height: 1.7; }
+    .faq-list .faq-answer code { background: var(--gray-800); padding: 0.125rem 0.375rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.8125rem; }
+    .faq-list .faq-answer a { color: var(--accent); text-decoration: none; }
+  
+
+    footer { padding: 2rem 0; border-top: 1px solid var(--gray-800); text-align: center; color: var(--gray-500); font-size: 0.875rem; }
+    footer p a { color: var(--gray-400); text-decoration: none; transition: color 0.2s; }
+    footer p a:hover { color: var(--accent); }
+    .footer-links a { color: var(--gray-400); text-decoration: none; margin: 0 0.5rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-bottom { margin-top: 1rem; font-size: 0.8125rem; color: var(--gray-600); }
+    .footer-bottom a { color: var(--gray-500); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .subtitle { font-size: 1rem; }
+      .tier-grid { grid-template-columns: 1fr; }
+      .comparison-box { grid-template-columns: 1fr; }
+      .stat-row { gap: 2rem; }
+      .use-case-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 1.5rem; }
+      .section-subtitle { font-size: 0.9375rem; }
+      .response-body { font-size: 0.75rem; }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 1rem; }
+      header { padding: 1.25rem 0; }
+      .logo { font-size: 1.25rem; }
+      .nav-badge, .cf-badge { padding: 0.4rem; }
+      .nav-badge svg, .cf-badge svg { width: 16px; height: 16px; }
+      .badge-label { display: none; }
+      .hero-cf .cf-badge { padding: 0.35rem 0.75rem; }
+      .hero-cf .badge-label { display: inline; }
+      h1 { font-size: 1.625rem; margin-bottom: 0.75rem; }
+      .subtitle { font-size: 0.9375rem; margin-bottom: 1rem; }
+      .hero-badges { flex-direction: column; align-items: center; }
+      .hero-badge { font-size: 0.8125rem; padding: 0.4rem 0.875rem; }
+      main { padding: 0.5rem 0 1.5rem; }
+      .hero { margin-bottom: 1.5rem; }
+      .converter { padding: 1.25rem; }
+      .url-input-group { flex-direction: column; }
+      .url-input-group input { padding: 0.75rem 1rem; font-size: 0.9375rem; }
+      .url-input-group .btn { width: 100%; justify-content: center; padding: 0.875rem 1rem; font-size: 1rem; font-weight: 600; }
+      .result-header { flex-direction: column; align-items: stretch; padding: 1rem; gap: 0.75rem; }
+      .result-title { font-size: 0.9375rem; }
+      .result-meta { font-size: 0.75rem; word-break: break-all; }
+      .result-meta-row { gap: 0.375rem; }
+      .method-badge { font-size: 0.6875rem; }
+      .duration-badge { font-size: 0.6875rem; }
+      .result-actions { width: 100%; }
+      .result-actions .btn { flex: 1; justify-content: center; padding: 0.625rem 0.75rem; font-size: 0.8125rem; }
+      .raw-content { padding: 1rem; max-height: 400px; }
+      .raw-content pre { font-size: 0.8125rem; }
+      .usage-hint { padding: 1rem; margin-top: 1.5rem; }
+      .usage-hint code { font-size: 0.8125rem; padding: 0.375rem 0.75rem; word-break: break-all; display: inline-block; }
+      .usage-hint p { font-size: 0.8125rem; }
+      .pipeline-section { margin-top: 2.5rem; padding-top: 2rem; }
+      .tier-card { padding: 1.25rem 1rem; }
+      .tier-code { font-size: 0.6875rem; }
+      .why-section { margin-top: 2rem; padding-top: 2rem; }
+      .comparison-code { font-size: 0.75rem; }
+      .stat-row { flex-direction: column; gap: 1.5rem; }
+      .stat-value { font-size: 1.75rem; }
+      .response-section { margin-top: 2rem; padding-top: 2rem; }
+      .response-body { font-size: 0.6875rem; word-break: break-all; }
+      .use-cases-section { margin-top: 2rem; padding-top: 2rem; }
+      .use-case-item { padding: 0.875rem 1rem; }
+      .use-case-text { font-size: 0.875rem; }
+      
+    .faq-section { margin-top: 2rem; padding-top: 2rem; }
+    .faq-list summary { padding: 1rem 1.25rem; font-size: 0.875rem; }
+    .faq-list .faq-answer { padding: 0 1.25rem 1rem; font-size: 0.8125rem; }
+  
+      footer { padding: 1.5rem 0; }
+      .footer-links a { margin: 0 0.375rem; font-size: 0.8125rem; }
+    }
+  </style>
+  <script defer src="https://dash.tinyanalytics.io/script.js" data-site-id="222"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="logo">markdown.new</a>
+      <div class="header-right">
+        <a href="/file-to-markdown" class="nav-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span class="badge-label">File to Markdown</span>
+        </a>
+        <a href="/crawl" class="nav-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="badge-label">Crawl</span>
+        </a>
+        <a href="/search" class="nav-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span class="badge-label">Web Search</span>
+        </a>
+        <a href="https://tinyanalytics.io/" target="_blank" rel="noopener" class="nav-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="16"/><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/></svg>
+          <span class="badge-label">tinyanalytics</span><span class="badge-new">NEW</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <div class="hero">
+        <h1>Markdown <span class="accent">for Agents</span></h1>
+        <p class="subtitle">The web was built for humans. AI agents need structured data. We convert any URL to clean Markdown using Cloudflare's native <code>text/markdown</code> content type &mdash; no parsing, no waste.</p>
+        <div class="hero-badges">
+          <div class="hero-badge">
+            <span class="number">80%</span>
+            <span class="badge-text">fewer tokens than raw HTML</span>
+          </div>
+          <div class="hero-badge">
+            <span class="badge-icon">&#x26A1;</span>
+            <span class="badge-text"><strong>0.1&ndash;0.6s</strong> response time</span>
+          </div>
+          <div class="hero-badge">
+            <span class="badge-icon">&#x1F512;</span>
+            <span class="badge-text">No signup required</span>
+          </div>
+        </div>
+        <div class="hero-cf">
+          <a href="https://blog.cloudflare.com/markdown-for-agents/" target="_blank" rel="noopener" class="cf-badge">
+            <svg viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44.377 46.533H21.283l-.925-3.291 24.25-3.396 3.258-11.573-6.055-4.423a16.946 16.946 0 0 0-9.327-2.8c-9.425 0-17.07 7.645-17.07 17.069 0 1.09.103 2.155.298 3.187l-.065.004C10.13 41.332 5.5 45.974 5.5 51.802h50.26c4.24 0 7.677-3.437 7.677-7.677 0-4.24-3.437-7.676-7.677-7.676-.6 0-1.184.07-1.742.2l-9.64 9.884z" fill="currentColor"/></svg>
+            <span class="badge-label">Powered by Cloudflare</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="converter">
+        <div class="url-input-group">
+          <input type="text" id="url-input" placeholder="Paste any URL (e.g., https://blog.cloudflare.com/markdown-for-agents/)">
+          <button id="url-convert-btn" class="btn">Convert</button>
+        </div>
+      </div>
+      <div id="url-result" class="result"></div>
+      <div class="usage-hint">
+        <code>https://markdown.new/<span style="color: var(--gray-400)">any-url-here</span></code>
+        <p>Prepend markdown.new/ to any URL in your browser for instant conversion</p>
+      </div>
+    </main>
+
+    <!-- Conversion Pipeline -->
+    <section class="pipeline-section">
+      <h2 class="section-title">Three-Tier Conversion Pipeline</h2>
+      <p class="section-subtitle">We try the fastest method first and fall back automatically. Every request gets the best possible Markdown.</p>
+      <div class="tier-grid">
+        <div class="tier-card">
+          <span class="tier-label primary">Primary</span>
+          <h3 class="tier-title">Markdown for Agents</h3>
+          <p class="tier-desc">Fetches the URL with <code>Accept: text/markdown</code>. Cloudflare-enabled sites return clean Markdown directly from the edge &mdash; zero parsing needed.</p>
+          <div class="tier-code"><span class="kw">fetch</span>(url, {
+  <span class="str">headers</span>: {
+    <span class="str">Accept</span>: <span class="str">"text/markdown"</span>
+  }
+})</div>
+        </div>
+        <div class="tier-card">
+          <span class="tier-label fallback">Fallback 1</span>
+          <h3 class="tier-title">Workers AI</h3>
+          <p class="tier-desc">If content negotiation returns HTML, we pass it directly through Cloudflare Workers AI <code>toMarkdown()</code> &mdash; fast, no re-fetch needed.</p>
+          <div class="tier-code"><span class="kw">env</span>.AI.<span class="kw">toMarkdown</span>([{
+  <span class="str">name</span>: <span class="str">"page.html"</span>,
+  <span class="str">blob</span>: htmlBlob
+}])</div>
+        </div>
+        <div class="tier-card">
+          <span class="tier-label fallback">Fallback 2</span>
+          <h3 class="tier-title">Browser Rendering</h3>
+          <p class="tier-desc">For JS-heavy pages, we render in a headless browser via Cloudflare's Browser Rendering API for full page content extraction.</p>
+          <div class="tier-code"><span class="kw">POST</span> <span class="str">/browser-rendering</span>
+  <span class="str">/markdown</span>
+{ <span class="str">"url"</span>: <span class="str">"https://..."</span> }
+<span class="cm">// Full page render</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Markdown -->
+    <section class="why-section">
+      <h2 class="section-title">Why Markdown Matters for AI</h2>
+      <p class="section-subtitle">Feeding raw HTML to an AI is like paying by the word to read packaging instead of the letter inside.</p>
+      <div class="comparison-box">
+        <div class="comparison-side">
+          <div class="comparison-label html-label">HTML &mdash; 12-15 tokens</div>
+          <div class="comparison-code">&lt;h2 class="section-title"
+  id="about"&gt;About Us&lt;/h2&gt;</div>
+          <div class="comparison-tokens"><strong>16,180</strong> tokens for a blog post</div>
+        </div>
+        <div class="comparison-side">
+          <div class="comparison-label md-label">Markdown &mdash; 3 tokens</div>
+          <div class="comparison-code md-code">## About Us</div>
+          <div class="comparison-tokens"><strong>3,150</strong> tokens for the same post</div>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-item">
+          <div class="stat-value">80%</div>
+          <div class="stat-desc">Token reduction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">5x</div>
+          <div class="stat-desc">More content per context window</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">0</div>
+          <div class="stat-desc">External dependencies</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conversion Options -->
+    <section class="options-section">
+      <h2 class="section-title">Conversion Options</h2>
+      <p class="section-subtitle">Control the conversion method and image handling via query parameters or POST body.</p>
+
+      <div class="options-table">
+        <div class="options-table-header">
+          <span>Parameter</span>
+          <span>Values</span>
+          <span>Default</span>
+        </div>
+        <div class="options-table-row">
+          <code>method</code>
+          <span><code>auto</code> <code>ai</code> <code>browser</code></span>
+          <span><code>auto</code></span>
+        </div>
+        <div class="options-table-row">
+          <code>retain_images</code>
+          <span><code>true</code> <code>false</code></span>
+          <span><code>false</code></span>
+        </div>
+      </div>
+
+      <div class="options-examples">
+        <div class="option-example">
+          <div class="option-example-label">Browser Rendering (JS-heavy sites)</div>
+          <div class="tier-code">curl -s 'https://markdown.new/' \
+  -H 'Content-Type: application/json' \
+  -d '{"url": "https://example.com", <span class="str">"method": "browser"</span>}'</div>
+        </div>
+        <div class="option-example">
+          <div class="option-example-label">URL with query parameters</div>
+          <div class="tier-code">https://markdown.new/https://example.com<span class="str">?method=browser&amp;retain_images=true</span></div>
+        </div>
+        <div class="option-example">
+          <div class="option-example-label">Workers AI with images retained</div>
+          <div class="tier-code">curl -s 'https://markdown.new/' \
+  -H 'Content-Type: application/json' \
+  -d '{"url": "https://example.com", <span class="str">"method": "ai"</span>, <span class="str">"retain_images": true</span>}'</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Response Example -->
+    <section class="response-section">
+      <h2 class="section-title">What You Get Back</h2>
+      <p class="section-subtitle">Clean Markdown with metadata headers, including token count via <code>x-markdown-tokens</code>.</p>
+      <div class="response-box">
+        <div class="response-header-bar">
+          <span class="dot"></span>
+          HTTP/2 200
+        </div>
+        <div class="response-body"><span class="h-key">content-type:</span> <span class="h-val">text/markdown; charset=utf-8</span>
+<span class="h-key">x-markdown-tokens:</span> <span class="h-val">725</span> <span class="h-comment">// estimated token count</span>
+<span class="h-key">vary:</span> <span class="h-val">accept</span>
+
+---
+<span class="h-key">title:</span> <span class="h-val">Markdown for Agents</span>
+---
+
+# Introducing Markdown for Agents
+
+The way content and businesses are discovered
+online is changing rapidly. Now the traffic is
+increasingly coming from AI crawlers and agents
+that demand structured data...</div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases-section">
+      <h2 class="section-title">Built For</h2>
+      <p class="section-subtitle">Developers, AI agents, and teams building the next generation of intelligent applications.</p>
+      <div class="use-case-grid">
+        <div class="use-case-item">
+          <span class="use-case-icon">&#x2192;</span>
+          <span class="use-case-text">AI agents that browse and summarize the web</span>
+        </div>
+        <div class="use-case-item">
+          <span class="use-case-icon">&#x2192;</span>
+          <span class="use-case-text">RAG pipelines that need clean document chunks</span>
+        </div>
+        <div class="use-case-item">
+          <span class="use-case-icon">&#x2192;</span>
+          <span class="use-case-text">Training data preparation for LLMs</span>
+        </div>
+        <div class="use-case-item">
+          <span class="use-case-icon">&#x2192;</span>
+          <span class="use-case-text">Documentation migration and static site generators</span>
+        </div>
+        <div class="use-case-item">
+          <span class="use-case-icon">&#x2192;</span>
+          <span class="use-case-text">Knowledge base builders and research tools</span>
+        </div>
+        <div class="use-case-item">
+          <span class="use-case-icon">&#x2192;</span>
+          <span class="use-case-text">Content archival in human-readable format</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crawl Feature -->
+    <section class="use-cases-section">
+      <h2 class="section-title">Crawl Entire Websites</h2>
+      <p class="section-subtitle">Need more than one page? <a href="/crawl" style="color: var(--accent); text-decoration: none; font-weight: 600;">Crawl to Markdown</a> converts entire site sections into a single Markdown file.</p>
+      <div class="use-case-grid">
+        <div class="use-case-item">
+          <span class="use-case-icon">&#x1F578;</span>
+          <span class="use-case-text">Crawl up to <strong>100 pages</strong> per job with automatic link discovery</span>
+        </div>
+        <div class="use-case-item">
+          <span class="use-case-icon">&#x26A1;</span>
+          <span class="use-case-text">Async job-based &mdash; start a crawl, track progress, download when done</span>
+        </div>
+        <div class="use-case-item">
+          <span class="use-case-icon">&#x1F4E6;</span>
+          <span class="use-case-text">Download all pages as a single <code>.md</code> file or copy to clipboard</span>
+        </div>
+        <div class="use-case-item">
+          <span class="use-case-icon">&#x2699;</span>
+          <span class="use-case-text">Configure depth, page limit, and JS rendering per crawl</span>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 1.5rem;">
+        <a href="/crawl" class="btn" style="display: inline-block; text-decoration: none;">Try Crawl to Markdown</a>
+      </div>
+    </section>
+
+    
+      <section class="faq-section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about markdown.new.</p>
+        <div class="faq-list">
+        <details>
+          <summary>What is markdown.new?</summary>
+          <div class="faq-answer">It converts any public URL into clean, structured Markdown optimized for LLMs and AI agents. It strips away HTML bloat (ads, scripts, styling) while preserving headings, lists, links, and tables &mdash; making web content AI-ready with up to 80% fewer tokens.</div>
+        </details>
+        <details>
+          <summary>How do I use it?</summary>
+          <div class="faq-answer">Three ways, no signup needed. <strong>Browser:</strong> prepend <code>https://markdown.new/</code> to any URL. <strong>cURL/API:</strong> POST a JSON body with <code>{"url": "https://example.com"}</code>. <strong>Options:</strong> add <code>method</code> (auto, ai, browser) and <code>retain_images</code> (true/false) as query params or in the POST body.</div>
+        </details>
+        <details>
+          <summary>Is it free?</summary>
+          <div class="faq-answer">Yes, always. No subscriptions, no paywalls. It&rsquo;s an open utility for developers, AI builders, and teams. Just respect the fair usage limits so the service stays reliable for everyone.</div>
+        </details>
+        <details>
+          <summary>What are the rate limits?</summary>
+          <div class="faq-answer">500 requests per day per IP address. If you exceed the limit, you&rsquo;ll receive an HTTP 429 response. Check the <code>x-rate-limit-remaining</code> header to track your usage. For heavier workloads, consider self-hosting the open-source logic.</div>
+        </details>
+        <details>
+          <summary>How does the conversion pipeline work?</summary>
+          <div class="faq-answer">It uses a three-tier fallback chain. <strong>Tier 1:</strong> requests the URL with <code>Accept: text/markdown</code> for native Markdown. <strong>Tier 2:</strong> passes HTML through Cloudflare Workers AI <code>toMarkdown()</code>. <strong>Tier 3:</strong> renders JS-heavy pages in a headless browser via Cloudflare Browser Rendering. The fastest successful tier wins.</div>
+        </details>
+        <details>
+          <summary>Are there any limitations?</summary>
+          <div class="faq-answer">Public URLs only &mdash; paywalled or authenticated pages won&rsquo;t work. JS-heavy sites using the browser method add ~1&ndash;2s of latency. Images are excluded by default (enable with <code>retain_images=true</code>). Very large pages may be truncated.</div>
+        </details>
+        <details>
+          <summary>Is it legal to convert web pages?</summary>
+          <div class="faq-answer">Yes, for public pages. markdown.new uses standard HTTP requests (like your browser) and doesn&rsquo;t store or republish content. Always respect each site&rsquo;s Terms of Service and <code>robots.txt</code>. Avoid mass-scraping copyrighted content for redistribution.</div>
+        </details>
+        <details>
+          <summary>Can I crawl an entire website?</summary>
+          <div class="faq-answer">Yes! Use <a href="/crawl">/crawl</a> to crawl up to 500 pages from any site. It uses Cloudflare&rsquo;s Browser Rendering <code>/crawl</code> API with async job tracking. You can configure page limits (up to 500), crawl depth (up to 10), and enable JS rendering. Results are stored for 14 days.</div>
+        </details>
+        <details>
+          <summary>How can I block this service from my site?</summary>
+          <div class="faq-answer">Our bot identifies as <code>markdown.new/1.0</code>. Add this to your <code>robots.txt</code>: <code>User-agent: markdown.new Disallow: /</code>. You can also block by User-Agent at the WAF/server level, use a <code>llms.txt</code> file to signal AI usage preferences, or return <code>X-Robots-Tag: noindex</code> headers.</div>
+        </details>
+        </div>
+      </section>
+
+    <footer>
+      <p>Powered by <a href="https://growthmarketing.ai" target="_blank" rel="noopener">growthmarketing.ai</a> &middot; <a href="https://popupsmart.com" target="_blank" rel="noopener">popupsmart.com</a> &middot; Made by <a href="https://elbeyoglu.com" target="_blank" rel="noopener">Emre Elbeyoglu</a></p>
+      <div class="footer-links">
+        <a href="/file-to-markdown">File to Markdown</a>
+        <a href="/crawl">Crawl</a>
+        <a href="/markdown-editor">Markdown Editor</a>
+        <a href="https://blog.cloudflare.com/markdown-for-agents/" target="_blank" rel="noopener">Cloudflare Blog</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </div>
+      <p class="footer-bottom">&copy; 2026 markdown.new. All rights reserved. &middot; <a href="mailto:hello@markdown.new">hello@markdown.new</a></p>
+    </footer>
+  </div>
+
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var urlInput = document.getElementById('url-input');
+        var urlConvertBtn = document.getElementById('url-convert-btn');
+        var urlResult = document.getElementById('url-result');
+
+        urlConvertBtn.addEventListener('click', async function() {
+          var url = urlInput.value.trim();
+          if (!url) { showError(urlResult, 'Please enter a URL'); return; }
+          showLoading(urlResult);
+          try {
+            var response = await fetch('/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ url: url, retain_images: false })
+            });
+            var data = await response.json();
+            if (data.success) {
+              showResult(urlResult, {
+                title: data.title || 'Untitled',
+                content: data.content,
+                filename: new URL(url).hostname + '.md',
+                meta: url,
+                method: data.method || null,
+                duration: data.duration_ms
+              });
+            } else {
+              showError(urlResult, data.error || 'Conversion failed');
+            }
+          } catch (error) {
+            showError(urlResult, error.message);
+          }
+        });
+
+        urlInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') urlConvertBtn.click();
+        });
+
+        function showLoading(el) {
+          el.textContent = '';
+          var d = document.createElement('div'); d.className = 'loading';
+          var s = document.createElement('div'); s.className = 'spinner';
+          d.appendChild(s); d.appendChild(document.createTextNode('Converting...'));
+          el.appendChild(d); el.classList.add('visible');
+        }
+
+        function showError(el, msg) {
+          el.textContent = '';
+          var d = document.createElement('div'); d.className = 'error-message';
+          d.textContent = msg; el.appendChild(d); el.classList.add('visible');
+        }
+
+        function showResult(el, data) {
+          el.textContent = '';
+
+          var header = document.createElement('div'); header.className = 'result-header';
+          var headerLeft = document.createElement('div');
+          var titleDiv = document.createElement('div'); titleDiv.className = 'result-title';
+          var chk = document.createElement('span'); chk.className = 'success-icon'; chk.textContent = '\u2713';
+          titleDiv.appendChild(chk); titleDiv.appendChild(document.createTextNode(' ' + data.title));
+          headerLeft.appendChild(titleDiv);
+          var metaRow = document.createElement('div'); metaRow.className = 'result-meta-row';
+          var metaUrl = document.createElement('span'); metaUrl.className = 'result-meta'; metaUrl.textContent = data.meta;
+          metaRow.appendChild(metaUrl);
+          if (data.method) {
+            var badge = document.createElement('span'); badge.className = 'method-badge'; badge.textContent = data.method;
+            metaRow.appendChild(badge);
+          }
+          if (typeof data.duration === 'number') {
+            var dur = document.createElement('span'); dur.className = 'duration-badge';
+            dur.textContent = data.duration === 0 ? 'cached' : (data.duration / 1000).toFixed(1) + 's';
+            metaRow.appendChild(dur);
+          }
+          headerLeft.appendChild(metaRow); header.appendChild(headerLeft);
+
+          var actions = document.createElement('div'); actions.className = 'result-actions';
+
+          var copyBtn = document.createElement('button'); copyBtn.className = 'btn btn-secondary'; copyBtn.textContent = 'Copy';
+          copyBtn.addEventListener('click', async function() { await navigator.clipboard.writeText(data.content); copyBtn.textContent = 'Copied!'; setTimeout(function(){ copyBtn.textContent = 'Copy'; }, 2000); });
+          actions.appendChild(copyBtn);
+
+          var dlBtn = document.createElement('button'); dlBtn.className = 'btn btn-secondary'; dlBtn.textContent = 'Download';
+          dlBtn.addEventListener('click', function() {
+            var blob = new Blob([data.content], { type: 'text/markdown' });
+            var u = URL.createObjectURL(blob); var a = document.createElement('a'); a.href = u; a.download = data.filename; a.click(); URL.revokeObjectURL(u);
+          });
+          actions.appendChild(dlBtn); header.appendChild(actions); el.appendChild(header);
+
+          var rawDiv = document.createElement('div'); rawDiv.className = 'raw-content';
+          var pre = document.createElement('pre'); pre.textContent = data.content;
+          rawDiv.appendChild(pre); el.appendChild(rawDiv);
+          el.classList.add('visible');
+        }
+
+      });
+    </script>
+  
+</body>
+</html>

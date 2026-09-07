@@ -1,0 +1,32 @@
+== https://api.indexnow.org/
+HTTP/2 301 
+location: https://www.indexnow.org/
+accept-ch: Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version
+x-msedge-ref: Ref A: 68C7D153173842AAA55A8B1DB5B9E66F Ref B: BER231070920025 Ref C: 2026-09-05T12:50:08Z
+date: Sat, 05 Sep 2026 12:50:07 GMT
+content-length: 0
+   bytes: 0  first200: 
+== https://api.indexnow.org/indexnow
+HTTP/2 400 
+content-type: application/json; charset=utf-8
+x-cache: CONFIG_NOCACHE
+accept-ch: Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version
+x-msedge-ref: Ref A: 9BA94B8FB2A84BCF99EF91436491CE76 Ref B: BER231071312060 Ref C: 2026-09-05T12:50:09Z
+date: Sat, 05 Sep 2026 12:50:09 GMT
+   bytes: 136  first200: {"errorCode":"InvalidRequestParameters","message":"Invalid request","details":[{"target":"url","message":"The url field is required."}]}
+== https://www.bing.com/indexnow
+HTTP/2 200 
+content-type: text/html; charset=utf-8
+accept-ch: Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version
+x-msedge-ref: Ref A: 7C2DF240397E48FF8DFC1906D79F4E7E Ref B: OSL231050212040 Ref C: 2026-09-05T12:50:10Z
+date: Sat, 05 Sep 2026 12:50:11 GMT
+alt-svc: h3=":443"; ma=93600
+   bytes: 22592  first200: <!DOCTYPE html> <html lang="en"> <head>     <meta charset="utf-8" />     <meta name="viewport" content="width=device-width, initial-scale=1.0">     <title>Why IndexNow | Bing Webmaster Tools</tit
+== https://www.bing.com/indexnow/getstarted
+HTTP/2 200 
+content-type: text/html; charset=utf-8
+accept-ch: Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version
+x-msedge-ref: Ref A: 591D2FDF15824833A71A23FB407A157A Ref B: AMS231032607025 Ref C: 2026-09-05T12:50:12Z
+date: Sat, 05 Sep 2026 12:50:12 GMT
+content-length: 32931
+   bytes: 32931  first200: <!DOCTYPE html> <html lang="en"> <head>     <meta charset="utf-8" />     <meta name="viewport" content="width=device-width, initial-scale=1.0">     <title>How to add IndexNow to your website | Bi

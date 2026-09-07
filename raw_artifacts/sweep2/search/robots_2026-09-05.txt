@@ -1,0 +1,24 @@
+===== https://wikiservice.at/robots.txt
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /tolkien/
+
+[HTTP 200]
+===== https://www.prowiki.org/robots.txt
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /tolkien/
+
+[HTTP 200]
+===== https://vanderbi.lt/robots.txt
+User-agent: *
+Disallow: /admin
+Disallow: /css
+Disallow: /images
+Disallow: /includes
+Disallow: /js
+Disallow: /pages
+
+
+
+[HTTP 200]

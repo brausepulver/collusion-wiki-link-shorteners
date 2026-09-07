@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/frontend.css" />
+<meta name="keywords" content="short url, url shortener, online url shortener, free url shortener" />
+<meta name="description" content="Use this URL Shortener service to shorten your long URLs!" />
+<meta property="og:title" content="URL Shortener" />
+<meta property="og:description" content="Use this URL Shortener service to shorten your long URLs!" />
+<meta property="og:image" content="/images/logo.png" />
+<style type="text/css">
+/*<![CDATA[*/
+
+            .cc_logo { display: none !important; }
+        
+/*]]>*/
+</style>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+
+			window.cookieconsent_options = {
+				learnMore: 'Learn\x20more',
+				dismiss: 'OK',
+				message: 'This\x20website\x20uses\x20cookies\x20to\x20ensure\x20you\x20get\x20the\x20best\x20experience\x20on\x20our\x20website.',
+				theme:'light\x2Dfloating',
+				link: '\x2Fprivacy\x2Dpolicy',
+				path: '\x2F\x3BSameSite\x3DLax\x3Bsecure',
+				expiryDays: 365
+			};
+		
+/*]]>*/
+</script>
+<title>URL Shortener</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <script type="text/javascript">
+$(document).ready(function() {
+    "use strict";
+
+	$(window).keydown(function(event){
+		if(event.keyCode === 13) {
+			event.preventDefault();
+			return false;
+		}
+	});
+
+	$.fn.shortlink({
+		ajax: 'https://lnkr.click/ajax/short',
+		siteUrl: 'https://lnkr.click',
+		qr: '#qr',
+		copy: '#copy',
+		shortlink: '#shortlink',
+		url: '#url',
+		create: '#create',
+		form: '#shortForm',
+		shortarea: '#short-area',
+		notice: '#copy-notice',
+		share: '.share42init',
+	});
+});
+</script>
+
+
+<h1 class="mt-4 text-primary text-center site-name">
+    URL Shortener</h1>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title text-center mb-4">
+            Paste a long URL and make it short        </h5>
+
+        <form id="shortForm">
+            <div class="input-group mb-4">
+                <input type="text" class="form-control form-control-lg" name="url" id="url" placeholder="https://OnYourMark.app">
+
+                <div class="input-group-append">
+                    <button class="btn btn-primary" id="create">
+                        SHORTEN                    </button>
+                </div>
+            </div>
+        </form>
+
+        <p class="mt-4 text-center">
+            This is a free online service to shorten long URLs that never expire.        </p>
+
+    </div>
+</div>
+
+<!-- protected-views-frontend-app-index -->
+<div class="card cue-promo-card mt-4">
+<div class="card-body text-center">
+    <p class="cue-promo-eyebrow mb-2">Looking for a better streaming TV option?</p>
+    <a href="https://2dollar.tv/live-stream-provider/?ref=lnkr" target="_blank" rel="noopener" class="cue-promo-link">
+        Same TV Channels for Less
+    </a>
+    <p class="cue-promo-subtext mb-0 mt-2">See how to <strong>cut the bill without giving up the TV you love.</strong></p>
+</div>
+</div>
+
+<div id="short-area" class="disnone">
+    <h2 class="mt-4 text-primary text-center site-name">
+        Your shortened URL    </h2>
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="form-group row">
+                <label for="shortlink" class="col-md-2 col-form-label">
+                    Short link                </label>
+                <div class="col-md-10">
+                    <div class="input-group mb-4">
+                        <input type="text" class="form-control form-control-lg" name="shortLink" id="shortlink">
+
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" id="d_clip_button" data-clipboard-target="#shortlink">
+                                Copy                            </button>
+                        </div>
+
+                        <div id="copy-notice" style="visibility:hidden;">Copied</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label qr-label">QR Code</label>
+                <div class="col-md-10">
+                    <img src="#" title='app' alt='app' id="qr" class="qr"/>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+            <div class="share42init" data-path="/images/"></div>
+        </div>
+    </div>
+</div>
+
+
+<ul class="list-group list-group-horizontal-md mt-4" style="width: 100%">
+    <li class="list-group-item flex-fill">
+        Total Hits: <strong>41,577</strong>
+    </li>
+    <li class="list-group-item flex-fill">
+        Total URLs: <strong>225</strong>
+    </li>
+    <li class="list-group-item flex-fill">
+        Today's added URLs: <strong>0</strong>
+    </li>
+</ul>
+
+    <h3 class="text-primary mt-4">Recently added URLs</h3>
+    <div class="table-responsive">
+        <table class="table table-results">
+            <thead class="table-primary">
+            <tr>
+                <th>Short URL</th>
+                <th>Long URL</th>
+                <th>Datetime</th>
+                <th>Hits</th>
+            </tr>
+            </thead>
+            <tbody>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dN" target="_blank">
+                            https://lnkr.click/dN                        </a>
+                    </td>
+                    <td>http://clickington.online/?act=cl&amp;pid=0_mt&amp;uid=1&amp;v...</td>
+                    <td>2026-09-05 12:12:41</td>
+                    <td>5</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dM" target="_blank">
+                            https://lnkr.click/dM                        </a>
+                    </td>
+                    <td>https://tapclick.to/@printify</td>
+                    <td>2026-07-16 15:22:28</td>
+                    <td>68</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dL" target="_blank">
+                            https://lnkr.click/dL                        </a>
+                    </td>
+                    <td>https://eiffah.clickoffering.com/s/629f10e00a55b?t...</td>
+                    <td>2026-06-26 02:08:51</td>
+                    <td>96</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dK" target="_blank">
+                            https://lnkr.click/dK                        </a>
+                    </td>
+                    <td>https://tapclick.to/@capital-one-shopping</td>
+                    <td>2026-06-01 12:05:47</td>
+                    <td>111</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dJ" target="_blank">
+                            https://lnkr.click/dJ                        </a>
+                    </td>
+                    <td>https://example.org/dummy1779685956.255648</td>
+                    <td>2026-05-25 01:12:37</td>
+                    <td>129</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dI" target="_blank">
+                            https://lnkr.click/dI                        </a>
+                    </td>
+                    <td>https://xxz.tld/&quot;&gt;&lt;a href=&quot;https://md.succ.ai/?url...</td>
+                    <td>2026-05-25 01:01:22</td>
+                    <td>272</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dH" target="_blank">
+                            https://lnkr.click/dH                        </a>
+                    </td>
+                    <td>https://md.succ.ai/?url=https%3A%2F%2Fwabac-cors-p...</td>
+                    <td>2026-05-25 00:55:21</td>
+                    <td>101</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dG" target="_blank">
+                            https://lnkr.click/dG                        </a>
+                    </td>
+                    <td>https://md.succ.ai/?url=https%3A%2F%2Fwabac-cors-p...</td>
+                    <td>2026-05-25 00:55:20</td>
+                    <td>108</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dF" target="_blank">
+                            https://lnkr.click/dF                        </a>
+                    </td>
+                    <td>https://example.org/testclonelnkr.click</td>
+                    <td>2026-05-25 00:52:10</td>
+                    <td>127</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dE" target="_blank">
+                            https://lnkr.click/dE                        </a>
+                    </td>
+                    <td>https://md.succ.ai/?url=https%3A%2F%2Fexample.com&amp;...</td>
+                    <td>2026-05-25 00:46:07</td>
+                    <td>205</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dD" target="_blank">
+                            https://lnkr.click/dD                        </a>
+                    </td>
+                    <td>http://cdn.livetv897.me/webplayer2.php?t=alieztv&amp;c...</td>
+                    <td>2026-05-24 13:59:46</td>
+                    <td>233</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dC" target="_blank">
+                            https://lnkr.click/dC                        </a>
+                    </td>
+                    <td>https://mageapersonels.eu-v3.com/844</td>
+                    <td>2026-05-12 14:43:51</td>
+                    <td>105</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dB" target="_blank">
+                            https://lnkr.click/dB                        </a>
+                    </td>
+                    <td>https://ogogqo.ilove2chat.com/?utm_source=da57dc55...</td>
+                    <td>2026-05-05 09:10:40</td>
+                    <td>145</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dA" target="_blank">
+                            https://lnkr.click/dA                        </a>
+                    </td>
+                    <td>https://zorllo.ilove2chat.com/?utm_source=da57dc55...</td>
+                    <td>2026-05-05 07:24:44</td>
+                    <td>151</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dz" target="_blank">
+                            https://lnkr.click/dz                        </a>
+                    </td>
+                    <td>https://meshok.net/listing?c_del_mode=1&amp;good=140&amp;p...</td>
+                    <td>2026-05-01 02:20:26</td>
+                    <td>275</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dy" target="_blank">
+                            https://lnkr.click/dy                        </a>
+                    </td>
+                    <td>https://tapclick.to/@microsoftrewards</td>
+                    <td>2026-04-21 14:39:45</td>
+                    <td>209</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dx" target="_blank">
+                            https://lnkr.click/dx                        </a>
+                    </td>
+                    <td>https://cashappp-justin2015.vercel.app/outhh/ADF/D...</td>
+                    <td>2026-04-19 15:39:28</td>
+                    <td>135</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dw" target="_blank">
+                            https://lnkr.click/dw                        </a>
+                    </td>
+                    <td>http://www.fans.nz</td>
+                    <td>2026-04-19 06:57:16</td>
+                    <td>136</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dv" target="_blank">
+                            https://lnkr.click/dv                        </a>
+                    </td>
+                    <td>http://www.shortit.org</td>
+                    <td>2026-04-19 06:56:54</td>
+                    <td>130</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/du" target="_blank">
+                            https://lnkr.click/du                        </a>
+                    </td>
+                    <td>http://shortit.org</td>
+                    <td>2026-04-19 06:56:41</td>
+                    <td>124</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dt" target="_blank">
+                            https://lnkr.click/dt                        </a>
+                    </td>
+                    <td>http://redirme.com</td>
+                    <td>2026-04-19 06:56:21</td>
+                    <td>525</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/ds" target="_blank">
+                            https://lnkr.click/ds                        </a>
+                    </td>
+                    <td>https://amherste.ukit.me</td>
+                    <td>2026-04-18 21:11:25</td>
+                    <td>135</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dr" target="_blank">
+                            https://lnkr.click/dr                        </a>
+                    </td>
+                    <td>https://cuesignup.com/</td>
+                    <td>2026-04-09 15:47:25</td>
+                    <td>156</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dq" target="_blank">
+                            https://lnkr.click/dq                        </a>
+                    </td>
+                    <td>https://shorturl.re/chdelmonds</td>
+                    <td>2026-03-16 04:41:19</td>
+                    <td>153</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dp" target="_blank">
+                            https://lnkr.click/dp                        </a>
+                    </td>
+                    <td>https://help.digital-ok.cfd</td>
+                    <td>2026-03-12 07:12:35</td>
+                    <td>215</td>
+                </tr>
+                        </tbody>
+        </table>
+    </div>
+
+    <h3 class="text-primary mt-4">Most popular URLs</h3>
+    <div class="table-responsive">
+        <table class="table table-results">
+            <thead class="table-primary">
+            <tr>
+                <th>Short URL</th>
+                <th>Long URL</th>
+                <th>Datetime</th>
+                <th>Hits</th>
+            </tr>
+            </thead>
+            <tbody>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/ce" target="_blank">
+                            https://lnkr.click/ce                        </a>
+                    </td>
+                    <td>https://hdhuk.in/understanding-health-insurance-a-...</td>
+                    <td>2025-08-30 12:42:48</td>
+                    <td>4,339</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/R" target="_blank">
+                            https://lnkr.click/R                        </a>
+                    </td>
+                    <td>https://t.me/Bellsofbts</td>
+                    <td>2025-06-17 10:52:09</td>
+                    <td>801</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/bp" target="_blank">
+                            https://lnkr.click/bp                        </a>
+                    </td>
+                    <td>https://bpro124.com/download.php</td>
+                    <td>2025-07-10 08:52:41</td>
+                    <td>760</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/s" target="_blank">
+                            https://lnkr.click/s                        </a>
+                    </td>
+                    <td>https://www.tonyherman.com/euchre</td>
+                    <td>2025-05-19 09:13:12</td>
+                    <td>536</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dt" target="_blank">
+                            https://lnkr.click/dt                        </a>
+                    </td>
+                    <td>http://redirme.com</td>
+                    <td>2026-04-19 06:56:21</td>
+                    <td>525</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/F" target="_blank">
+                            https://lnkr.click/F                        </a>
+                    </td>
+                    <td>https://bangermethod.com/</td>
+                    <td>2025-06-11 14:40:09</td>
+                    <td>519</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/3" target="_blank">
+                            https://lnkr.click/3                        </a>
+                    </td>
+                    <td>https://www.tonyherman.com/how-can-moms-make-money...</td>
+                    <td>2025-06-22 22:57:33</td>
+                    <td>510</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/br" target="_blank">
+                            https://lnkr.click/br                        </a>
+                    </td>
+                    <td>https://bpro124.com/download.php?ref=GHULA81b86b</td>
+                    <td>2025-07-11 06:52:38</td>
+                    <td>488</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/V" target="_blank">
+                            https://lnkr.click/V                        </a>
+                    </td>
+                    <td>http://t.me/Ot7forever </td>
+                    <td>2025-06-20 10:37:48</td>
+                    <td>487</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/cC" target="_blank">
+                            https://lnkr.click/cC                        </a>
+                    </td>
+                    <td>https://samagah.com/mobbile.php</td>
+                    <td>2025-12-05 09:39:00</td>
+                    <td>485</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/O" target="_blank">
+                            https://lnkr.click/O                        </a>
+                    </td>
+                    <td>https://gooqle-viewlocation.online/642422</td>
+                    <td>2025-06-14 23:29:48</td>
+                    <td>474</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/9" target="_blank">
+                            https://lnkr.click/9                        </a>
+                    </td>
+                    <td>https://wa.me/527771180233?text=Estoy%20listo%20pa...</td>
+                    <td>2025-06-26 15:59:06</td>
+                    <td>451</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/Y" target="_blank">
+                            https://lnkr.click/Y                        </a>
+                    </td>
+                    <td>https://t.me/kpopxempire</td>
+                    <td>2025-06-22 04:10:30</td>
+                    <td>439</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/cf" target="_blank">
+                            https://lnkr.click/cf                        </a>
+                    </td>
+                    <td>https://search.google.com/local/writereview?placei...</td>
+                    <td>2025-09-03 10:04:24</td>
+                    <td>434</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/I" target="_blank">
+                            https://lnkr.click/I                        </a>
+                    </td>
+                    <td>https://cutoffthecaballs.com/</td>
+                    <td>2025-06-11 14:41:05</td>
+                    <td>432</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/N" target="_blank">
+                            https://lnkr.click/N                        </a>
+                    </td>
+                    <td>https://viewlocations.lqichats.com/642473</td>
+                    <td>2025-06-14 15:46:45</td>
+                    <td>427</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/bd" target="_blank">
+                            https://lnkr.click/bd                        </a>
+                    </td>
+                    <td>https://t.me/+MBSwDYg4T3g1MGI1</td>
+                    <td>2025-06-27 09:21:08</td>
+                    <td>419</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/b" target="_blank">
+                            https://lnkr.click/b                        </a>
+                    </td>
+                    <td>http://google.com</td>
+                    <td>2019-05-25 07:04:39</td>
+                    <td>413</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/b5" target="_blank">
+                            https://lnkr.click/b5                        </a>
+                    </td>
+                    <td>https://nexchain.top/</td>
+                    <td>2025-07-24 17:36:33</td>
+                    <td>399</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/7" target="_blank">
+                            https://lnkr.click/7                        </a>
+                    </td>
+                    <td>https://t.me/+Q1-K5tKV8x85OWE1</td>
+                    <td>2025-06-26 04:40:51</td>
+                    <td>377</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/8" target="_blank">
+                            https://lnkr.click/8                        </a>
+                    </td>
+                    <td>https://s.click.aliexpress.com/e/_m0F1JgR</td>
+                    <td>2025-06-26 15:55:12</td>
+                    <td>375</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/X" target="_blank">
+                            https://lnkr.click/X                        </a>
+                    </td>
+                    <td>https://t.me/bulletproofxsquads</td>
+                    <td>2025-06-21 14:37:25</td>
+                    <td>366</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/bf" target="_blank">
+                            https://lnkr.click/bf                        </a>
+                    </td>
+                    <td>https://t.me/bangtan_reverie07</td>
+                    <td>2025-06-28 03:11:03</td>
+                    <td>357</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/bj" target="_blank">
+                            https://lnkr.click/bj                        </a>
+                    </td>
+                    <td>https://t.me/cityofseven</td>
+                    <td>2025-07-02 04:36:06</td>
+                    <td>344</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/c" target="_blank">
+                            https://lnkr.click/c                        </a>
+                    </td>
+                    <td>https://copymyip.dev/</td>
+                    <td>2025-05-17 16:00:44</td>
+                    <td>333</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/cg" target="_blank">
+                            https://lnkr.click/cg                        </a>
+                    </td>
+                    <td>https://www.youtube.com/@delhielectronics786</td>
+                    <td>2025-09-03 10:07:35</td>
+                    <td>332</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/1" target="_blank">
+                            https://lnkr.click/1                        </a>
+                    </td>
+                    <td>https://t.me/kpopxluv</td>
+                    <td>2025-06-22 11:12:46</td>
+                    <td>330</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/u" target="_blank">
+                            https://lnkr.click/u                        </a>
+                    </td>
+                    <td>https://www.tonyherman.com/bittrex</td>
+                    <td>2025-05-19 09:14:00</td>
+                    <td>330</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/ch" target="_blank">
+                            https://lnkr.click/ch                        </a>
+                    </td>
+                    <td>https://www.instagram.com/delhi_electronics?igsh=d...</td>
+                    <td>2025-09-03 10:08:59</td>
+                    <td>329</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/cz" target="_blank">
+                            https://lnkr.click/cz                        </a>
+                    </td>
+                    <td>https://rr3---sn-n4v7snll.googlevideo.com/videopla...</td>
+                    <td>2025-11-25 18:05:45</td>
+                    <td>326</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/v" target="_blank">
+                            https://lnkr.click/v                        </a>
+                    </td>
+                    <td>https://www.tonyherman.com/keywords-everywhere</td>
+                    <td>2025-05-19 09:14:10</td>
+                    <td>320</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/d" target="_blank">
+                            https://lnkr.click/d                        </a>
+                    </td>
+                    <td>https://www.tonyherman.com/</td>
+                    <td>2025-05-17 16:30:23</td>
+                    <td>313</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/0" target="_blank">
+                            https://lnkr.click/0                        </a>
+                    </td>
+                    <td>https://t.me/+CGDTNovdZt0yYzE1</td>
+                    <td>2025-06-22 07:58:20</td>
+                    <td>311</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/cb" target="_blank">
+                            https://lnkr.click/cb                        </a>
+                    </td>
+                    <td>http://djuplink.com/darma.ogg?token=fe18d2a7c0354e...</td>
+                    <td>2025-08-08 16:47:14</td>
+                    <td>306</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/bg" target="_blank">
+                            https://lnkr.click/bg                        </a>
+                    </td>
+                    <td>https://t.me/+F8uVzlQ6-585NDQ5</td>
+                    <td>2025-06-28 21:41:18</td>
+                    <td>306</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/bl" target="_blank">
+                            https://lnkr.click/bl                        </a>
+                    </td>
+                    <td>https://wa.me/527771180233?text=Hola%2C+ya+hice+mi...</td>
+                    <td>2025-07-02 20:06:42</td>
+                    <td>304</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/ba" target="_blank">
+                            https://lnkr.click/ba                        </a>
+                    </td>
+                    <td>https://wa.me/527771081776?text=Dame%20acceso%20a%...</td>
+                    <td>2025-06-26 16:03:42</td>
+                    <td>290</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/H" target="_blank">
+                            https://lnkr.click/H                        </a>
+                    </td>
+                    <td>https://copyandpastesvg.com/</td>
+                    <td>2025-06-11 14:40:45</td>
+                    <td>286</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/P" target="_blank">
+                            https://lnkr.click/P                        </a>
+                    </td>
+                    <td>https://nbzan.bemobtrcks.com/go/5856912b-0f69-40c5...</td>
+                    <td>2025-06-15 03:52:35</td>
+                    <td>283</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/W" target="_blank">
+                            https://lnkr.click/W                        </a>
+                    </td>
+                    <td>https://t.me/bts_soulof7</td>
+                    <td>2025-06-21 11:06:55</td>
+                    <td>282</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/J" target="_blank">
+                            https://lnkr.click/J                        </a>
+                    </td>
+                    <td>https://mybrowserinfo.dev/</td>
+                    <td>2025-06-11 14:41:39</td>
+                    <td>277</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/x" target="_blank">
+                            https://lnkr.click/x                        </a>
+                    </td>
+                    <td>https://dnssnapshot.com/</td>
+                    <td>2025-06-05 21:52:50</td>
+                    <td>276</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/dz" target="_blank">
+                            https://lnkr.click/dz                        </a>
+                    </td>
+                    <td>https://meshok.net/listing?c_del_mode=1&amp;good=140&amp;p...</td>
+                    <td>2026-05-01 02:20:26</td>
+                    <td>275</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/Z" target="_blank">
+                            https://lnkr.click/Z                        </a>
+                    </td>
+                    <td>https://t.me/kpop_colossal</td>
+                    <td>2025-06-22 04:41:12</td>
+                    <td>275</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://lnkr.click/D" target="_blank">
+                            https://lnkr.click/D                        </a>
+                    </td>
+                    <td>https://youla.io/user/5a1a97afa380b640cd7fa125/act...</td>
+                    <td>2025-06-11 01:46:41</td>
+                    <td>274</td>
+                </tr>
+                        </tbody>
+        </table>
+    </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="mt-auto">
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="row">
+                    <div class="col-md-8">
+                        <p><strong><a href="https://powdrift.com">PowDrift LLC</a></strong></p>                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <li><a href="/privacy-policy">Privacy Policy</a></li>
+                            <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="/js/cookieconsent.latest.min.js"></script>
+<script type="text/javascript" src="/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/share42.js?v=0.1"></script>
+<script type="text/javascript" src="/js/frontend.js?v=0.3"></script>
+</body>
+</html>

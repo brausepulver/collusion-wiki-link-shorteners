@@ -1,0 +1,7 @@
+vanderbi.lt/indexnowtxt                                                {"url": "vanderbi.lt/indexnowtxt", "archived_snapshots": {}}
+vanderbi.lt/bingvalid1                                                 {"url": "vanderbi.lt/bingvalid1", "archived_snapshots": {}}
+vanderbi.lt/agentkey60913f05194e7054txt                                {"url": "vanderbi.lt/agentkey60913f05194e7054txt", "archived_snapshots": {}}
+wikiservice.at/dse/wiki.cgi?action=browse&id=OpenAIPovertyCompactTest  {"url": "wikiservice.at/dse/wiki.cgi?action=browse&id=OpenAIPovertyCompactTest", "archived_snapshots": {}}
+wikiservice.at/dse/wiki.cgi?action=spx&lang=1                          {"url": "wikiservice.at/dse/wiki.cgi?action=spx&lang=1", "archived_snapshots": {"closest": {"status": "200", "available": true, "url": "http://web.archive.org/web/20260622204148/https://wikiservice.at/dse/wiki.cgi?action=spx&lang=1", "timestamp": "20260622204148"}}}
+prowiki.org/dse/wiki.cgi                                               {"url": "prowiki.org/dse/wiki.cgi", "archived_snapshots": {"closest": {"status": "200", "available": true, "url": "http://web.archive.org/web/20251009092736/http://www.prowiki.org/dse/wiki.cgi", "timestamp": "20251009092736"}}}
+vanderbi.lt/                                                           {"url": "vanderbi.lt/", "archived_snapshots": {"closest": {"status": "200", "available": true, "url": "http://web.archive.org/web/20260609114840/https://vanderbi.lt/", "timestamp": "20260609114840"}}}

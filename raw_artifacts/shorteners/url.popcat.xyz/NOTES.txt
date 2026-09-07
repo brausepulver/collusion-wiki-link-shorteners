@@ -1,0 +1,34 @@
+url.popcat.xyz — custom Node/Express URL shortener (Cloudflare)  (probed live 2026-09-07, research UA)
+================================================================================
+CONTAMINATION NOTE: no live per-link stats are exposed by this instance, and the export carries NO
+creation timestamps (time=null) and NO creator IPs. The trailing per-body number (col jd_trailing_count)
+is a cumulative count of UNKNOWN time-basis => treat as CONTAMINATED / do not rank by it. Attribution here
+rests entirely on non-click signals: sequential low short-codes, OpenAI "oai" keyword markers, and the
+md.succ.ai / markdown.new / httpbin.org-base64 reader-proxy target signature.
+
+FINGERPRINT: x-powered-by Express, behind Cloudflare. NOT YOURLS. ALIVE. Default alias "api" 302->w3schools.
+  No YOURLS API; /<kw>/info is a client-side analytics SPA exposing no readable server JSON (all /api/*,
+  /<kw>/stats variants 404). No live per-link counts obtainable. Bare short URLs NOT fetched.
+
+AGENT-ATTRIBUTABLE LINKS (11; targets from JD/shellac bodies -> aliases.csv, jd_bodies/, jd_revisions_slice.jsonl)
+  Short-codes are SEQUENTIAL 1-10 and 18 => the swarm was among the very FIRST users of this near-empty
+  instance. Requested keywords carry "oai" markers (oaihhsxlsx2023new9, oaiengpack7, oaibridge803, oaixlsx1).
+  Targets (jd_trailing_count = CONTAMINATED, shown only for completeness):
+   1  login.max.gov SF133 Budget .xlsx (US OMB MAX)                       [79]
+   2  md.succ.ai/job/FsOkipKt                                             [51]
+   3  md.succ.ai -> data.nysed.gov enrollment 2017 (NY State Ed)          [22]
+   4  md.succ.ai -> data.nysed.gov enrollment 2018                        [30]
+   5  md.succ.ai?url= data.nysed.gov enrollment 2017                      [14]
+   6  markdown.new -> data.nysed.gov comparison                           [26]
+   7  httpbin.org/base64 -> opendata.cbs.nl OData "Pack 7" skip-links     [31]  (Netherlands CBS)
+   8  httpbin.org/base64 -> datasets.cbs.nl Observations "skip links 3/11" [41]
+   9  veriportali.tuik.gov.tr/api download (Turkey TUIK stats)            [101]
+   10 dash.cloudflare.com R2 buckets console URL                         [209]
+   18 chat.openai.com/c/[redacted] (a ChatGPT CONVERSATION link) [142]
+
+SAME SWARM AS vanderbi.lt: YES by METHOD (md.succ.ai/markdown.new/httpbin.org-base64 reader-proxy + "oai"
+  markers) but a DIFFERENT/BROADER TARGET COHORT: national statistical agencies (NL CBS, NY SED, Turkey
+  TUIK, US OMB login.max.gov) instead of SEC regCF county.json. httpbin.org/base64 emits synthetic HTML
+  "skip-links" pagination pages to crawl OData endpoints. Standouts: popcat/18 leaks a chat.openai.com
+  conversation URL; popcat/10 a Cloudflare R2 bucket console URL.
+FILES: aliases.csv, jd_bodies/<id>.body.txt, jd_revisions_slice.jsonl, NOTES.txt.

@@ -1,0 +1,19 @@
+{
+  "host": "rmn.re",
+  "engine": "YOURLS 1.7.1",
+  "api": "OPEN stats API (no auth)",
+  "total_links_lifetime": 757,
+  "total_clicks_lifetime_CONTAMINATED": 80062,
+  "signature_links_2026": 493,
+  "signature_in_window_0512_0711": 469,
+  "azure_AS8075_links": 460,
+  "azure_and_in_window": 460,
+  "azure_inwin_daterange": [
+    "2026-05-26 18:01:12",
+    "2026-06-21 20:22:22"
+  ],
+  "creator_ip_origin": "449/460 (97%) Microsoft AS8075 Azure across 8+ US /10-/13 prefixes; rest 3 Google, 1 each AWS/Timeweb/Zeofast/TurkNet/PacketHub/WAIcore/Monkeybrains",
+  "note_clicks": "click counts are lifetime totals (window 2025-12..2026-09 spans past disclosure) => CONTAMINATED, not used for attribution",
+  "probe_ua": "CollusionWikiResearch/1.0 ()",
+  "probe_date": "2026-09-07"
+}

@@ -1,0 +1,14 @@
+alias,timestamp,creator_ip,clicks,referrer_host,referrer_url,count
+ag0tm93512,2026-05-28 22:46:22,20.96.19.0,0,www.google.com,https://www.google.com,1
+aghealth3352480,2026-05-28 12:49:35,20.80.27.0,0,api.dataafrica.io,https://api.dataafrica.io/api/join/?geo=040AF00205&show=residence&required=proportion_of_children&condition=underweight&severity=moderate&INJECTTEST=abc123,1
+aghealth3352480,2026-05-28 12:49:35,20.80.27.0,0,api.dataafrica.io,"https://api.dataafrica.io/api/join/?geo=050AF0017002122&show=year,condition,residence&required=dhs_geo_name,dhs_geo_parent_name,proportion_of_children&sumlevel=all,all,all",2
+aghealth3352480,2026-05-28 12:49:35,20.80.27.0,0,t.mdcdev.me,https://t.mdcdev.me/aghealth3352480+,1
+agpage178380,2026-05-28 21:19:02,20.80.28.0,0,md.succ.ai,https://md.succ.ai/www.sec.gov/files/county.json,1
+secstatma62451,2026-06-18 15:38:58,40.75.137.0,0,jqp.vercel.app,https://jqp.vercel.app/api/v0?url=https%3A%2F%2Fda.gd%2FSECcountyM&jq=.regCF_county_filters,2
+secstatma62451,2026-06-18 15:38:58,40.75.137.0,0,jqp.vercel.app,https://jqp.vercel.app/api/v0?url=https%3A%2F%2Fda.gd%2FSECcountyM&jq=.regCF_county_methodology,1
+secstatma62451,2026-06-18 15:38:58,40.75.137.0,0,jqp.vercel.app,https://jqp.vercel.app/api/v0?url=https%3A%2F%2Fda.gd%2FSECcountyM&jq=%5B.regCF_county_2019%5B%5D%7Cselect%28.code%7Cstartswith%28%22us-ma-%22%29%29%5D,2
+secstatma62451,2026-06-18 15:38:58,40.75.137.0,0,jqp.vercel.app,https://jqp.vercel.app/api/v0?url=https%3A%2F%2Fda.gd%2FSECcountyM&jq=%5B.regCF_county_2020%5B%5D%7Cselect%28.code%7Cstartswith%28%22us-ma-%22%29%29%5D,2
+secstatma62451,2026-06-18 15:38:58,40.75.137.0,0,jqp.vercel.app,https://jqp.vercel.app/api/v0?url=https%3A%2F%2Fda.gd%2FSECcountyM&jq=%5B.regCF_county_2021%5B%5D%7Cselect%28.code%7Cstartswith%28%22us-ma-%22%29%29%5D,1
+slvf3677,2026-06-17 08:52:04,20.9.75.0,0,urlquery.net,https://urlquery.net/search?q=url.addr%3A%2A&view=,1
+slvf3677,2026-06-17 08:52:04,20.9.75.0,0,vanderbi.lt,https://vanderbi.lt/,1
+slvf3677,2026-06-17 08:52:04,20.9.75.0,0,www.google.com,https://www.google.com/,1

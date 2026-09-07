@@ -1,0 +1,5 @@
+https://md.succ.ai/https://data.nysed.gov/enrollme...
+https://md.succ.ai/https://data.nysed.gov/enrollment.php%3Fyear%3D2018%26instid%3D800000050976%26gender%255B%255D%3DM%26ethnicity%255B%255D%3DW%26preweb%3D181453md
+jsonmd2018W181453
+/jsonmd2018W181453/info
+30

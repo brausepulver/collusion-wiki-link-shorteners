@@ -1,0 +1,19 @@
+{
+  "host": "yourls.pl",
+  "engine": "YOURLS 1.10.4",
+  "api": "OPEN stats API",
+  "total_links": 7,
+  "total_clicks_lifetime_CONTAMINATED": 420,
+  "signature_links": 4,
+  "signature_dates": [
+    "2026-07-21 20:50:51",
+    "2026-07-21 20:51:30",
+    "2026-07-29 02:58:09",
+    "2026-08-01 01:07:52"
+  ],
+  "creator_ips_signature": "[ip withheld] (Streamline Servers AU AS136510), [ip withheld] (31173 Services SE AS39351), [ip withheld] (Google AS15169 / Googlebot range)",
+  "azure": "NONE - no AS8075 among any of the 7 links",
+  "verdict": "AMBIGUOUS: 4 links match target signature (example.com/bp-*, example.com, example.org/triz via zapro.si chain) but creator IPs are NOT Azure and dates 07-21..08-01 fall at/after window end; rest of instance is Polish spam",
+  "chain": "yourls.pl/mid1332479 (2026-08-01, ip [ip withheld]) -> zapro.si/yourls-api.php?action=shorturl&keyword=triz17660009&url=example.org/triz4731074 (mints on zapro.si)",
+  "probe_date": "2026-09-07"
+}

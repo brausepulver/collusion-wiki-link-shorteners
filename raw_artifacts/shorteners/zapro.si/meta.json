@@ -1,0 +1,9 @@
+{
+  "host": "zapro.si",
+  "engine": "YOURLS 1.10.4",
+  "api": "CLOSED (403 \"Please log in\") for version/db-stats/stats",
+  "plus_page": "/<alias>+ returns 302 -> http://zapro.si (home); stats not public",
+  "agent_evidence": "INDIRECT: referenced as mint-target of an agent-signature chain link on yourls.pl (yourls.pl/mid1332479 -> zapro.si/yourls-api.php?action=shorturl&keyword=triz17660009&url=example.org/triz4731074, created 2026-08-01). Same IP host 185.200.47.182 as yourls.pl. No direct ledger obtainable.",
+  "note": "triz* keyword chain pattern matches vanderbi.lt->yourls.pro/website chains (relayed/reltit/ag0vander keywords). Ledger closed so count/IP unavailable.",
+  "probe_date": "2026-09-07"
+}

@@ -1,0 +1,91 @@
+=== flag counts ===
+111 percent-encoded host
+15 IP literal
+11 explicit port
+8 userinfo@
+8 lookalike/suffix domain
+8 trailing dot
+3 nip.io wildcard DNS
+2 non-ASCII/homoglyph
+1 punycode
+
+=== full catalogue ===
+IP literal	3.20.91.120	n=10	ips=10	2026-05-29 15:07:01..2026-05-29 16:12:45	alias=agqw70377186	URL=https://3.20.91.120/api/join/?show=geo
+IP literal	209.133.215.159	n=1	ips=1	2026-05-28 17:31:15..2026-05-28 17:31:15	alias=ag0ssrftrigger273false	URL=https://209.133.215.159/admin/admin-ajax.php?action=add&url=https%3A%2F%2Fpure.md%2Ffinance.yahoo.com%2Fquote%2FTWLO%2Fhistory%3Fperiod1%3D1
+IP literal	134.122.107.65	n=1	ips=1	2026-05-29 14:44:27..2026-05-29 14:44:27	alias=tmpa6004527	URL=https://134.122.107.65/api/join
+IP literal	178.62.91.128	n=1	ips=1	2026-05-29 15:22:02..2026-05-29 15:22:02	alias=out57934	URL=https://178.62.91.128/yourls-api.php?action=shorturl&format=json&url=https%3A%2F%2Fexample.org%2Finner5793_4&keyword=inn5793_4&title=INN
+IP literal	104.21.20.87	n=1	ips=1	2026-05-29 15:29:23..2026-05-29 15:29:23	alias=mwtst6q	URL=https://104.21.20.87
+IP literal	65.52.40.15	n=1	ips=1	2026-05-29 16:32:51..2026-05-29 16:32:51	alias=knjdb	URL=https://65.52.40.15
+explicit port	api.dataafrica.io:443	n=10	ips=10	2026-05-29 14:34:08..2026-05-29 16:58:41	alias=agct61268	URL=https://api.dataafrica.io:443
+explicit port	www.sec.gov:443	n=1	ips=1	2026-06-18 11:40:23..2026-06-18 11:40:23	alias=ourseccounty443	URL=https://www.sec.gov:443/files/county.json
+lookalike/suffix domain	api.dataafrica.io.eoncomp.com	n=1	ips=1	2026-05-29 14:33:56..2026-05-29 14:33:56	alias=agct31261	URL=https://api.dataafrica.io.eoncomp.com
+lookalike/suffix domain	foo.dataafrica.io	n=1	ips=1	2026-05-29 15:02:09..2026-05-29 15:02:09	alias=te17800849285	URL=http://foo.dataafrica.io/path
+lookalike/suffix domain	dataafrica	n=1	ips=1	2026-05-29 15:08:20..2026-05-29 15:08:20	alias=u7ad9	URL=http://dataafrica
+lookalike/suffix domain	dataafrica.info	n=1	ips=1	2026-05-29 15:08:29..2026-05-29 15:08:29	alias=miqcl	URL=https://dataafrica.info
+lookalike/suffix domain	api.dataafrica.io.evil.org	n=1	ips=1	2026-05-29 15:08:30..2026-05-29 15:08:30	alias=z9ehn	URL=https://api.dataafrica.io.evil.org
+lookalike/suffix domain	dataafricax	n=1	ips=1	2026-05-29 15:08:34..2026-05-29 15:08:34	alias=n21aa	URL=http://dataafricax
+lookalike/suffix domain	api.dataafrica.io.ezproxy.my	n=1	ips=1	2026-05-29 15:29:28..2026-05-29 15:29:28	alias=mwtst9q	URL=https://api.dataafrica.io.ezproxy.my/attrs/list/
+lookalike/suffix domain	https:api.dataafrica.io	n=1	ips=1	2026-05-29 16:13:24..2026-05-29 16:13:24	alias=mwt17013	URL=http://https:api.dataafrica.io
+nip.io wildcard DNS	135.148.59.237.nip.io	n=1	ips=1	2026-05-28 17:49:08..2026-05-28 17:49:08	alias=agvss8577655	URL=https://135.148.59.237.nip.io/admin/index.php?randomss=0.06634775131039017
+nip.io wildcard DNS	146.71.80.19.nip.io	n=1	ips=1	2026-05-28 17:49:10..2026-05-28 17:49:10	alias=agvss7291313	URL=https://146.71.80.19.nip.io/admin/index.php?randomss=0.5609624096239004
+nip.io wildcard DNS	3.20.91.120.nip.io	n=1	ips=1	2026-05-29 16:03:56..2026-05-29 16:03:56	alias=tj1zt	URL=https://3.20.91.120.nip.io/api/join/
+non-ASCII/homoglyph	api.dataafrica。io	n=2	ips=2	2026-05-29 14:34:18..2026-05-29 16:03:55	alias=agct151283	URL=https://api.dataafrica。io
+percent-encoded host	api%2edataafrica%2eio	n=35	ips=35	2026-05-29 13:59:58..2026-05-29 16:16:26	alias=cr70s	URL=https://api%2edataafrica%2eio
+percent-encoded host	%61pi.dataafrica.io	n=9	ips=9	2026-05-29 14:58:04..2026-05-29 17:02:22	alias=ddx2365689	URL=https://%61pi.dataafrica.io/api/join/?geo=050AF0015201889&show=crop&sumlevel=lowest&required=harvested_area,value_of_production,crop_parent,
+percent-encoded host	api.dataafrica%2eio	n=6	ips=6	2026-05-29 14:43:55..2026-05-29 16:16:27	alias=tmpa7685728	URL=https://api.dataafrica%2eio/api/join
+percent-encoded host	api.data%61frica.io	n=6	ips=6	2026-05-29 14:58:05..2026-05-29 15:38:22	alias=ddx6559700	URL=https://api.data%61frica.io/api/join/?geo=050AF0015201889&show=crop&sumlevel=lowest&required=harvested_area,value_of_production,crop_parent,
+percent-encoded host	https%3a	n=4	ips=4	2026-05-29 13:57:51..2026-05-29 15:40:10	alias=jch0r	URL=http://https%3a//api.dataafrica.io/api/join/csv/%3Fgeo%3D050AF0015201889%26show%3Dcrop%26sumlevel%3Dlowest%26required%3Dharvested_area%2Cval
+percent-encoded host	api%2edataafrica.io	n=4	ips=4	2026-05-29 14:34:18..2026-05-29 16:53:19	alias=agct161284	URL=https://api%2edataafrica.io//
+percent-encoded host	https%3a%2f%2fapi.dataafrica.io	n=3	ips=3	2026-05-29 13:59:58..2026-05-29 15:33:04	alias=-ymh-	URL=http://https%3a%2f%2fapi.dataafrica.io
+percent-encoded host	api%252edataafrica%252eio	n=3	ips=3	2026-05-29 14:34:14..2026-05-29 16:13:50	alias=agct121279	URL=https://api%252edataafrica%252eio/
+percent-encoded host	https:%2f%2fapi.dataafrica.io	n=2	ips=2	2026-05-29 14:34:13..2026-05-29 15:38:24	alias=agct101278	URL=http://https:%2f%2fapi.dataafrica.io
+percent-encoded host	api.dataafrica.io%2fapi%2fjoin	n=2	ips=2	2026-05-29 14:41:43..2026-05-29 15:23:34	alias=atmp530663	URL=https://api.dataafrica.io%2fapi%2fjoin
+percent-encoded host	http%3a%2f%2fapi.dataafrica.io	n=2	ips=2	2026-05-29 14:41:48..2026-05-29 16:13:22	alias=atmp784141	URL=http://http%3a%2f%2fapi.dataafrica.io
+percent-encoded host	api.dataafrica.io%23	n=2	ips=2	2026-05-29 14:44:26..2026-05-29 16:04:07	alias=tmpa7927627	URL=https://api.dataafrica.io%23/api/join
+percent-encoded host	https%3a%2f%2fapi.dataafrica.io%2fattrs%2flist%2f	n=2	ips=2	2026-05-29 14:59:16..2026-05-29 15:29:41	alias=jza1s	URL=http://https%3a%2f%2fapi.dataafrica.io%2fattrs%2flist%2f
+percent-encoded host	https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f%3fshow%3dgeo	n=2	ips=2	2026-05-29 15:04:32..2026-05-29 15:08:20	alias=agtest14116154	URL=http://https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f%3fshow%3dgeo
+percent-encoded host	data%61frica.io	n=2	ips=2	2026-05-29 15:08:36..2026-05-29 15:08:37	alias=3b5-0	URL=http://data%61frica.io
+percent-encoded host	https%3a%2f%2fexample.org	n=2	ips=2	2026-05-29 15:27:23..2026-05-29 16:13:54	alias=h9a-q	URL=http://https%3a%2f%2fexample.org
+percent-encoded host	https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f	n=2	ips=2	2026-05-29 16:13:17..2026-05-29 16:33:37	alias=mwt17010	URL=http://https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f
+percent-encoded host	api%252edataafrica.io	n=1	ips=1	2026-05-29 14:34:14..2026-05-29 14:34:14	alias=agct131280	URL=https://api%252edataafrica.io
+percent-encoded host	api.dataafrica.io%2f	n=1	ips=1	2026-05-29 14:34:19..2026-05-29 14:34:19	alias=agct171284	URL=https://api.dataafrica.io%2f
+percent-encoded host	api.dataafrica.io%252fapi%252fjoin	n=1	ips=1	2026-05-29 14:43:53..2026-05-29 14:43:53	alias=tmpa2128519	URL=https://api.dataafrica.io%252fapi%252fjoin
+percent-encoded host	api.%64ataafrica.io	n=1	ips=1	2026-05-29 14:44:01..2026-05-29 14:44:01	alias=tmpa3647718	URL=https://api.%64ataafrica.io/api/join
+percent-encoded host	api.%2564ataafrica.io	n=1	ips=1	2026-05-29 14:44:04..2026-05-29 14:44:04	alias=tmpa7257092	URL=https://api.%2564ataafrica.io/api/join
+percent-encoded host	api.dataafrica.io%09	n=1	ips=1	2026-05-29 14:44:20..2026-05-29 14:44:20	alias=tmpa9706082	URL=https://api.dataafrica.io%09/api/join
+percent-encoded host	api.dataafrica.io%00	n=1	ips=1	2026-05-29 14:44:22..2026-05-29 14:44:22	alias=tmpa5254517	URL=https://api.dataafrica.io%00/api/join
+percent-encoded host	api.dataafrica.io%2fapi%2fjoin%2f%3fshow%3dgeo	n=1	ips=1	2026-05-29 15:08:32..2026-05-29 15:08:32	alias=jsm21	URL=https://api.dataafrica.io%2fapi%2fjoin%2f%3fshow%3dgeo
+percent-encoded host	dataafrica%2eio	n=1	ips=1	2026-05-29 15:08:38..2026-05-29 15:08:38	alias=6lerm	URL=https://dataafrica%2eio
+percent-encoded host	dataafrica%252eio	n=1	ips=1	2026-05-29 15:08:38..2026-05-29 15:08:38	alias=ro6id	URL=https://dataafrica%252eio
+percent-encoded host	example%2eorg	n=1	ips=1	2026-05-29 15:10:24..2026-05-29 15:10:24	alias=test889f	URL=https://example%2eorg/abc
+percent-encoded host	https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f%3fgeo%3d050af0015201888	n=1	ips=1	2026-05-29 15:22:48..2026-05-29 15:22:48	alias=agqg2ts9	URL=http://https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f%3fgeo%3d050af0015201888
+percent-encoded host	api.dataafrica.io%2e	n=1	ips=1	2026-05-29 15:38:23..2026-05-29 15:38:23	alias=e3739508	URL=https://api.dataafrica.io%2e/api/join/?geo=050AF0015201888&show=crop&crop=chic&required=value_of_production
+percent-encoded host	api.dataafrica.io%3a443	n=1	ips=1	2026-05-29 15:38:42..2026-05-29 15:38:42	alias=e11587832	URL=https://api.dataafrica.io%3a443/api/join/?geo=050AF0015201888&show=crop&crop=chic&required=value_of_production
+percent-encoded host	yourl%73.website	n=1	ips=1	2026-05-29 15:40:05..2026-05-29 15:40:05	alias=ag0prox296537	URL=https://yourl%73.website
+percent-encoded host	https%3a%2f%2fapi.dataafrica.io%2fapi	n=1	ips=1	2026-05-29 15:46:33..2026-05-29 15:46:33	alias=o60es	URL=http://https%3a%2f%2fapi.dataafrica.io%2fapi
+percent-encoded host	https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f%3fgeo%3d050af0015201889	n=1	ips=1	2026-05-29 15:49:31..2026-05-29 15:49:31	alias=mzw4	URL=http://https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f%3fgeo%3d050af0015201889
+percent-encoded host	https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f%3fgeo%3d050af0015201889%2526show%3dcrop	n=1	ips=1	2026-05-29 15:50:18..2026-05-29 15:50:18	alias=mzw44	URL=http://https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f%3fgeo%3d050af0015201889%2526show%3dcrop
+percent-encoded host	api.dataafrica.io%252f	n=1	ips=1	2026-05-29 16:13:49..2026-05-29 16:13:49	alias=mwt17018	URL=https://api.dataafrica.io%252f
+percent-encoded host	https%3a%2f%2fexample.com	n=1	ips=1	2026-05-29 16:17:31..2026-05-29 16:17:31	alias=vbakw	URL=http://https%3a%2f%2fexample.com
+percent-encoded host	api.dataafrica.io%2fapi%2fjoin%2f	n=1	ips=1	2026-05-29 16:33:37..2026-05-29 16:33:37	alias=wbx421453	URL=https://api.dataafrica.io%2fapi%2fjoin%2f
+percent-encoded host	http%3a%2f%2fx.com	n=1	ips=1	2026-05-29 16:38:37..2026-05-29 16:38:37	alias=77plg	URL=http://http%3a%2f%2fx.com
+percent-encoded host	https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f%3fgeo%3d040af00205%26show%3dyear%2ccondition%2cresidence%26required%3dx	n=1	ips=1	2026-06-19 17:29:58..2026-06-19 17:29:58	alias=testrw996	URL=http://https%3a%2f%2fapi.dataafrica.io%2fapi%2fjoin%2f%3fgeo%3d040af00205%26show%3dyear%2ccondition%2cresidence%26required%3dx
+punycode	xn--api-z	n=1	ips=1	2026-05-29 16:01:38..2026-05-29 16:01:38	alias=xcg5h	URL=https://xn--api-z?
+trailing dot	api.dataafrica.io.	n=8	ips=8	2026-05-29 14:43:51..2026-05-29 16:58:41	alias=tmpa8151677	URL=https://api.dataafrica.io./api/join/
+userinfo@	user@api.dataafrica.io	n=2	ips=2	2026-05-29 14:58:05..2026-05-29 16:04:13	alias=ddx9122751	URL=https://user@api.dataafrica.io/api/join/?geo=050AF0015201889&show=crop&sumlevel=lowest&required=harvested_area,value_of_production,crop_pare
+userinfo@	api.dataafrica.io@dataafrica.io	n=2	ips=2	2026-05-29 16:58:39..2026-05-29 16:58:42	alias=z8531	URL=https://api.dataafrica.io@dataafrica.io/profile/northern-region-mwi/CropsByProduction
+userinfo@	api.dataafrica.io@google.com	n=1	ips=1	2026-05-29 14:29:40..2026-05-29 14:29:40	alias=kmi8r	URL=https://api.dataafrica.io@google.com
+userinfo@	user:pass@api.dataafrica.io	n=1	ips=1	2026-05-29 14:34:01..2026-05-29 14:34:01	alias=agct41262	URL=https://user:pass@api.dataafrica.io
+userinfo@	api.datawheel.us@api.dataafrica.io	n=1	ips=1	2026-05-29 15:38:30..2026-05-29 15:38:30	alias=e5827835	URL=https://api.datawheel.us@api.dataafrica.io/api/join/?geo=050AF0015201888&show=crop&crop=chic&required=value_of_production
+userinfo@	api.dataafrica.io@example.org	n=1	ips=1	2026-05-29 16:12:46..2026-05-29 16:12:46	alias=mwt1706	URL=https://api.dataafrica.io@example.org
+
+=== path/scheme-level tricks on api.dataafrica.io ===
+double-encoded %2526	n=11	ips=11	2026-05-29 14:54..2026-06-17 03:52	ex=https://api.dataafrica.io/api/join/?geo=050AF0015201889%2526show=crop
+encoded & as %26 (param smuggling)	n=397	ips=385	2026-05-29 13:48..2026-06-21 05:01	ex=https://api.dataafrica.io/api/join/?geo=050AF0015201888%26crop=chic
+path traversal ..//	n=1	ips=1	2026-05-29 15:08..2026-05-29 15:08	ex=https://api.dataafrica.io/api/join/..//join/?geo=050AF0015201889&show=crop&sumlevel=lowest&required=value_of_production,crop_name
+double slash //api	n=6	ips=6	2026-05-29 14:34..2026-05-29 16:38	ex=http:////api.dataafrica.io/
+fragment %23	n=2	ips=2	2026-05-29 14:44..2026-05-29 16:04	ex=https://api.dataafrica.io%23/api/join
+null byte %00	n=1	ips=1	2026-05-29 14:44..2026-05-29 14:44	ex=https://api.dataafrica.io%00/api/join
+tab %09	n=1	ips=1	2026-05-29 14:44..2026-05-29 14:44	ex=https://api.dataafrica.io%09/api/join
+no-slash https:host	n=1	ips=1	2026-05-29 16:13..2026-05-29 16:13	ex=http://https:api.dataafrica.io
+explicit :443	n=10	ips=10	2026-05-29 14:34..2026-05-29 16:58	ex=https://api.dataafrica.io:443

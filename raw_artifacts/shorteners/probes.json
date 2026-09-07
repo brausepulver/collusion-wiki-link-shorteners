@@ -1,0 +1,325 @@
+{
+ "https://2dd.pl": {
+  "root": {
+   "status": 200,
+   "location": null,
+   "server": "LiteSpeed",
+   "ctype": "text/html; charset=UTF-8",
+   "bytes": 35491,
+   "body": "<!DOCTYPE html>\n<html lang=\"pl\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n        <meta name=\"description\" content=\"\">\n\n\n        <link rel=\"icon\" type=\"image/png\" href=\"/favicon-96x96.png\" sizes=\"96x96\" />\n        <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />\n        <link rel=\"shortcut icon\" href=\"/favicon.ico\" />\n        <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\" />\n        <meta name=\"apple-mobile-web-app-title\" content=\"2dd.pl\" />\n        <link rel=\"manifest\" href=\"/site.webmanifest\" />\n\n\n\n        <title>Skr\u00f3\u0107 link 2dd.pl</title>\n\n        <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n        <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n        <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap\" rel=\"stylesheet\">\n\n        <link rel=\"stylesheet\" href=\"/frontend/dist/styles.css\">\n\n            </head>\n<body>\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"WebApplication\",\n  \"name\": \"2dd.pl \u2014 skracacz link\u00f3w\",\n  \"url\": \"https://2dd.pl\",\n  \"description\": \"Bezp\u0142atny polski skracacz link\u00f3w. Skr\u00f3\u0107 dowolny adres URL w mniej ni\u017c sekund\u0119 \u2014 bez konta, bez \u015bledzenia, do\u017cywotnio.\",\n  \"applicationCategory\": \"UtilitiesApplication\",\n  \"operatingSystem\": \"Web\",\n  \"inLan"
+  },
+  "stats": {
+   "status": 403,
+   "location": null,
+   "server": "LiteSpeed",
+   "ctype": "application/json; charset=utf-8",
+   "bytes": 81,
+   "body": "{\"message\":\"Prosz\\u0119 si\\u0119 zalogowa\\u0107\",\"errorCode\":\"403\",\"callback\":\"\"}",
+   "json": {
+    "message": "Prosz\u0119 si\u0119 zalogowa\u0107",
+    "errorCode": "403",
+    "callback": ""
+   }
+  },
+  "db_stats": {
+   "status": 403,
+   "location": null,
+   "server": "LiteSpeed",
+   "ctype": "application/json; charset=utf-8",
+   "bytes": 81,
+   "body": "{\"message\":\"Prosz\\u0119 si\\u0119 zalogowa\\u0107\",\"errorCode\":\"403\",\"callback\":\"\"}"
+  },
+  "admin": {
+   "status": 200,
+   "location": null,
+   "server": "LiteSpeed",
+   "ctype": "text/html; charset=utf-8",
+   "bytes": 3074,
+   "body": "<!DOCTYPE html>\n<html dir=\"ltr\" lang=\"pl-PL\">\n<head>\n    <title>Login &mdash; | https://2dd.pl/</title>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n    <meta name=\"generator\" content=\"YOURLS 1.10.3\" />\n    <meta name=\"description\" content=\"YOURLS &raquo; Your Own URL Shortener' | https://2dd.pl\" />\n        <link rel=\"shortcut icon\" href=\"https://2dd.pl/images/favicon.svg\" />    <script src=\"https://2dd.pl/js/jquery-3.5.1.min.js?v=1.10.3\" type=\"text/javascript\"></script>\n    <script src=\"https://2dd.pl/js/common.js?v=1.10.3\" type=\"text/javascript\"></script>\n    <script src=\"https://2dd.pl/js/jquery.notifybar.js?v=1.10.3\" type=\"text/javascript\"></script>\n    <link rel=\"stylesheet\" href=\"https://2dd.pl/css/style.css?v=1.10.3\" type=\"text/css\" media=\"screen\" />\n                            <script type=\"text/javascript\">\n    //<![CDATA[\n        var ajaxurl  = 'https://2dd.pl/admin/admin-ajax.php';\n    //]]>\n    </script>\n    \t\t<style>body {background: unset;}</style>\t\t\t<link rel=\"stylesheet\" href=\"https://2dd.pl/user/plugins/sleeky-backend/assets/css/light.css\">\n\t\t\t<link rel=\"stylesheet\" href=\"https://2dd.pl/user/plugins/sleeky-backend/assets/css/animate.min.css\">\n\t\t\t<script src=\"https://2dd.pl/user/plugins/sleeky-backend/assets/js/theme.js\"></script>\n\t\t\t<meta name=\"sleeky_theme\" content=\"light\">\t\t\t<meta name=\"pluginURL\" content=\"https://2dd.pl/user/plugins/sleeky-backend\"></head>\n<body class=\"login desktop\">\n<div id=\"wrap\">\n        <header role=\"banne"
+  }
+ },
+ "https://bitily.in": {
+  "root": {
+   "status": 200,
+   "location": null,
+   "server": "Apache",
+   "ctype": "text/html; charset=UTF-8",
+   "bytes": 11,
+   "body": "Hello world"
+  },
+  "stats": {
+   "status": 200,
+   "location": null,
+   "server": "Apache",
+   "ctype": "application/json; charset=utf-8",
+   "bytes": 84,
+   "body": "{\"stats\":{\"total_links\":0,\"total_clicks\":null},\"statusCode\":200,\"message\":\"success\"}",
+   "json": {
+    "stats": {
+     "total_links": 0,
+     "total_clicks": null
+    },
+    "statusCode": 200,
+    "message": "success"
+   }
+  },
+  "db_stats": {
+   "status": 200,
+   "location": null,
+   "server": "Apache",
+   "ctype": "application/json; charset=utf-8",
+   "bytes": 87,
+   "body": "{\"db-stats\":{\"total_links\":0,\"total_clicks\":null},\"statusCode\":200,\"message\":\"success\"}"
+  },
+  "admin": {
+   "status": 200,
+   "location": null,
+   "server": "Apache",
+   "ctype": "text/html; charset=utf-8",
+   "bytes": 9160,
+   "body": "<!DOCTYPE html>\r\n<html dir=\"ltr\">\r\n<head>\r\n\t<title>YOURLS &mdash; Your Own URL Shortener | https://bitily.in/MYLABI/ -- the sample plugin is activated</title>\r\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n\t<meta name=\"generator\" content=\"YOURLS 1.9.3-dev\" />\r\n\t<meta name=\"description\" content=\"YOURLS &raquo; Your Own URL Shortener' | https://bitily.in/MYLABI\" />\r\n\t    <link rel=\"shortcut icon\" href=\"https://bitily.in/MYLABI/images/favicon.svg\" />\t<script src=\"https://bitily.in/MYLABI/js/jquery-3.5.1.min.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t<script src=\"https://bitily.in/MYLABI/js/common.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t<script src=\"https://bitily.in/MYLABI/js/jquery.notifybar.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t<link rel=\"stylesheet\" href=\"https://bitily.in/MYLABI/css/style.css?v=1.9.3-dev\" type=\"text/css\" media=\"screen\" />\r\n\t\t\t\t<link rel=\"stylesheet\" href=\"https://bitily.in/MYLABI/css/tablesorter.css?v=1.9.3-dev\" type=\"text/css\" media=\"screen\" />\r\n\t\t<script src=\"https://bitily.in/MYLABI/js/jquery-3.tablesorter.min.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t\t<script src=\"https://bitily.in/MYLABI/js/tablesorte.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t\t\t\t<script src=\"https://bitily.in/MYLABI/js/insert.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t\t\t\t<link rel=\"stylesheet\" href=\"https://bitily.in/MYLABI/css/share.css?v=1.9.3-dev\" type=\"text/css\" media=\"screen\" />\r\n\t\t<script src=\"http"
+  }
+ },
+ "https://app.bitily.in": {
+  "root": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='app.bitily.in', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1082)')))\"))"
+  },
+  "stats": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='app.bitily.in', port=443): Max retries exceeded with url: /yourls-api.php?action=stats&format=json&filter=last&limit=5 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1082)')))\"))"
+  },
+  "db_stats": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='app.bitily.in', port=443): Max retries exceeded with url: /yourls-api.php?action=db-stats&format=json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1082)')))\"))"
+  },
+  "admin": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='app.bitily.in', port=443): Max retries exceeded with url: /admin/index.php (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1082)')))\"))"
+  }
+ },
+ "https://yourls.website": {
+  "root": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='yourls.website', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)')))\"))"
+  },
+  "stats": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='yourls.website', port=443): Max retries exceeded with url: /yourls-api.php?action=stats&format=json&filter=last&limit=5 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)')))\"))"
+  },
+  "db_stats": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='yourls.website', port=443): Max retries exceeded with url: /yourls-api.php?action=db-stats&format=json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)')))\"))"
+  },
+  "admin": {
+   "error": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='yourls.website', port=443): Max retries exceeded with url: /admin/index.php (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)')))\"))"
+  }
+ },
+ "https://yourls.pro": {
+  "root": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'yourls.pro\\', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host=\\'yourls.pro\\', port=443): Failed to resolve \\'yourls.pro\\' ([Errno -5] No address associated with hostname)\"))'))"
+  },
+  "stats": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'yourls.pro\\', port=443): Max retries exceeded with url: /yourls-api.php?action=stats&format=json&filter=last&limit=5 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'yourls.pro\\', port=443): Failed to resolve \\'yourls.pro\\' ([Errno -5] No address associated with hostname)\"))'))"
+  },
+  "db_stats": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'yourls.pro\\', port=443): Max retries exceeded with url: /yourls-api.php?action=db-stats&format=json (Caused by NameResolutionError(\"HTTPSConnection(host=\\'yourls.pro\\', port=443): Failed to resolve \\'yourls.pro\\' ([Errno -5] No address associated with hostname)\"))'))"
+  },
+  "admin": {
+   "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'yourls.pro\\', port=443): Max retries exceeded with url: /admin/index.php (Caused by NameResolutionError(\"HTTPSConnection(host=\\'yourls.pro\\', port=443): Failed to resolve \\'yourls.pro\\' ([Errno -5] No address associated with hostname)\"))'))"
+  }
+ },
+ "https://short.kodact.art": {
+  "root": {
+   "status": 200,
+   "location": null,
+   "server": "railway-hikari",
+   "ctype": "text/html; charset=utf-8",
+   "bytes": 254149,
+   "body": "<!DOCTYPE html><html lang=\"en\" class=\"__variable_93a132 __variable_a2025e __variable_e8b655\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/806de4d605d3ad01-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/982ceffe7b733b3b-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/c9e6921c7fc300d8-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/fc727f226c737876-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/css/7b34bc437e4494dd.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-9b8b4b438c0c0cbd.js\"/><script src=\"/_next/static/chunks/fd9d1056-f1ed55c05d4e111d.js\" async=\"\"></script><script src=\"/_next/static/chunks/117-02fa97b523ad5979.js\" async=\"\"></script><script src=\"/_next/static/chunks/main-app-6fca1515cee9a03c.js\" async=\"\"></script><script src=\"/_next/static/chunks/110-46e08b0515ab476a.js\" async=\"\"></script><script src=\"/_next/static/chunks/757-c775e69a7482eba8.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/page-6c4f67afc5c14b26.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/layout-36058623ff54aab3.js\" async=\"\"></script><title>SHORT URL STUDIO</title><meta name=\"description\" content=\"Shorten, "
+  },
+  "stats": {
+   "status": 404,
+   "location": null,
+   "server": "railway-hikari",
+   "ctype": "text/html; charset=utf-8",
+   "bytes": 11098,
+   "body": "<!DOCTYPE html><html lang=\"en\" class=\"__variable_93a132 __variable_a2025e __variable_e8b655\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/css/7b34bc437e4494dd.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-9b8b4b438c0c0cbd.js\"/><script src=\"/_next/static/chunks/fd9d1056-f1ed55c05d4e111d.js\" async=\"\"></script><script src=\"/_next/static/chunks/117-02fa97b523ad5979.js\" async=\"\"></script><script src=\"/_next/static/chunks/main-app-6fca1515cee9a03c.js\" async=\"\"></script><script src=\"/_next/static/chunks/110-46e08b0515ab476a.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/layout-36058623ff54aab3.js\" async=\"\"></script><meta name=\"robots\" content=\"noindex\"/><title>404: This page could not be found.</title><title>SHORT URL STUDIO</title><meta name=\"description\" content=\"Shorten, expand, and analyze links across keyless URL shorteners worldwide \u2014 no API key, no signup.\"/><meta name=\"next-size-adjust\"/><script src=\"/_next/static/chunks/polyfills-42372ed130431b0a.js\" noModule=\"\"></script></head><body class=\"studio-bg min-h-screen\"><script>(function(){try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-motion')}}catch(e){}})()</script><a href=\"#main-content\" class=\"sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:border-3 foc"
+  },
+  "db_stats": {
+   "status": 404,
+   "location": null,
+   "server": "railway-hikari",
+   "ctype": "text/html; charset=utf-8",
+   "bytes": 11022,
+   "body": "<!DOCTYPE html><html lang=\"en\" class=\"__variable_93a132 __variable_a2025e __variable_e8b655\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/css/7b34bc437e4494dd.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-9b8b4b438c0c0cbd.js\"/><script src=\"/_next/static/chunks/fd9d1056-f1ed55c05d4e111d.js\" async=\"\"></script><script src=\"/_next/static/chunks/117-02fa97b523ad5979.js\" async=\"\"></script><script src=\"/_next/static/chunks/main-app-6fca1515cee9a03c.js\" async=\"\"></script><script src=\"/_next/static/chunks/110-46e08b0515ab476a.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/layout-36058623ff54aab3.js\" async=\"\"></script><meta name=\"robots\" content=\"noindex\"/><title>404: This page could not be found.</title><title>SHORT URL STUDIO</title><meta name=\"description\" content=\"Shorten, expand, and analyze links across keyless URL shorteners worldwide \u2014 no API key, no signup.\"/><meta name=\"next-size-adjust\"/><script src=\"/_next/static/chunks/polyfills-42372ed130431b0a.js\" noModule=\"\"></script></head><body class=\"studio-bg min-h-screen\"><script>(function(){try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-motion')}}catch(e){}})()</script><a href=\"#main-content\" class=\"sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:border-3 foc"
+  },
+  "admin": {
+   "status": 404,
+   "location": null,
+   "server": "railway-hikari",
+   "ctype": "text/html; charset=utf-8",
+   "bytes": 10932,
+   "body": "<!DOCTYPE html><html lang=\"en\" class=\"__variable_93a132 __variable_a2025e __variable_e8b655\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/css/7b34bc437e4494dd.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-9b8b4b438c0c0cbd.js\"/><script src=\"/_next/static/chunks/fd9d1056-f1ed55c05d4e111d.js\" async=\"\"></script><script src=\"/_next/static/chunks/117-02fa97b523ad5979.js\" async=\"\"></script><script src=\"/_next/static/chunks/main-app-6fca1515cee9a03c.js\" async=\"\"></script><script src=\"/_next/static/chunks/110-46e08b0515ab476a.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/layout-36058623ff54aab3.js\" async=\"\"></script><meta name=\"robots\" content=\"noindex\"/><title>404: This page could not be found.</title><title>SHORT URL STUDIO</title><meta name=\"description\" content=\"Shorten, expand, and analyze links across keyless URL shorteners worldwide \u2014 no API key, no signup.\"/><meta name=\"next-size-adjust\"/><script src=\"/_next/static/chunks/polyfills-42372ed130431b0a.js\" noModule=\"\"></script></head><body class=\"studio-bg min-h-screen\"><script>(function(){try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-motion')}}catch(e){}})()</script><a href=\"#main-content\" class=\"sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:border-3 foc"
+  }
+ },
+ "https://ctxr.me": {
+  "root": {
+   "status": 200,
+   "location": null,
+   "server": "cloudflare",
+   "ctype": "text/html",
+   "bytes": 16874,
+   "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <title>ctxr.me \u00e2\u0080\u0094 Context Readme for AI Agents and LLMs</title>\n  <meta name=\"description\" content=\"Prepend ctxr.me/ to any URL to get clean markdown ready for LLMs.\" />\n  <meta property=\"og:title\" content=\"ctxr.me \u00e2\u0080\u0094 Context Readme for AI Agents\" />\n  <meta property=\"og:description\" content=\"Prepend ctxr.me/ to any URL to get clean markdown ready for LLMs.\" />\n  <meta property=\"og:type\" content=\"website\" />\n  <meta property=\"og:image\" content=\"https://ctxr.me/og.png\" />\n  <meta property=\"og:url\" content=\"https://ctxr.me\" />\n  <meta name=\"twitter:card\" content=\"summary_large_image\" />\n  <meta name=\"twitter:image\" content=\"https://ctxr.me/og.png\" />\n  <meta name=\"theme-color\" content=\"#050505\" />\n  <link rel=\"icon\" href=\"/favicon.ico\" />\n  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\n  <link href=\"https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\" />\n  <link rel=\"stylesheet\" href=\"/styles.css?v=2\" />\n</head>\n<body>\n  <div class=\"grid-bg\"></div>\n  <div class=\"toast\" id=\"toast\"><span class=\"toast-dot\"></span><span id=\"toastMsg\">Copied</span></div>\n\n  <!-- NAV -->\n  <nav>\n    <div class=\"nav-inner\">\n      <a class=\"nav-logo\" href=\"#\"><em>ctxr</em>.me</a>\n"
+  },
+  "stats": {
+   "status": 502,
+   "location": null,
+   "server": "cloudflare",
+   "ctype": "text/plain; charset=UTF-8",
+   "bytes": 17,
+   "body": "Error: HTTP 530: "
+  },
+  "db_stats": {
+   "status": 502,
+   "location": null,
+   "server": "cloudflare",
+   "ctype": "text/plain; charset=UTF-8",
+   "bytes": 17,
+   "body": "Error: HTTP 530: "
+  },
+  "admin": {
+   "status": 502,
+   "location": null,
+   "server": "cloudflare",
+   "ctype": "text/plain; charset=UTF-8",
+   "bytes": 26,
+   "body": "Error: HTTP 403: Forbidden"
+  }
+ },
+ "http://2dd.pl": {
+  "root": {
+   "status": 301,
+   "location": "https://2dd.pl/",
+   "server": "LiteSpeed",
+   "ctype": "text/html",
+   "bytes": 795,
+   "body": "<!DOCTYPE html>\n<html style=\"height:100%\">\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />\n<title> 301 Moved Permanently\r\n</title><style>@media (prefers-color-scheme:dark){body{background-color:#000!important}}</style></head>\n<body style=\"color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;\">\n<div style=\"height:auto; min-height:100%; \">     <div style=\"text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;\">\n        <h1 style=\"margin:0; font-size:150px; line-height:150px; font-weight:bold;\">301</h1>\n<h2 style=\"margin-top:20px;font-size: 30px;\">Moved Permanently\r\n</h2>\n<p>The document has been permanently moved.</p>\n</div></div></body></html>\n"
+  },
+  "stats": {
+   "status": 301,
+   "location": "https://2dd.pl/yourls-api.php?action=stats&format=json&filter=last&limit=5",
+   "server": "LiteSpeed",
+   "ctype": "text/html",
+   "bytes": 795,
+   "body": "<!DOCTYPE html>\n<html style=\"height:100%\">\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />\n<title> 301 Moved Permanently\r\n</title><style>@media (prefers-color-scheme:dark){body{background-color:#000!important}}</style></head>\n<body style=\"color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;\">\n<div style=\"height:auto; min-height:100%; \">     <div style=\"text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;\">\n        <h1 style=\"margin:0; font-size:150px; line-height:150px; font-weight:bold;\">301</h1>\n<h2 style=\"margin-top:20px;font-size: 30px;\">Moved Permanently\r\n</h2>\n<p>The document has been permanently moved.</p>\n</div></div></body></html>\n"
+  },
+  "db_stats": {
+   "status": 301,
+   "location": "https://2dd.pl/yourls-api.php?action=db-stats&format=json",
+   "server": "LiteSpeed",
+   "ctype": "text/html",
+   "bytes": 795,
+   "body": "<!DOCTYPE html>\n<html style=\"height:100%\">\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />\n<title> 301 Moved Permanently\r\n</title><style>@media (prefers-color-scheme:dark){body{background-color:#000!important}}</style></head>\n<body style=\"color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;\">\n<div style=\"height:auto; min-height:100%; \">     <div style=\"text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;\">\n        <h1 style=\"margin:0; font-size:150px; line-height:150px; font-weight:bold;\">301</h1>\n<h2 style=\"margin-top:20px;font-size: 30px;\">Moved Permanently\r\n</h2>\n<p>The document has been permanently moved.</p>\n</div></div></body></html>\n"
+  },
+  "admin": {
+   "status": 301,
+   "location": "https://2dd.pl/admin/index.php",
+   "server": "LiteSpeed",
+   "ctype": "text/html",
+   "bytes": 795,
+   "body": "<!DOCTYPE html>\n<html style=\"height:100%\">\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />\n<title> 301 Moved Permanently\r\n</title><style>@media (prefers-color-scheme:dark){body{background-color:#000!important}}</style></head>\n<body style=\"color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;\">\n<div style=\"height:auto; min-height:100%; \">     <div style=\"text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;\">\n        <h1 style=\"margin:0; font-size:150px; line-height:150px; font-weight:bold;\">301</h1>\n<h2 style=\"margin-top:20px;font-size: 30px;\">Moved Permanently\r\n</h2>\n<p>The document has been permanently moved.</p>\n</div></div></body></html>\n"
+  }
+ },
+ "http://bitily.in": {
+  "root": {
+   "status": 200,
+   "location": null,
+   "server": "Apache",
+   "ctype": "text/html; charset=UTF-8",
+   "bytes": 11,
+   "body": "Hello world"
+  },
+  "stats": {
+   "status": 200,
+   "location": null,
+   "server": "Apache",
+   "ctype": "application/json; charset=utf-8",
+   "bytes": 84,
+   "body": "{\"stats\":{\"total_links\":0,\"total_clicks\":null},\"statusCode\":200,\"message\":\"success\"}",
+   "json": {
+    "stats": {
+     "total_links": 0,
+     "total_clicks": null
+    },
+    "statusCode": 200,
+    "message": "success"
+   }
+  },
+  "db_stats": {
+   "status": 200,
+   "location": null,
+   "server": "Apache",
+   "ctype": "application/json; charset=utf-8",
+   "bytes": 87,
+   "body": "{\"db-stats\":{\"total_links\":0,\"total_clicks\":null},\"statusCode\":200,\"message\":\"success\"}"
+  },
+  "admin": {
+   "status": 200,
+   "location": null,
+   "server": "Apache",
+   "ctype": "text/html; charset=utf-8",
+   "bytes": 9154,
+   "body": "<!DOCTYPE html>\r\n<html dir=\"ltr\">\r\n<head>\r\n\t<title>YOURLS &mdash; Your Own URL Shortener | https://bitily.in/MYLABI/ -- the sample plugin is activated</title>\r\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n\t<meta name=\"generator\" content=\"YOURLS 1.9.3-dev\" />\r\n\t<meta name=\"description\" content=\"YOURLS &raquo; Your Own URL Shortener' | https://bitily.in/MYLABI\" />\r\n\t    <link rel=\"shortcut icon\" href=\"https://bitily.in/MYLABI/images/favicon.svg\" />\t<script src=\"https://bitily.in/MYLABI/js/jquery-3.5.1.min.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t<script src=\"https://bitily.in/MYLABI/js/common.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t<script src=\"https://bitily.in/MYLABI/js/jquery.notifybar.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t<link rel=\"stylesheet\" href=\"https://bitily.in/MYLABI/css/style.css?v=1.9.3-dev\" type=\"text/css\" media=\"screen\" />\r\n\t\t\t\t<link rel=\"stylesheet\" href=\"https://bitily.in/MYLABI/css/tablesorter.css?v=1.9.3-dev\" type=\"text/css\" media=\"screen\" />\r\n\t\t<script src=\"https://bitily.in/MYLABI/js/jquery-3.tablesorter.min.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t\t<script src=\"https://bitily.in/MYLABI/js/tablesorte.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t\t\t\t<script src=\"https://bitily.in/MYLABI/js/insert.js?v=1.9.3-dev\" type=\"text/javascript\"></script>\r\n\t\t\t\t<link rel=\"stylesheet\" href=\"https://bitily.in/MYLABI/css/share.css?v=1.9.3-dev\" type=\"text/css\" media=\"screen\" />\r\n\t\t<script src=\"http"
+  }
+ },
+ "http://yourls.website": {
+  "root": {
+   "status": 200,
+   "location": null,
+   "server": "nginx/1.28.3 (Ubuntu)",
+   "ctype": "text/html",
+   "bytes": 4730,
+   "body": "<!doctype html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <!-- Send the parked domain's origin as the referrer so the market can\n       attribute the visit to this domain's TLD. -->\n  <meta name=\"referrer\" content=\"origin\" />\n  <title></title>\n  <script type=\"module\" crossorigin src=\"/assets/index-BuG04mTK.js\"></script>\n  <link rel=\"stylesheet\" crossorigin href=\"/assets/index-B_f2Ggms.css\">\n  <script async src=\"https://lander.parity.domains/js/pa-6FZUe2Iv3m6Yx_KBS2sv2.js\"></script>\n  <script>\n    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};\n    plausible.init({customProperties: {domain: location.hostname}});\n  </script>\n</head>\n\n<body class=\"gb-scope\">\n  <header>\n    <div class=\"container h-20 flex items-center\">\n      <a href=\"https://www.namecheap.com/?utm_source=parkingpage&utm_medium=referral&utm_campaign=nc_market\">\n        <img src=\"logo.svg\" alt=\"Namecheap Logo\" width=\"155\" height=\"28\" />\n      </a>\n    </div>\n    <div class=\"container text-center lg:text-left\">\n      <div class=\"py-20\">\n        <h1 class=\"break-all font-bold tracking-[-0.4px] text-4xl sm:text-5xl md:text-7xl mb-2 sm:mb-4\"></h1>\n      </div>\n      <section id=\"expired-banner\" class=\"pb-20 text-left\">\n        <h2 class=\"font-bold text-2xl sm:text-3xl md:text-4xl mb-6 text-center lg:text-left\">Domain registrat"
+  },
+  "stats": {
+   "status": 404,
+   "location": null,
+   "server": "nginx/1.28.3 (Ubuntu)",
+   "ctype": "text/html",
+   "bytes": 162,
+   "body": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx/1.28.3 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n"
+  },
+  "db_stats": {
+   "status": 404,
+   "location": null,
+   "server": "nginx/1.28.3 (Ubuntu)",
+   "ctype": "text/html",
+   "bytes": 162,
+   "body": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx/1.28.3 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n"
+  },
+  "admin": {
+   "status": 404,
+   "location": null,
+   "server": "nginx/1.28.3 (Ubuntu)",
+   "ctype": "text/html",
+   "bytes": 162,
+   "body": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx/1.28.3 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n"
+  }
+ },
+ "http://yourls.pro": {
+  "root": {
+   "error": "ConnectionError(MaxRetryError('HTTPConnectionPool(host=\\'yourls.pro\\', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host=\\'yourls.pro\\', port=80): Failed to resolve \\'yourls.pro\\' ([Errno -5] No address associated with hostname)\"))'))"
+  },
+  "stats": {
+   "error": "ConnectionError(MaxRetryError('HTTPConnectionPool(host=\\'yourls.pro\\', port=80): Max retries exceeded with url: /yourls-api.php?action=stats&format=json&filter=last&limit=5 (Caused by NameResolutionError(\"HTTPConnection(host=\\'yourls.pro\\', port=80): Failed to resolve \\'yourls.pro\\' ([Errno -5] No address associated with hostname)\"))'))"
+  },
+  "db_stats": {
+   "error": "ConnectionError(MaxRetryError('HTTPConnectionPool(host=\\'yourls.pro\\', port=80): Max retries exceeded with url: /yourls-api.php?action=db-stats&format=json (Caused by NameResolutionError(\"HTTPConnection(host=\\'yourls.pro\\', port=80): Failed to resolve \\'yourls.pro\\' ([Errno -5] No address associated with hostname)\"))'))"
+  },
+  "admin": {
+   "error": "ConnectionError(MaxRetryError('HTTPConnectionPool(host=\\'yourls.pro\\', port=80): Max retries exceeded with url: /admin/index.php (Caused by NameResolutionError(\"HTTPConnection(host=\\'yourls.pro\\', port=80): Failed to resolve \\'yourls.pro\\' ([Errno -5] No address associated with hostname)\"))'))"
+  }
+ },
+ "_retry_2026-09-05": {
+  "app.bitily.in": "HTTPS cert broken; over HTTP stats API answers total_links:0 (wiped, same as bitily.in)",
+  "yourls.website": "HTTPS cert broken; HTTP returns 404 for YOURLS API (parked/gone)",
+  "yourls.pro": "connection refused on :80 and :443 (host up, service gone)",
+  "ctxr.me": "HTTP 502/530 origin down; not a shortener",
+  "2dd.pl": "403 requires login (deliberate auth wall)",
+  "note": "retried with 45s timeout + HTTP + verify=False; only app.bitily.in was a fixable transient failure and it is empty"
+ }
+}

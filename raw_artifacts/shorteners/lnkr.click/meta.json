@@ -1,0 +1,8 @@
+{
+ "kind": "PHP public-table shortener (no API; creator IP not exposed; server clock ~UTC-4)",
+ "api": "homepage public table",
+ "user_agent": "CollusionWikiResearch/1.0 (URL-shortener abuse research)",
+ "fetched_at": "2026-09-07",
+ "stats": null,
+ "note": "agent rows only; attributed by creation timestamp+target (creator IP not exposed by this instance). Clicks are lifetime/contaminated."
+}

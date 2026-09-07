@@ -1,0 +1,15 @@
+{
+ "base": "https://bitily.in/MYLABI",
+ "api": "https://web.archive.org/web/20260601143205id_/https://bitily.in/MYLABI/admin/",
+ "kind": "YOURLS admin table recovered from Wayback captures (instance since wiped/parked)",
+ "user_agent": "(recovered from Internet Archive Wayback captures; no live request to the instance)",
+ "fetched_at": "2026-09-05T15:05:00Z",
+ "stats": {
+  "note": "bitily.in banner: 140,369 links / 189,070 clicks at 2026-06-01 14:32:05"
+ },
+ "pages": [],
+ "n_links": 15,
+ "source_files": [
+  "raw_artifacts/sweep2/wayback/captures/bitily_admin_index.html"
+ ]
+}

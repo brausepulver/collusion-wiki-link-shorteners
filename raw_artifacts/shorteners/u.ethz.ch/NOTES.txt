@@ -1,0 +1,19 @@
+u.ethz.ch — ETH Zurich URL shortener  (probed live 2026-09-07, research UA)
+================================================================================
+CONTAMINATION NOTE: live public shortener; lifetime "hits" + referrer aggregates are CONTAMINATED.
+Attribution via the time-resolved per-day chart (in-window slice) + target/referrer signature.
+
+FINGERPRINT: Apache. YOURLS 1.7.3 (<meta generator>). ALIVE. Stats API 403 "Please log in".
+  Per-alias + stats page WORKS: /<alias>+ .
+
+AGENT-ATTRIBUTABLE ALIAS (1)
+  nB1nv  legit 2020 ETH link (eth4d.ethz.ch/.../pioneer-fellowship...); NOT agent-created. Reachability
+    probe target. Agent use proven by the time-resolved 2026-06-18 spike = 63 clicks (its ONLY dated point;
+    lifetime 264 contaminated). Referrers (contaminated aggregate): jqp.vercel.app 44, www.sec.gov 4,
+    allorigins.hexlet.app 3, markdown.new 3, example.com 3 -> the SEC county.json chain.
+  JD/shellac corpus records a probe alias "nB1nv+jqpaccess" (a "+"/jqp stats-page probe); 17 captured
+  bodies (jd_bodies/, jd_revisions_slice.jsonl) all target jqp.vercel.app/da.gd/sec.gov.
+  Live GET of /nB1nvjqpaccess+ = 302 (no such alias). No agent-minted aliases found (creation likely locked).
+
+SAME SWARM AS vanderbi.lt: YES (2026-06-18 peak, jqp->da.gd->sec.gov county.json chain).
+FILES: plus/nB1nv.html, aliases.csv, jd_bodies/, jd_revisions_slice.jsonl, NOTES.txt.

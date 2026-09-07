@@ -1,0 +1,261 @@
+Bulk mode; whois.cymru.com [2026-09-05 12:47:23 +0000]
+3209    | 2.202.1.1        | 2.200.0.0/13        | DE | ripencc  | 2010-11-18 | VODANET - Vodafone GmbH, DE
+3209    | 2.202.64.1       | 2.200.0.0/13        | DE | ripencc  | 2010-11-18 | VODANET - Vodafone GmbH, DE
+3209    | 2.202.128.1      | 2.200.0.0/13        | DE | ripencc  | 2010-11-18 | VODANET - Vodafone GmbH, DE
+3209    | 2.202.192.1      | 2.200.0.0/13        | DE | ripencc  | 2010-11-18 | VODANET - Vodafone GmbH, DE
+3209    | 2.202.254.1      | 2.200.0.0/13        | DE | ripencc  | 2010-11-18 | VODANET - Vodafone GmbH, DE
+16509   | 3.12.1.1         | 3.12.0.0/16         | US | arin     | 2017-12-20 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.12.64.1        | 3.12.0.0/16         | US | arin     | 2017-12-20 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.12.128.1       | 3.12.0.0/16         | US | arin     | 2017-12-20 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.12.192.1       | 3.12.0.0/16         | US | arin     | 2017-12-20 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.12.254.1       | 3.12.0.0/16         | US | arin     | 2017-12-20 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.23.1.1         | 3.20.0.0/14         | US | arin     | 2017-12-20 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.23.64.1        | 3.20.0.0/14         | US | arin     | 2017-12-20 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.23.128.1       | 3.20.0.0/14         | US | arin     | 2017-12-20 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.23.192.1       | 3.20.0.0/14         | US | arin     | 2017-12-20 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.23.254.1       | 3.20.0.0/14         | US | arin     | 2017-12-20 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.129.1.1        | 3.128.0.0/15        | US | arin     | 2018-06-25 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.129.64.1       | 3.128.0.0/15        | US | arin     | 2018-06-25 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.129.128.1      | 3.128.0.0/15        | US | arin     | 2018-06-25 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.129.192.1      | 3.128.0.0/15        | US | arin     | 2018-06-25 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.129.254.1      | 3.128.0.0/15        | US | arin     | 2018-06-25 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.131.1.1        | 3.131.0.0/16        | US | arin     | 2018-06-25 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.131.64.1       | 3.131.0.0/16        | US | arin     | 2018-06-25 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.131.128.1      | 3.131.0.0/16        | US | arin     | 2018-06-25 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.131.192.1      | 3.131.0.0/16        | US | arin     | 2018-06-25 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 3.131.254.1      | 3.131.0.0/16        | US | arin     | 2018-06-25 | AMAZON-02 - Amazon.com, Inc., US
+NA      | 5.253.1.1        | NA                  | DE | ripencc  | 2019-02-07 | NA
+29802   | 5.253.64.1       | 5.253.64.0/24       | BG | ripencc  | 2019-02-07 | HVC-AS - HIVELOCITY, Inc., US
+212954  | 5.253.128.1      | 5.253.128.0/24      | PT | ripencc  | 2019-02-08 | LusoAloja - LUSOALOJA SERVICOS DE ALOJAMENTO WEB, LDA, PT
+42263   | 5.253.192.1      | 5.253.192.0/22      | DE | ripencc  | 2019-02-11 | WIITCloudEdge - WIIT AG, DE
+43872   | 5.253.254.1      | 5.253.252.0/22      | GB | ripencc  | 2019-02-11 | OPTINET - Optinet U.K. Limited, GB
+16509   | 18.139.1.1       | 18.138.0.0/15       | US | arin     | 2019-10-07 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 18.139.64.1      | 18.138.0.0/15       | US | arin     | 2019-10-07 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 18.139.128.1     | 18.138.0.0/15       | US | arin     | 2019-10-07 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 18.139.192.1     | 18.138.0.0/15       | US | arin     | 2019-10-07 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 18.139.254.1     | 18.138.0.0/15       | US | arin     | 2019-10-07 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 18.220.1.1       | 18.220.0.0/14       | US | arin     | 2019-10-07 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 18.220.64.1      | 18.220.0.0/14       | US | arin     | 2019-10-07 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 18.220.128.1     | 18.220.0.0/14       | US | arin     | 2019-10-07 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 18.220.192.1     | 18.220.0.0/14       | US | arin     | 2019-10-07 | AMAZON-02 - Amazon.com, Inc., US
+16509   | 18.220.254.1     | 18.220.0.0/14       | US | arin     | 2019-10-07 | AMAZON-02 - Amazon.com, Inc., US
+NA      | 23.191.1.1       | NA                  |    | arin     |            | NA
+NA      | 23.191.64.1      | NA                  |    | arin     |            | NA
+NA      | 23.191.128.1     | NA                  | CA | arin     | 2017-07-10 | NA
+32708   | 23.191.192.1     | 23.191.192.0/24     | US | arin     | 2018-04-25 | ROOT-NETWORKS - LoadEdge Limited, GB
+NA      | 23.191.254.1     | NA                  |    | arin     |            | NA
+56041   | 36.134.1.1       | 36.134.1.0/24       | CN | apnic    | 2011-01-24 | CMNET-Zhejiang-AP - China Mobile communications corporation, CN
+38019   | 36.134.64.1      | 36.134.64.0/24      | CN | apnic    | 2011-01-24 | CMNET-V4TIANJIN-AS-AP - tianjin Mobile Communication Company Limited, CN
+9808    | 36.134.128.1     | 36.134.128.0/24     | CN | apnic    | 2011-01-24 | CHINAMOBILE-CN - China Mobile Communications Group Co., Ltd., CN
+9808    | 36.134.192.1     | 36.134.192.0/24     | CN | apnic    | 2011-01-24 | CHINAMOBILE-CN - China Mobile Communications Group Co., Ltd., CN
+9808    | 36.134.254.1     | 36.128.0.0/10       | CN | apnic    | 2011-01-24 | CHINAMOBILE-CN - China Mobile Communications Group Co., Ltd., CN
+9808    | 36.138.1.1       | 36.138.1.0/24       | CN | apnic    | 2011-01-24 | CHINAMOBILE-CN - China Mobile Communications Group Co., Ltd., CN
+9808    | 36.138.64.1      | 36.138.64.0/24      | CN | apnic    | 2011-01-24 | CHINAMOBILE-CN - China Mobile Communications Group Co., Ltd., CN
+132525  | 36.138.128.1     | 36.138.128.0/23     | CN | apnic    | 2011-01-24 | CMNET-HEILONGJIANG-CN - HeiLongJiang Mobile Communication Company Limited, CN
+9808    | 36.138.192.1     | 36.138.192.0/24     | CN | apnic    | 2011-01-24 | CHINAMOBILE-CN - China Mobile Communications Group Co., Ltd., CN
+9808    | 36.138.254.1     | 36.138.254.0/24     | CN | apnic    | 2011-01-24 | CHINAMOBILE-CN - China Mobile Communications Group Co., Ltd., CN
+24547   | 36.140.1.1       | 36.140.1.0/24       | CN | apnic    | 2011-01-24 | CMNET-V4HEBEI-AS-AP - Hebei Mobile Communication Company Limited, CN
+9808    | 36.140.64.1      | 36.140.64.0/24      | CN | apnic    | 2011-01-24 | CHINAMOBILE-CN - China Mobile Communications Group Co., Ltd., CN
+56041   | 36.140.128.1     | 36.140.128.0/24     | CN | apnic    | 2011-01-24 | CMNET-Zhejiang-AP - China Mobile communications corporation, CN
+139080  | 36.140.192.1     | 36.140.192.0/24     | CN | apnic    | 2011-01-24 | CMNET-SCIDC-CN - The Internet Data Center of Sichuan Mobile Communication Company Limited, CN
+24444   | 36.140.254.1     | 36.140.254.0/24     | CN | apnic    | 2011-01-24 | CMNET-V4shandong-AS-AP - Shandong Mobile Communication Company Limited, CN
+33993   | 45.84.1.1        | 45.84.1.0/24        | RU | ripencc  | 2019-05-28 | UFO-AS - UFO Hosting LLC, RU
+204704  | 45.84.64.1       | 45.84.64.0/24       | DE | ripencc  | 2019-05-31 | PRIMELINE-AS - primeLine Solutions GmbH, DE
+47764   | 45.84.128.1      | 45.84.128.0/22      | RU | ripencc  | 2019-05-31 | VK-AS - LLC VK, RU
+46873   | 45.84.192.1      | 45.84.192.0/24      | BG | ripencc  | 2019-05-31 | HOSTCOLOR - Host Color, US
+42473   | 45.84.254.1      | 45.84.254.0/24      | AT | ripencc  | 2019-06-03 | AS-ANEXIA - Anexia Cloud Solutions GmbH, AT
+14618   | 52.87.1.1        | 52.86.0.0/15        | US | arin     | 1991-12-19 | AMAZON-AES - Amazon.com, Inc., US
+14618   | 52.87.64.1       | 52.86.0.0/15        | US | arin     | 1991-12-19 | AMAZON-AES - Amazon.com, Inc., US
+14618   | 52.87.128.1      | 52.86.0.0/15        | US | arin     | 1991-12-19 | AMAZON-AES - Amazon.com, Inc., US
+14618   | 52.87.192.1      | 52.86.0.0/15        | US | arin     | 1991-12-19 | AMAZON-AES - Amazon.com, Inc., US
+14618   | 52.87.254.1      | 52.86.0.0/15        | US | arin     | 1991-12-19 | AMAZON-AES - Amazon.com, Inc., US
+14061   | 64.225.1.1       | 64.225.0.0/20       | US | arin     | 2019-08-14 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 64.225.64.1      | 64.225.64.0/20      | US | arin     | 2019-08-14 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+200999  | 64.225.128.1     | 64.225.128.0/21     | PL | ripencc  | 2000-02-23 | pl-cloudferro - CloudFerro S.A, PL
+12479   | 64.225.192.1     | 64.225.192.0/22     | ES | ripencc  | 2000-02-23 | UNI2-AS - Orange Espagne SA, ES
+13628   | 64.225.254.1     | 64.225.248.0/21     | US | arin     | 2021-12-02 | CENCORA-INTERNET - AMERISOURCEBERGEN, US
+15169   | 74.125.1.1       | 74.125.0.0/20       | US | arin     | 2007-03-13 | GOOGLE - Google LLC, US
+15169   | 74.125.64.1      | 74.125.0.0/16       | US | arin     | 2007-03-13 | GOOGLE - Google LLC, US
+15169   | 74.125.128.1     | 74.125.128.0/24     | US | arin     | 2007-03-13 | GOOGLE - Google LLC, US
+15169   | 74.125.192.1     | 74.125.192.0/24     | US | arin     | 2007-03-13 | GOOGLE - Google LLC, US
+15169   | 74.125.254.1     | 74.125.0.0/16       | US | arin     | 2007-03-13 | GOOGLE - Google LLC, US
+3301    | 77.110.1.1       | 77.110.0.0/18       | SE | ripencc  | 2007-01-29 | TELIANET-SWEDEN - Telia Company AB, SE
+NA      | 77.110.64.1      | NA                  | AE | ripencc  | 2007-06-04 | NA
+8462    | 77.110.128.1     | 77.110.128.0/19     | HU | ripencc  | 2007-01-31 | TARR1 - Tarr Kft., HU
+29695   | 77.110.192.1     | 77.110.192.0/18     | NO | ripencc  | 2007-02-01 | Altibox_AS - Lyse Tele AS, NO
+29695   | 77.110.254.1     | 77.110.192.0/18     | NO | ripencc  | 2007-02-01 | Altibox_AS - Lyse Tele AS, NO
+42708   | 80.67.1.1        | 80.67.0.0/20        | SE | ripencc  | 2007-07-27 | GLESYS - Glesys AB, SE
+12222   | 80.67.64.1       | 80.67.64.0/24       | NL | ripencc  | 2001-05-21 | AKAMAI - Akamai Technologies, Inc., US
+37455   | 80.67.128.1      | 80.67.128.0/20      | MU | afrinic  | 2014-12-30 | Bharat Telecom Ltd - Bharat Telecom Ltd, MU
+20861   | 80.67.192.1      | 80.67.192.0/20      | SE | ripencc  | 2001-05-21 | FUJITSU-SE-AS - Fujitsu Sweden AB, SE
+NA      | 80.67.254.1      | NA                  | RU | ripencc  | 2004-07-21 | NA
+NA      | 94.16.1.1        | NA                  | AT | ripencc  | 2008-06-05 | NA
+12897   | 94.16.64.1       | 94.16.64.0/19       | DE | ripencc  | 2008-06-05 | ENTEGAMEDIANET - ENTEGA Medianet GmbH, DE
+15600   | 94.16.128.1      | 94.16.128.0/17      | CH | ripencc  | 2008-06-05 | QUICKLINE - Quickline AG, CH
+15600   | 94.16.192.1      | 94.16.128.0/17      | CH | ripencc  | 2008-06-05 | QUICKLINE - Quickline AG, CH
+15600   | 94.16.254.1      | 94.16.128.0/17      | CH | ripencc  | 2008-06-05 | QUICKLINE - Quickline AG, CH
+133041  | 103.75.1.1       | 103.75.1.0/24       | HK | apnic    | 2016-09-13 | TIANXINGROUP-AS-AP - Tianxin Group Co., Limited, HK
+58369   | 103.75.64.1      | 103.75.64.0/24      | ID | apnic    | 2023-01-24 | FIBERNET-AS-ID - PT. Fiber Networks Indonesia, ID
+NA      | 103.75.128.1     | NA                  | CN | apnic    | 2016-09-19 | NA
+132115  | 103.75.192.1     | 103.75.192.0/24     | IN | apnic    | 2016-09-21 | ISPL-AS-AP - INDINET SERVICE PRIVATE LIMITED, IN
+NA      | 103.75.254.1     | NA                  | JP | apnic    | 2016-09-26 | NA
+13335   | 104.22.1.1       | 104.22.1.0/24       | US | arin     | 2014-03-28 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 104.22.64.1      | 104.22.64.0/24      | US | arin     | 2014-03-28 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 104.22.128.1     | 104.22.128.0/24     | US | arin     | 2014-03-28 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 104.22.192.1     | 104.22.192.0/24     | US | arin     | 2014-03-28 | CLOUDFLARENET - Cloudflare, Inc., US
+132892  | 104.22.254.1     | 104.22.240.0/20     | US | arin     | 2014-03-28 | CLOUDFLARE - Cloudflare, Inc., US
+53667   | 107.189.1.1      | 107.189.0.0/21      | US | arin     | 2014-04-17 | PONYNET - FranTech Solutions, US
+16276   | 107.189.64.1     | 107.189.64.0/18     | US | arin     | 2014-04-10 | OVH - OVH SAS, FR
+53755   | 107.189.128.1    | 107.189.128.0/20    | US | arin     | 2014-04-22 | IOFLOOD - Input Output Flood LLC, US
+36493   | 107.189.192.1    | 107.189.192.0/18    | CA | arin     | 2014-04-22 | 295CA-TOR-ASN - FIBERNETICS CORPORATION, CA
+36493   | 107.189.254.1    | 107.189.192.0/18    | CA | arin     | 2014-04-22 | 295CA-TOR-ASN - FIBERNETICS CORPORATION, CA
+48635   | 109.70.1.1       | 109.70.0.0/21       | NL | ripencc  | 2009-10-23 | CLDIN-NL - Your Hosting B.V., NL
+9009    | 109.70.64.1      | 109.70.64.0/23      | US | ripencc  | 2019-01-08 | M247 - M247 Europe SRL, RO
+45037   | 109.70.128.1     | 109.70.128.0/24     | ES | ripencc  | 2009-11-04 | Hispaweb-Network - Propelin Consulting S.L.U., ES
+48284   | 109.70.192.1     | 109.70.192.0/21     | DE | ripencc  | 2009-11-09 | TELENET-AS - SWU TeleNet GmbH, DE
+196847  | 109.70.254.1     | 109.70.254.0/24     | RU | ripencc  | 2009-11-11 | TERMINAL-AS - JSC SHEREMETYEVO INTERNATIONAL AIRPORT, RU
+56040   | 120.233.1.1      | 120.233.0.0/22      | CN | apnic    | 2008-04-14 | CMNET-GuangDong-AP - China Mobile communications corporation, CN
+9808    | 120.233.64.1     | 120.233.64.0/23     | CN | apnic    | 2008-04-14 | CHINAMOBILE-CN - China Mobile Communications Group Co., Ltd., CN
+9808    | 120.233.128.1    | 120.233.128.0/24    | CN | apnic    | 2008-04-14 | CHINAMOBILE-CN - China Mobile Communications Group Co., Ltd., CN
+9808    | 120.233.192.1    | 120.233.192.0/24    | CN | apnic    | 2008-04-14 | CHINAMOBILE-CN - China Mobile Communications Group Co., Ltd., CN
+56040   | 120.233.254.1    | 120.233.0.0/16      | CN | apnic    | 2008-04-14 | CMNET-GuangDong-AP - China Mobile communications corporation, CN
+14061   | 134.122.1.1      | 134.122.0.0/20      | US | arin     | 2019-09-06 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 134.122.64.1     | 134.122.64.0/20     | US | arin     | 2019-09-06 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+152194  | 134.122.128.1    | 134.122.128.0/24    | SG | apnic    | 1989-05-23 | CTGSERVERLIMITED-AS-AP - CTG Server Limited, HK
+152194  | 134.122.192.1    | 134.122.192.0/24    | SG | apnic    | 1989-05-23 | CTGSERVERLIMITED-AS-AP - CTG Server Limited, HK
+152194  | 134.122.254.1    | 134.122.224.0/19    | SG | apnic    | 1989-05-23 | CTGSERVERLIMITED-AS-AP - CTG Server Limited, HK
+9009    | 135.136.1.1      | 135.136.1.0/24      | RO | ripencc  | 1994-06-01 | M247 - M247 Europe SRL, RO
+9009    | 135.136.64.1     | 135.136.64.0/24     | RO | ripencc  | 1994-06-01 | M247 - M247 Europe SRL, RO
+931     | 135.136.128.1    | 135.136.128.0/24    | SG | ripencc  | 1994-01-06 | HYONIX - Hyonix, SG
+4540    | 135.136.192.1    | 135.136.192.0/21    | CA | arin     | 2026-01-26 | ASN01-SOGE - SOGETEL INC, CA
+4540    | 135.136.254.1    | 135.136.248.0/21    | CA | arin     | 2026-01-26 | ASN01-SOGE - SOGETEL INC, CA
+31898   | 141.148.1.1      | 141.148.0.0/18      | US | ripencc  | 1990-07-30 | ORACLE-BMC-31898 - Oracle Corporation, US
+31898   | 141.148.64.1     | 141.148.64.0/19     | US | ripencc  | 1990-07-30 | ORACLE-BMC-31898 - Oracle Corporation, US
+31898   | 141.148.128.1    | 141.148.128.0/18    | US | ripencc  | 1990-07-30 | ORACLE-BMC-31898 - Oracle Corporation, US
+31898   | 141.148.192.1    | 141.148.192.0/19    | US | ripencc  | 1990-07-30 | ORACLE-BMC-31898 - Oracle Corporation, US
+31898   | 141.148.254.1    | 141.148.224.0/19    | US | ripencc  | 1990-07-30 | ORACLE-BMC-31898 - Oracle Corporation, US
+46606   | 142.4.1.1        | 142.4.0.0/19        | US | arin     | 2012-06-15 | UNIFIEDLAYER-AS-1 - Unified Layer, US
+18690   | 142.4.64.1       | 142.4.64.0/19       | US | arin     | 2012-06-22 | MEDIDATA - Medidata Solutions, Inc, US
+36327   | 142.4.128.1      | 142.4.128.0/19      | US | arin     | 2012-07-13 | VINAKOM - VINAKOM COMMUNICATIONS, US
+16276   | 142.4.192.1      | 142.4.192.0/19      | CA | arin     | 2012-07-23 | OVH - OVH SAS, FR
+NA      | 142.4.254.1      | NA                  | US | arin     | 2012-08-08 | NA
+7029    | 147.90.1.1       | 147.90.1.0/24       | NL | ripencc  | 1991-07-19 | WINDSTREAM - Windstream Communications LLC, US
+NA      | 147.90.64.1      | NA                  | NL | ripencc  | 1991-07-19 | NA
+210874  | 147.90.128.1     | 147.90.128.0/19     | NL | ripencc  | 1991-07-19 | box-broadband - Box Broadband Limited, GB
+NA      | 147.90.192.1     | NA                  | NL | ripencc  | 1991-07-19 | NA
+212477  | 147.90.254.1     | 147.90.254.0/24     | NL | ripencc  | 1991-07-19 | ROYALE-AS - RoyaleHosting BV, NL
+NA      | 147.182.1.1      | NA                  | US | arin     | 1991-07-05 | NA
+137904  | 147.182.64.1     | 147.182.64.0/21     | US | arin     | 1991-07-05 | BVPL-AS-AP - Black & Veatch (SEA) PTE LTD, SG
+14061   | 147.182.128.1    | 147.182.128.0/20    | US | arin     | 2020-01-17 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 147.182.192.1    | 147.182.192.0/20    | US | arin     | 2020-01-17 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 147.182.254.1    | 147.182.240.0/20    | US | arin     | 2020-01-17 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+174     | 149.22.1.1       | 149.22.0.0/16       | US | arin     | 1992-01-28 | COGENT-174 - Cogent Communications, LLC, US
+202282  | 149.22.64.1      | 149.22.64.0/20      | US | arin     | 1992-01-28 | Fibrus - FIBRUS NETWORKS LTD, GB
+201838  | 149.22.128.1     | 149.22.128.0/17     | US | arin     | 1992-01-28 | ASN-COMMUNITYFIBRE - Community Fibre Limited, GB
+201838  | 149.22.192.1     | 149.22.128.0/17     | US | arin     | 1992-01-28 | ASN-COMMUNITYFIBRE - Community Fibre Limited, GB
+201838  | 149.22.254.1     | 149.22.128.0/17     | US | arin     | 1992-01-28 | ASN-COMMUNITYFIBRE - Community Fibre Limited, GB
+7684    | 153.127.1.1      | 153.127.0.0/17      | JP | apnic    | 2011-03-02 | SAKURA-A - SAKURA Internet Inc., JP
+7684    | 153.127.64.1     | 153.127.0.0/17      | JP | apnic    | 2011-03-02 | SAKURA-A - SAKURA Internet Inc., JP
+7684    | 153.127.128.1    | 153.127.128.0/18    | JP | apnic    | 2011-03-02 | SAKURA-A - SAKURA Internet Inc., JP
+7684    | 153.127.192.1    | 153.127.192.0/19    | JP | apnic    | 2011-03-02 | SAKURA-A - SAKURA Internet Inc., JP
+24282   | 153.127.254.1    | 153.127.224.0/19    | JP | apnic    | 2011-03-02 | KIR - KAGOYA JAPAN Inc., JP
+701     | 156.146.1.1      | 156.146.1.0/24      | US | arin     | 1992-02-05 | UUNET - Verizon Business, US
+393397  | 156.146.64.1     | 156.146.64.0/19     | US | arin     | 2020-07-24 | LREC-LRT - Lake Region Electric Cooperative, Inc, US
+1448    | 156.146.128.1    | 156.146.128.0/18    | US | arin     | 2020-04-08 | UNITED-BROADBAND - United Cooperative Services, US
+1448    | 156.146.192.1    | 156.146.192.0/20    | US | arin     | 2020-04-08 | UNITED-BROADBAND - United Cooperative Services, US
+1448    | 156.146.254.1    | 156.146.224.0/19    | US | arin     | 2020-04-08 | UNITED-BROADBAND - United Cooperative Services, US
+13335   | 162.159.1.1      | 162.159.1.0/24      | US | arin     | 2013-05-23 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 162.159.64.1     | 162.159.64.0/20     | US | arin     | 2013-05-23 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 162.159.128.1    | 162.159.128.0/19    | US | arin     | 2013-05-23 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 162.159.192.1    | 162.159.192.0/24    | US | arin     | 2013-05-23 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 162.159.254.1    | 162.159.240.0/20    | US | arin     | 2013-05-23 | CLOUDFLARENET - Cloudflare, Inc., US
+14061   | 162.243.1.1      | 162.243.0.0/17      | US | arin     | 2013-09-06 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 162.243.64.1     | 162.243.0.0/17      | US | arin     | 2013-09-06 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 162.243.128.1    | 162.243.128.0/19    | US | arin     | 2013-09-06 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 162.243.192.1    | 162.243.192.0/18    | US | arin     | 2013-09-06 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 162.243.254.1    | 162.243.192.0/18    | US | arin     | 2013-09-06 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+NA      | 165.140.1.1      | NA                  | US | arin     | 2022-01-07 | NA
+17267   | 165.140.64.1     | 165.140.64.0/24     | US | arin     | 2022-01-06 | VGI-TECHNOLOGY - VGI Technology, Inc., US
+53698   | 165.140.128.1    | 165.140.128.0/24    | US | arin     | 2021-10-05 | NINJA-IX-TRANSIT-CONNECTION - Ninja-IX Corporation, US
+5065    | 165.140.192.1    | 165.140.192.0/24    | US | arin     | 2021-10-07 | BUNNY-COMMUNICATIONS-GLOBAL - Bunny Communications, US
+12025   | 165.140.254.1    | 165.140.254.0/23    | US | arin     | 2021-10-07 | IMDC-AS12025 - Iron Mountain Data Center, US
+14061   | 167.71.1.1       | 167.71.0.0/20       | US | arin     | 2019-04-24 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 167.71.64.1      | 167.71.64.0/20      | US | arin     | 2019-04-24 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 167.71.128.1     | 167.71.128.0/20     | US | arin     | 2019-04-24 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 167.71.192.1     | 167.71.192.0/20     | US | arin     | 2019-04-24 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 167.71.254.1     | 167.71.240.0/20     | US | arin     | 2019-04-24 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 167.172.1.1      | 167.172.0.0/22      | US | ripencc  | 1993-08-30 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 167.172.64.1     | 167.172.64.0/20     | US | ripencc  | 1993-08-30 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 167.172.128.1    | 167.172.128.0/20    | US | ripencc  | 1993-08-30 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 167.172.192.1    | 167.172.192.0/20    | US | ripencc  | 1993-08-30 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+14061   | 167.172.254.1    | 167.172.240.0/20    | US | ripencc  | 1993-08-30 | DIGITALOCEAN-ASN - DigitalOcean, LLC, US
+13335   | 172.69.1.1       | 172.69.1.0/24       | US | arin     | 2015-02-25 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 172.69.64.1      | 172.69.64.0/24      | US | arin     | 2015-02-25 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 172.69.128.1     | 172.69.128.0/24     | US | arin     | 2015-02-25 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 172.69.192.1     | 172.69.192.0/24     | US | arin     | 2015-02-25 | CLOUDFLARENET - Cloudflare, Inc., US
+14789   | 172.69.254.1     | 172.69.254.0/24     | US | arin     | 2015-02-25 | CLOUDFLARENET - Cloudflare, Inc., US
+132892  | 172.70.1.1       | 172.70.0.0/19       | US | arin     | 2015-02-25 | CLOUDFLARE - Cloudflare, Inc., US
+132892  | 172.70.64.1      | 172.70.64.0/21      | US | arin     | 2015-02-25 | CLOUDFLARE - Cloudflare, Inc., US
+13335   | 172.70.128.1     | 172.70.128.0/24     | US | arin     | 2015-02-25 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 172.70.192.1     | 172.70.192.0/24     | US | arin     | 2015-02-25 | CLOUDFLARENET - Cloudflare, Inc., US
+13335   | 172.70.254.1     | 172.70.254.0/24     | US | arin     | 2015-02-25 | CLOUDFLARENET - Cloudflare, Inc., US
+22773   | 184.178.1.1      | 184.176.0.0/12      | US | arin     | 2010-05-14 | ASN-CXA-ALL-CCI-22773-RDC - Cox Communications Inc., US
+22773   | 184.178.64.1     | 184.178.64.0/24     | US | arin     | 2010-05-14 | ASN-CXA-ALL-CCI-22773-RDC - Cox Communications Inc., US
+22773   | 184.178.128.1    | 184.176.0.0/12      | US | arin     | 2010-05-14 | ASN-CXA-ALL-CCI-22773-RDC - Cox Communications Inc., US
+22773   | 184.178.192.1    | 184.178.192.0/20    | US | arin     | 2010-05-14 | ASN-CXA-ALL-CCI-22773-RDC - Cox Communications Inc., US
+22773   | 184.178.254.1    | 184.176.0.0/12      | US | arin     | 2010-05-14 | ASN-CXA-ALL-CCI-22773-RDC - Cox Communications Inc., US
+22773   | 184.185.1.1      | 184.185.0.0/21      | US | arin     | 2010-05-14 | ASN-CXA-ALL-CCI-22773-RDC - Cox Communications Inc., US
+22773   | 184.185.64.1     | 184.176.0.0/12      | US | arin     | 2010-05-14 | ASN-CXA-ALL-CCI-22773-RDC - Cox Communications Inc., US
+22773   | 184.185.128.1    | 184.185.128.0/24    | US | arin     | 2010-05-14 | ASN-CXA-ALL-CCI-22773-RDC - Cox Communications Inc., US
+22773   | 184.185.192.1    | 184.185.192.0/21    | US | arin     | 2010-05-14 | ASN-CXA-ALL-CCI-22773-RDC - Cox Communications Inc., US
+22773   | 184.185.254.1    | 184.185.240.0/20    | US | arin     | 2010-05-14 | ASN-CXA-ALL-CCI-22773-RDC - Cox Communications Inc., US
+205390  | 185.220.1.1      | 185.220.0.0/22      | DE | ripencc  | 2017-09-07 | tectiqom-as - TectiQom Information Technology GmbH, DE
+198418  | 185.220.64.1     | 185.220.64.0/22     | PL | ripencc  | 2017-09-11 | CELcom - CELCOM SPOLKA Z OGRANICZONA ODPOWIEDZIALNOSCIA, PL
+205354  | 185.220.128.1    | 185.220.128.0/24    | RS | ripencc  | 2017-09-13 | EP-ENTEL-AS - ENERGOPROJEKT ENTEL a.d. BEOGRAD, RS
+56567   | 185.220.192.1    | 185.220.192.0/22    | DE | ripencc  | 2017-09-13 | NORSITEL-AS - Norsitel GmbH, DE
+29056   | 185.220.254.1    | 185.220.252.0/22    | AT | ripencc  | 2017-09-14 | CITYCOM-AS - Citycom Telekommunikation GmbH, AT
+29485   | 188.129.1.1      | 188.129.0.0/17      | HR | ripencc  | 2009-03-18 | AMISHR - A1 Hrvatska d.o.o., HR
+29485   | 188.129.64.1     | 188.129.0.0/17      | HR | ripencc  | 2009-03-18 | AMISHR - A1 Hrvatska d.o.o., HR
+16010   | 188.129.128.1    | 188.129.128.0/17    | GE | ripencc  | 2009-03-20 | MagticomAS - Magticom Ltd., GE
+16010   | 188.129.192.1    | 188.129.128.0/17    | GE | ripencc  | 2009-03-20 | MagticomAS - Magticom Ltd., GE
+16010   | 188.129.254.1    | 188.129.128.0/17    | GE | ripencc  | 2009-03-20 | MagticomAS - Magticom Ltd., GE
+NA      | 192.42.1.1       | NA                  | DE | ripencc  | 1988-11-14 | NA
+5501    | 192.42.64.1      | 192.42.64.0/24      | DE | ripencc  | 1991-07-19 | Fraunhofer-Cluster-BW - Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V., DE
+1101    | 192.42.128.1     | 192.42.128.0/22     | NL | ripencc  | 1988-09-26 | IP-EEND-AS - SURF B.V., NL
+559     | 192.42.192.1     | 192.42.192.0/21     | CH | ripencc  | 1988-10-18 | Switch - SWITCH, CH
+NA      | 192.42.254.1     | NA                  |    | arin     |            | NA
+397462  | 192.111.1.1      | 192.111.1.0/24      | US | arin     | 2019-07-03 | CSPI-MSP-1 - CSPi Technology Solutions, US
+26827   | 192.111.64.1     | 192.111.64.0/20     | US | arin     | 2012-11-14 | EPBTELECOM - EPB Fiber Optics, US
+46562   | 192.111.128.1    | 192.111.128.0/24    | US | arin     | 2013-03-06 | PERFORMIVE - Performive LLC, US
+NA      | 192.111.192.1    | NA                  | US | arin     | 1991-08-09 | NA
+NA      | 192.111.254.1    | NA                  | US | arin     | 1991-08-27 | NA
+15169   | 192.178.1.1      | 192.178.0.0/15      | US | arin     | 2012-07-12 | GOOGLE - Google LLC, US
+15169   | 192.178.64.1     | 192.178.0.0/15      | US | arin     | 2012-07-12 | GOOGLE - Google LLC, US
+15169   | 192.178.128.1    | 192.178.128.0/24    | US | arin     | 2012-07-12 | GOOGLE - Google LLC, US
+15169   | 192.178.192.1    | 192.178.192.0/24    | US | arin     | 2012-07-12 | GOOGLE - Google LLC, US
+15169   | 192.178.254.1    | 192.178.0.0/15      | US | arin     | 2012-07-12 | GOOGLE - Google LLC, US
+25813   | 192.252.1.1      | 192.252.0.0/21      | US | arin     | 1992-11-20 | EXELA-25813 - HOV Services, Inc., US
+NA      | 192.252.64.1     | NA                  | US | arin     | 1992-11-24 | NA
+22652   | 192.252.128.1    | 192.252.128.0/20    | CA | arin     | 2013-06-27 | FIBRENOIRE-INTERNET - Videotron Ltee, CA
+13490   | 192.252.192.1    | 192.252.192.0/24    | US | arin     | 2013-07-02 | BUCKEYECABLEVISION - Buckeye Cablevision, Inc., US
+NA      | 192.252.254.1    | NA                  | US | arin     | 2022-07-14 | NA
+NA      | 193.221.1.1      | NA                  | BE | ripencc  | 1993-09-01 | NA
+NA      | 193.221.64.1     | NA                  | SE | ripencc  | 1993-07-22 | NA
+25160   | 193.221.128.1    | 193.221.128.0/19    | GB | ripencc  | 1993-12-17 | VORBOSS - Vorboss Limited, GB
+208393  | 193.221.192.1    | 193.221.192.0/24    | US | ripencc  | 2018-09-18 | DEDCLOUD - Dedcloud Network Ltd, GB
+NA      | 193.221.254.1    | NA                  | BE | ripencc  | 1994-01-01 | NA
+6181    | 208.102.1.1      | 208.102.0.0/17      | US | arin     | 2006-03-01 | FUSE-NET - Cincinnati Bell Telephone Company LLC, US
+6181    | 208.102.64.1     | 208.102.0.0/17      | US | arin     | 2006-03-01 | FUSE-NET - Cincinnati Bell Telephone Company LLC, US
+6181    | 208.102.128.1    | 208.102.128.0/17    | US | arin     | 2006-03-01 | FUSE-NET - Cincinnati Bell Telephone Company LLC, US
+6181    | 208.102.192.1    | 208.102.128.0/17    | US | arin     | 2006-03-01 | FUSE-NET - Cincinnati Bell Telephone Company LLC, US
+6181    | 208.102.254.1    | 208.102.128.0/17    | US | arin     | 2006-03-01 | FUSE-NET - Cincinnati Bell Telephone Company LLC, US
+136787  | 209.46.1.1       | 209.46.1.0/24       | US | ripencc  | 1997-04-22 | PACKETHUBSA-AS-AP - PacketHub S.A., PA
+14205   | 209.46.64.1      | 209.46.64.0/22      | US | arin     | 2023-05-09 | RPAPSL-14205 - Riviera Park Alameda Padre Serra LLC, US
+NA      | 209.46.128.1     | NA                  | US | arin     | 1997-04-28 | NA
+NA      | 209.46.192.1     | NA                  | US | arin     | 1997-04-28 | NA
+NA      | 209.46.254.1     | NA                  | US | arin     | 1997-04-28 | NA
+8685    | 212.58.1.1       | 212.58.1.0/24       | TR | ripencc  | 1998-03-11 | DorukNet - Doruk Iletisim ve Otomasyon Sanayi ve Ticaret A.S., TR
+48918   | 212.58.64.1      | 212.58.64.0/19      | DE | ripencc  | 1998-07-03 | GLOBALWAYS - Globalways GmbH, DE
+8757    | 212.58.128.1     | 212.58.128.0/24     | US | ripencc  | 1998-05-13 | NSFOCUS - NSFOCUS, Inc., US
+12380   | 212.58.192.1     | 212.58.192.0/24     | RU | ripencc  | 1998-08-21 | LENSVYAZ - PJSC Rostelecom, RU
+2818    | 212.58.254.1     | 212.58.224.0/19     | GB | ripencc  | 1999-10-08 | BBC - BBC, GB

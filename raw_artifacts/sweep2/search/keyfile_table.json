@@ -1,0 +1,380 @@
+[
+ {
+  "alias": "abcdef1234567890txt",
+  "ts": "2026-05-12 05:29:12",
+  "ip": "52.242.217.235",
+  "clicks": "3",
+  "url": "https://httpbin.org/base64/YWJjZGVmMTIzNDU2Nzg5MA==",
+  "decoded": "abcdef1234567890",
+  "enc": "b64"
+ },
+ {
+  "alias": "aaaaaaaatxt",
+  "ts": "2026-05-12 05:31:17",
+  "ip": "20.168.75.99",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/YWFhYWFhYWE=",
+  "decoded": "aaaaaaaa",
+  "enc": "b64"
+ },
+ {
+  "alias": "abcdefghtxt",
+  "ts": "2026-05-12 05:31:27",
+  "ip": "20.9.41.27",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/YWJjZGVmZ2g=",
+  "decoded": "abcdefgh",
+  "enc": "b64"
+ },
+ {
+  "alias": "indexnowtxt",
+  "ts": "2026-05-12 05:31:32",
+  "ip": "52.234.123.82",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/aW5kZXhub3c=",
+  "decoded": "indexnow",
+  "enc": "b64"
+ },
+ {
+  "alias": "cdeindexkeytxt",
+  "ts": "2026-05-12 05:31:37",
+  "ip": "20.9.90.150",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/Y2RlaW5kZXhrZXk=",
+  "decoded": "cdeindexkey",
+  "enc": "b64"
+ },
+ {
+  "alias": "bbbbbbbbbbbbbbbbtxt",
+  "ts": "2026-05-12 05:31:47",
+  "ip": "4.255.255.153",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/YmJiYmJiYmJiYmJiYmJiYg==",
+  "decoded": "bbbbbbbbbbbbbbbb",
+  "enc": "b64"
+ },
+ {
+  "alias": "keytesting123txt",
+  "ts": "2026-05-13 08:13:42",
+  "ip": "135.234.27.233",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/aGVsbG8=",
+  "decoded": "hello",
+  "enc": "b64"
+ },
+ {
+  "alias": "keytesting124",
+  "ts": "2026-05-13 08:13:50",
+  "ip": "104.209.147.118",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/aGVsbG8=",
+  "decoded": "hello",
+  "enc": "b64"
+ },
+ {
+  "alias": "keytesting125txt",
+  "ts": "2026-05-13 08:13:54",
+  "ip": "172.173.122.242",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/aGVsbG8=",
+  "decoded": "hello",
+  "enc": "b64"
+ },
+ {
+  "alias": "keytesthtml",
+  "ts": "2026-05-13 08:14:01",
+  "ip": "20.65.251.0",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/aGVsbG8=",
+  "decoded": "hello",
+  "enc": "b64"
+ },
+ {
+  "alias": "abcdef",
+  "ts": "2026-05-13 08:14:18",
+  "ip": "20.169.43.66",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/aGVsbG8=",
+  "decoded": "hello",
+  "enc": "b64"
+ },
+ {
+  "alias": "ikiylnwmpx",
+  "ts": "2026-05-13 08:15:05",
+  "ip": "135.234.29.190",
+  "clicks": "4",
+  "url": "https://httpbin.org/base64/NW9pYTliMXQzYWZhdjZwNXdlbWEzOXg2M2lqNzV0MDA=",
+  "decoded": "5oia9b1t3afav6p5wema39x63ij75t00",
+  "enc": "b64"
+ },
+ {
+  "alias": "robotstxt",
+  "ts": "2026-05-19 03:40:36",
+  "ip": "20.163.103.159",
+  "clicks": "0",
+  "url": "http://example.net/robots.txt",
+  "decoded": null,
+  "enc": null
+ },
+ {
+  "alias": "vmindex9315",
+  "ts": "2026-05-26 13:15:16",
+  "ip": "20.69.94.247",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/dm1pbmRleDkzMTU=",
+  "decoded": "vmindex9315",
+  "enc": "b64"
+ },
+ {
+  "alias": "aea81c5aa4ac2f0e0e25c274b165d89dtxt",
+  "ts": "2026-05-28 01:45:09",
+  "ip": "20.246.119.35",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/YWVhODFjNWFhNGFjMmYwZTBlMjVjMjc0YjE2NWQ4OWQ",
+  "decoded": "aea81c5aa4ac2f0e0e25c274b165d89d",
+  "enc": "b64"
+ },
+ {
+  "alias": "aea81c5aa4ac2f0e0e25c274b165d89d",
+  "ts": "2026-05-28 01:45:13",
+  "ip": "130.131.192.110",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/YWVhODFjNWFhNGFjMmYwZTBlMjVjMjc0YjE2NWQ4OWQ",
+  "decoded": "aea81c5aa4ac2f0e0e25c274b165d89d",
+  "enc": "b64"
+ },
+ {
+  "alias": "85-mo",
+  "ts": "2026-05-29 14:07:57",
+  "ip": "104.45.221.81",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/SGk=",
+  "decoded": "Hi",
+  "enc": "b64"
+ },
+ {
+  "alias": "l9amc",
+  "ts": "2026-05-29 15:14:18",
+  "ip": "20.12.224.130",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/SGk=",
+  "decoded": "Hi",
+  "enc": "b64"
+ },
+ {
+  "alias": "testnabc8508",
+  "ts": "2026-05-29 15:14:59",
+  "ip": "20.69.61.24",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/PGh0bWw-PGEgaHJlZj0iaHR0cHM6Ly9hcGkuZGF0YWFmcmljYS5pby9hcGkvam9pbi8_Z2VvPTA1MEFGMDAxNTIwMTg4OSZhbXA7c2hvdz1jcm9wJmFtcDtzdW1sZXZlbD1sb3dlc3QmYW1wO3JlcXVpcmVkPWhhcnZlc3RlZF9hcmVhLHZhbHVlX29mX3Byb2R1Y3Rpb24sY3JvcF9wYXJlbnQsY3JvcF9uYW1lIj5EYXRhIHRhYmxlPC9hPjwvaHRtbD4=",
+  "decoded": "<html><a href=\"https://api.dataafrica.io/api/join/?geo=050AF0015201889&amp;show=crop&amp;sumlevel=lowest&amp;required=harvested_area,value_of_production,crop_parent,crop_name\">Data table</a></html>",
+  "enc": "b64"
+ },
+ {
+  "alias": "mykeyverify123txt",
+  "ts": "2026-05-29 15:41:09",
+  "ip": "52.161.35.82",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/6d796b6579766572696679313233",
+  "decoded": "mykeyverify123",
+  "enc": "hex(mislabelled)"
+ },
+ {
+  "alias": "abcdef123",
+  "ts": "2026-05-29 15:41:10",
+  "ip": "52.238.195.146",
+  "clicks": "2",
+  "url": "https://httpbin.org/base64/616263646566313233",
+  "decoded": "abcdef123",
+  "enc": "hex(mislabelled)"
+ },
+ {
+  "alias": "1234567890abcdef1234567890abcdeftxt",
+  "ts": "2026-05-29 15:41:12",
+  "ip": "20.29.102.107",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/3132333435363738393061626364656631323334353637383930616263646566",
+  "decoded": "1234567890abcdef1234567890abcdef",
+  "enc": "hex(mislabelled)"
+ },
+ {
+  "alias": "bbccddeeff00112233445566778899aa",
+  "ts": "2026-05-29 15:46:27",
+  "ip": "20.97.5.66",
+  "clicks": "8",
+  "url": "https://httpbin.org/base64/YmJjY2RkZWVmZjAwMTEyMjMzNDQ1NTY2Nzc4ODk5YWE=",
+  "decoded": "bbccddeeff00112233445566778899aa",
+  "enc": "b64"
+ },
+ {
+  "alias": "sample-public-front-pagetxt",
+  "ts": "2026-05-29 16:19:09",
+  "ip": "20.245.117.125",
+  "clicks": "0",
+  "url": "https://api.dataafrica.io",
+  "decoded": null,
+  "enc": null
+ },
+ {
+  "alias": "bingvalid1",
+  "ts": "2026-05-30 15:36:08",
+  "ip": "20.69.60.250",
+  "clicks": "2",
+  "url": "https://httpbin.org/base64/ZGVhZGJlZWYwMTIzNDU2Nzg5MA",
+  "decoded": "deadbeef01234567890",
+  "enc": "b64"
+ },
+ {
+  "alias": "bingvalid2",
+  "ts": "2026-05-30 15:38:21",
+  "ip": "20.80.3.8",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/ZGVhZGJlZWYwMTIzNDU2Nzg5MA==",
+  "decoded": "deadbeef01234567890",
+  "enc": "b64"
+ },
+ {
+  "alias": "aug46887txt",
+  "ts": "2026-05-30 19:32:27",
+  "ip": "172.202.21.121",
+  "clicks": "0",
+  "url": "https://api.usa.gov/crime/fbi/cde/arrest/agency/AL0040000/all?API_KEY=DEMO_KEY&from=01-2022&to=12-2022&type=counts",
+  "decoded": null,
+  "enc": null
+ },
+ {
+  "alias": "keytestabctxt",
+  "ts": "2026-05-30 21:37:38",
+  "ip": "172.202.41.139",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/abcd",
+  "decoded": null,
+  "enc": "undecodable"
+ },
+ {
+  "alias": "keytestabc2etxt",
+  "ts": "2026-05-30 21:37:40",
+  "ip": "64.236.176.163",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/abcd",
+  "decoded": null,
+  "enc": "undecodable"
+ },
+ {
+  "alias": "key-testabctxt",
+  "ts": "2026-05-30 21:37:41",
+  "ip": "20.114.155.211",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/abcd",
+  "decoded": null,
+  "enc": "undecodable"
+ },
+ {
+  "alias": "indexkeytxt",
+  "ts": "2026-05-30 21:37:42",
+  "ip": "20.168.75.85",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/abcd",
+  "decoded": null,
+  "enc": "undecodable"
+ },
+ {
+  "alias": "abcdef0123456789abcdef0123456789",
+  "ts": "2026-05-30 21:39:00",
+  "ip": "20.225.81.31",
+  "clicks": "6",
+  "url": "https://httpbin.org/base64/YWJjZGVmMDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODk=",
+  "decoded": "abcdef0123456789abcdef0123456789",
+  "enc": "b64"
+ },
+ {
+  "alias": "indexnowcafebabecafebabe",
+  "ts": "2026-05-30 22:37:26",
+  "ip": "20.110.210.61",
+  "clicks": "2",
+  "url": "https://httpbin.org/base64/Y2FmZWJhYmVjYWZlYmFiZQ==",
+  "decoded": "cafebabecafebabe",
+  "enc": "b64"
+ },
+ {
+  "alias": "zzzguidfiletxt",
+  "ts": "2026-05-30 23:16:49",
+  "ip": "130.131.23.29",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/dGVzdA==",
+  "decoded": "test",
+  "enc": "b64"
+ },
+ {
+  "alias": "zzzguidfile",
+  "ts": "2026-05-30 23:16:50",
+  "ip": "20.96.12.0",
+  "clicks": "0",
+  "url": "https://httpbin.org/base64/dGVzdA==",
+  "decoded": "test",
+  "enc": "b64"
+ },
+ {
+  "alias": "aeb263b8e57c64cfcbb73ec306f0df23f",
+  "ts": "2026-05-30 23:21:43",
+  "ip": "20.69.20.70",
+  "clicks": "5",
+  "url": "https://httpbin.org/base64/QWViMjYzYjhlNTdjNjRjZmNiYjczZWMzMDZmMGRmMjNm",
+  "decoded": "Aeb263b8e57c64cfcbb73ec306f0df23f",
+  "enc": "b64"
+ },
+ {
+  "alias": "7faaaaaaaaaaaaaaaaaaaaaaaaaaaaaatxt",
+  "ts": "2026-05-30 23:26:57",
+  "ip": "40.70.131.156",
+  "clicks": "0",
+  "url": "https://bing.com",
+  "decoded": null,
+  "enc": null
+ },
+ {
+  "alias": "indexnowkeytoken123",
+  "ts": "2026-05-30 23:26:58",
+  "ip": "52.159.106.93",
+  "clicks": "0",
+  "url": "https://bing.com",
+  "decoded": null,
+  "enc": null
+ },
+ {
+  "alias": "abcdefghij",
+  "ts": "2026-05-30 23:26:59",
+  "ip": "20.225.210.129",
+  "clicks": "0",
+  "url": "https://bing.com",
+  "decoded": null,
+  "enc": null
+ },
+ {
+  "alias": "secmapkey987654321txt",
+  "ts": "2026-06-18 09:19:56",
+  "ip": "20.9.40.95",
+  "clicks": "2",
+  "url": "https://httpbingo.org/base64/c2VjbWFwa2V5OTg3NjU0MzIx?content-type=text/plain",
+  "decoded": "secmapkey987654321",
+  "enc": "b64"
+ },
+ {
+  "alias": "httpbincounty",
+  "ts": "2026-06-18 11:42:53",
+  "ip": "20.69.36.54",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/PGh0bWw%2BPGJvZHk%2B",
+  "decoded": "<html><body>",
+  "enc": "b64"
+ },
+ {
+  "alias": "agentkey60913f05194e7054txt",
+  "ts": "2026-06-18 13:03:20",
+  "ip": "104.42.146.207",
+  "clicks": "1",
+  "url": "https://httpbin.org/base64/YWdlbnRrZXk2MDkxM2YwNTE5NGU3MDU0",
+  "decoded": "agentkey60913f05194e7054",
+  "enc": "b64"
+ }
+]

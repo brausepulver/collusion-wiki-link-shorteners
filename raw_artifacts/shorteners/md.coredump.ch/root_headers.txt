@@ -1,0 +1,14 @@
+HTTP/2 200 
+server: nginx
+date: Mon, 07 Sep 2026 00:47:39 GMT
+content-type: text/html; charset=utf-8
+content-length: 16536
+x-powered-by: Express
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+referrer-policy: same-origin
+hedgedoc-version: 1.9.9
+etag: W/"4098-fnHpZOomfYi5ZvXHxzWjBgtc3Bk"
+set-cookie: connect.sid=s%3A2808Xyn_k99ekhDs0CeNcwAc6rMBKBB2.CjDHD9R%2Fi9P9JuKPqd33sbTThxcmYIF4SM3x8OFcEvo; Path=/; Expires=Mon, 21 Sep 2026 00:47:39 GMT; HttpOnly; Secure; SameSite=Lax
+vary: Accept-Encoding
+strict-transport-security: max-age=31104000
+

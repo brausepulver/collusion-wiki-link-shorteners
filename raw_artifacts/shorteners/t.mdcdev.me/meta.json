@@ -1,0 +1,21 @@
+{
+ "base": "https://t.mdcdev.me",
+ "api": "https://t.mdcdev.me/yourls-api.php",
+ "user_agent": "CollusionWikiResearch/1.0 (URL-shortener abuse research)",
+ "fetched_at": "2026-09-07T00:52:22Z",
+ "pages_fetched": 35,
+ "rows_merged": 9498,
+ "agent_links": 881,
+ "agent_links_in_window": 879,
+ "incident_window": [
+  "2026-05-12 00:00:00",
+  "2026-07-11 23:59:59"
+ ],
+ "rows_window_covered": "2026-08-28 .. 2026-04-09 (start 0..9498)",
+ "db_stats": {
+  "total_links": "372368",
+  "total_clicks": "2499763"
+ },
+ "clicks_caveat": "The clicks_lifetime column and all referrer aggregates are CONTAMINATED: YOURLS lifetime counters / referrer tallies with no per-event timestamp, folding in post-disclosure (2026-07+) researcher replays. Attribute ONLY by creation timestamp + creator IP (Azure AS8075) + target-URL signature. The only clean over-time signal is the per-day binned chart in stats/per_day_series.json, sliced to <=2026-07.",
+ "note": "YOURLS 1.9.2 open stats API; newest-first, sorted timestamp DESC; creator IP last octet truncated to .0. Timestamps are server-local (timezone unknown). A poison row at offset ~1105 breaks json_encode for any window covering it; fetch bisects around it (2 poison rows skipped, both Aug spam)."
+}

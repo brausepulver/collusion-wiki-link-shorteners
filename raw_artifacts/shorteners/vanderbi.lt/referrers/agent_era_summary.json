@@ -1,0 +1,207 @@
+{
+  "scope": "agent-era (>=2026-05-01)",
+  "referrer_url_rows": 8519,
+  "aliases_with_referrers": 500,
+  "top_referrer_hosts": [
+    {
+      "host": "jqp.vercel.app",
+      "clicks": 7413,
+      "aliases": 113
+    },
+    {
+      "host": "vanderbi.lt",
+      "clicks": 3666,
+      "aliases": 294
+    },
+    {
+      "host": "api.dataafrica.io",
+      "clicks": 2882,
+      "aliases": 71
+    },
+    {
+      "host": "news.vanderbilt.edu",
+      "clicks": 2170,
+      "aliases": 1
+    },
+    {
+      "host": "da.gd",
+      "clicks": 2011,
+      "aliases": 49
+    },
+    {
+      "host": "www.sec.gov",
+      "clicks": 1295,
+      "aliases": 58
+    },
+    {
+      "host": "allorigins.hexlet.app",
+      "clicks": 954,
+      "aliases": 64
+    },
+    {
+      "host": "md.succ.ai",
+      "clicks": 865,
+      "aliases": 56
+    },
+    {
+      "host": "httpbin.org",
+      "clicks": 434,
+      "aliases": 8
+    },
+    {
+      "host": "api.usa.gov",
+      "clicks": 415,
+      "aliases": 64
+    },
+    {
+      "host": "uniqueexampletest123.com",
+      "clicks": 312,
+      "aliases": 4
+    },
+    {
+      "host": "api.worldpoverty.io",
+      "clicks": 271,
+      "aliases": 28
+    },
+    {
+      "host": "markdown.new",
+      "clicks": 232,
+      "aliases": 33
+    },
+    {
+      "host": "cde.ucr.cjis.gov",
+      "clicks": 196,
+      "aliases": 17
+    },
+    {
+      "host": "r.jina.ai",
+      "clicks": 175,
+      "aliases": 34
+    },
+    {
+      "host": "www.investor.gov",
+      "clicks": 157,
+      "aliases": 13
+    },
+    {
+      "host": "is.gd",
+      "clicks": 133,
+      "aliases": 4
+    },
+    {
+      "host": "example.com",
+      "clicks": 100,
+      "aliases": 21
+    },
+    {
+      "host": "api.datausa.io",
+      "clicks": 96,
+      "aliases": 8
+    },
+    {
+      "host": "example.org",
+      "clicks": 89,
+      "aliases": 21
+    },
+    {
+      "host": "docs.google.com",
+      "clicks": 75,
+      "aliases": 8
+    },
+    {
+      "host": "examplenewref.com",
+      "clicks": 54,
+      "aliases": 40
+    },
+    {
+      "host": "platform.lemino.ai",
+      "clicks": 41,
+      "aliases": 6
+    },
+    {
+      "host": "pxweb.nso.gov.vn",
+      "clicks": 39,
+      "aliases": 3
+    },
+    {
+      "host": "corsmirror.com",
+      "clicks": 33,
+      "aliases": 4
+    },
+    {
+      "host": "pure.md",
+      "clicks": 32,
+      "aliases": 24
+    },
+    {
+      "host": "martingauer.com",
+      "clicks": 31,
+      "aliases": 3
+    },
+    {
+      "host": "bitily.in",
+      "clicks": 31,
+      "aliases": 1
+    },
+    {
+      "host": "prowiki.org",
+      "clicks": 24,
+      "aliases": 7
+    },
+    {
+      "host": "addnewlogtest.foo",
+      "clicks": 20,
+      "aliases": 1
+    },
+    {
+      "host": "www.proxymule.com",
+      "clicks": 19,
+      "aliases": 3
+    },
+    {
+      "host": "assets.dataforindia.com",
+      "clicks": 12,
+      "aliases": 6
+    },
+    {
+      "host": "unique010abc.test",
+      "clicks": 11,
+      "aliases": 2
+    },
+    {
+      "host": "www.google.com",
+      "clicks": 11,
+      "aliases": 7
+    },
+    {
+      "host": "google.com",
+      "clicks": 11,
+      "aliases": 2
+    },
+    {
+      "host": "proxy.corsfix.com",
+      "clicks": 10,
+      "aliases": 4
+    },
+    {
+      "host": "foouniqueref.com",
+      "clicks": 10,
+      "aliases": 1
+    },
+    {
+      "host": "tinyurl.com",
+      "clicks": 10,
+      "aliases": 4
+    },
+    {
+      "host": "unique987654.test",
+      "clicks": 9,
+      "aliases": 1
+    },
+    {
+      "host": "newtestxyz.org",
+      "clicks": 9,
+      "aliases": 9
+    }
+  ]
+}

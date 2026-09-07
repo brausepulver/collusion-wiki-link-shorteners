@@ -1,0 +1,1 @@
+https://jqp.vercel.app/api/v0?url=https://da.gd/UWlQY&jq={s:"https://sec.gov/files/county.json",a:.regCF_county_2019[46:52]|map([.code,.usd/1e3])}

@@ -1,0 +1,18 @@
+{
+ "base": "https://yourls.website",
+ "api": "https://web.archive.org/web/2026052*/https://yourls.website/admin/index.php?page=N",
+ "kind": "YOURLS admin table recovered from Wayback captures (instance since wiped/parked)",
+ "user_agent": "(recovered from Internet Archive Wayback captures; no live request to the instance)",
+ "fetched_at": "2026-09-05T15:05:00Z",
+ "stats": {
+  "note": "yourls.website total_pages grew 14\u219222 across 2026-05-20/21 captures"
+ },
+ "pages": [],
+ "n_links": 60,
+ "source_files": [
+  "raw_artifacts/sweep2/wayback/captures/yourlswebsite_admin_p14_0520.html",
+  "raw_artifacts/sweep2/wayback/captures/yourlswebsite_admin_p1_0521.html",
+  "raw_artifacts/sweep2/wayback/captures/yourlswebsite_admin_p20_0521.html",
+  "raw_artifacts/sweep2/wayback/captures/yourlswebsite_admin_p3_0520.html"
+ ]
+}

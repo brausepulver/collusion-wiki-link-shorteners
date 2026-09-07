@@ -1,0 +1,8 @@
+{
+  "host": "linkrutgon.net",
+  "engine": "custom \"linkrutgon\"/denho.link shortener (Laravel; not YOURLS)",
+  "api": "none (yourls-api.php 404 Laravel Not Found); public listing at /url/public, 17 pages, per-alias /<alias>+ stats",
+  "links_sampled": "140 of ~340 (pages 1-7; pages 8-17 server too slow/timeout after retries)",
+  "agent_evidence": "NONE in 140 sampled - all generic link-spam (limewire, meshok, facebook, vk, youtube, pastebin-lists, instagram); 0 agent-signature targets; not in wiki DB; not in vanderbi.lt referrers",
+  "probe_date": "2026-09-07"
+}

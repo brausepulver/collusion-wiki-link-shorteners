@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/frontend.css" />
+<meta name="keywords" content="short url, url shortener, online url shortener, free url shortener" />
+<meta name="description" content="Use this URL Shortener service to shorten your long URLs!" />
+<meta property="og:title" content="URL Shortener" />
+<meta property="og:description" content="Use this URL Shortener service to shorten your long URLs!" />
+<meta property="og:image" content="/images/logo.png" />
+<style type="text/css">
+/*<![CDATA[*/
+
+            .cc_logo { display: none !important; }
+        
+/*]]>*/
+</style>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+
+			window.cookieconsent_options = {
+				learnMore: 'Learn\x20more',
+				dismiss: 'OK',
+				message: 'This\x20website\x20uses\x20cookies\x20to\x20ensure\x20you\x20get\x20the\x20best\x20experience\x20on\x20our\x20website.',
+				theme:'light\x2Dfloating',
+				link: '\x2Fprivacy\x2Dpolicy',
+				path: '\x2F\x3BSameSite\x3DLax',
+				expiryDays: 365
+			};
+		
+/*]]>*/
+</script>
+<title>URL Shortener</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <script type="text/javascript">
+$(document).ready(function() {
+    "use strict";
+
+	$(window).keydown(function(event){
+		if(event.keyCode === 13) {
+			event.preventDefault();
+			return false;
+		}
+	});
+
+	$.fn.shortlink({
+		ajax: 'https://www.klickhier.at/ajax/short',
+		siteUrl: 'https://www.klickhier.at',
+		qr: '#qr',
+		copy: '#copy',
+		shortlink: '#shortlink',
+		url: '#url',
+		create: '#create',
+		form: '#shortForm',
+		shortarea: '#short-area',
+		notice: '#copy-notice',
+		share: '.share42init',
+	});
+});
+</script>
+
+
+<h1 class="mt-4 text-primary text-center site-name">
+    URL Shortener</h1>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title text-center mb-4">
+            Paste the long URL and make it short!        </h5>
+
+        <form id="shortForm">
+            <div class="input-group mb-4">
+                <input type="text" class="form-control form-control-lg" name="url" id="url" placeholder="http://php8developer.com">
+
+                <div class="input-group-append">
+                    <button class="btn btn-primary" id="create">
+                        SHORTEN                    </button>
+                </div>
+            </div>
+        </form>
+
+        <p class="mt-4 text-center">
+            This is a free online service which helps you shorten long URLs that never expire.        </p>
+
+    </div>
+</div>
+
+
+
+<div id="short-area" class="disnone">
+    <h2 class="mt-4 text-primary text-center site-name">
+        Your shortened URL    </h2>
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="form-group row">
+                <label for="shortlink" class="col-md-2 col-form-label">
+                    Short link                </label>
+                <div class="col-md-10">
+                    <div class="input-group mb-4">
+                        <input type="text" class="form-control form-control-lg" name="shortLink" id="shortlink">
+
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" id="d_clip_button" data-clipboard-target="#shortlink">
+                                Copy                            </button>
+                        </div>
+
+                        <div id="copy-notice" style="visibility:hidden;">Copied</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label qr-label">QR Code</label>
+                <div class="col-md-10">
+                    <img src="#" title='app' alt='app' id="qr" class="qr"/>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+            <div class="share42init" data-path="/images/"></div>
+        </div>
+    </div>
+</div>
+
+    <div class="mt-4">
+         <center><a href="https://vxcsh.com/1/40983/-1?adtv=184419_bnmngr_77ec8&pc=VIP41TOP&vxpAutoFlow=Signup&s=3981976" target="_blank"><img src="https://www.flibzee.com/pimage/visit-x/logo/a/DE/w728/h90/20170615_vx_f16_07_3981976.gif" border="0"></a></center>     </div>
+
+<ul class="list-group list-group-horizontal-md mt-4" style="width: 100%">
+    <li class="list-group-item flex-fill">
+        Total Hits: <strong>810,865</strong>
+    </li>
+    <li class="list-group-item flex-fill">
+        Total URLs: <strong>2,057</strong>
+    </li>
+    <li class="list-group-item flex-fill">
+        Today's added URLs: <strong>4</strong>
+    </li>
+</ul>
+
+    <h3 class="text-primary mt-4">Recently added URLs</h3>
+    <div class="table-responsive">
+        <table class="table table-results">
+            <thead class="table-primary">
+            <tr>
+                <th>Short URL</th>
+                <th>Long URL</th>
+                <th>Datetime</th>
+                <th>Hits</th>
+            </tr>
+            </thead>
+            <tbody>
+                            <tr>
+                    <td>
+                        <a href="https://www.klickhier.at/Kd" target="_blank">
+                            https://www.klickhier.at/Kd                        </a>
+                    </td>
+                    <td>https://www.big7.com/portal/account/8437035/EllaXx...</td>
+                    <td>2026-09-07 02:28:00</td>
+                    <td>7</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://www.klickhier.at/Kc" target="_blank">
+                            https://www.klickhier.at/Kc                        </a>
+                    </td>
+                    <td>https://www.big7.com/portal/account/8437035/EllaXx...</td>
+                    <td>2026-09-07 02:26:41</td>
+                    <td>1</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://www.klickhier.at/Kb" target="_blank">
+                            https://www.klickhier.at/Kb                        </a>
+                    </td>
+                    <td>https://www.big7.com/portal/account/7040103/NoraNo...</td>
+                    <td>2026-09-07 02:10:48</td>
+                    <td>5</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://www.klickhier.at/Ka" target="_blank">
+                            https://www.klickhier.at/Ka                        </a>
+                    </td>
+                    <td>https://www.big7.com/portal/account/1464102/Vaness...</td>
+                    <td>2026-09-07 01:58:23</td>
+                    <td>5</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://www.klickhier.at/J9" target="_blank">
+                            https://www.klickhier.at/J9                        </a>
+                    </td>
+                    <td>https://www.big7.com/portal/account/8449149/Jolie-...</td>
+                    <td>2026-09-06 21:09:30</td>
+                    <td>11</td>
+                </tr>
+                        </tbody>
+        </table>
+    </div>
+
+    <h3 class="text-primary mt-4">Most popular URLs</h3>
+    <div class="table-responsive">
+        <table class="table table-results">
+            <thead class="table-primary">
+            <tr>
+                <th>Short URL</th>
+                <th>Long URL</th>
+                <th>Datetime</th>
+                <th>Hits</th>
+            </tr>
+            </thead>
+            <tbody>
+                            <tr>
+                    <td>
+                        <a href="https://www.klickhier.at/kd" target="_blank">
+                            https://www.klickhier.at/kd                        </a>
+                    </td>
+                    <td>http://www.cam-date.de</td>
+                    <td>2025-02-16 20:50:54</td>
+                    <td>107,394</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://www.klickhier.at/vd" target="_blank">
+                            https://www.klickhier.at/vd                        </a>
+                    </td>
+                    <td>https://vxcsh.com/163/40983/</td>
+                    <td>2025-09-25 01:03:40</td>
+                    <td>40,347</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://www.klickhier.at/ce" target="_blank">
+                            https://www.klickhier.at/ce                        </a>
+                    </td>
+                    <td>https://www.big7.com/portal/account/5327126/Emmi-H...</td>
+                    <td>2024-07-17 23:13:16</td>
+                    <td>28,329</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://www.klickhier.at/vc" target="_blank">
+                            https://www.klickhier.at/vc                        </a>
+                    </td>
+                    <td>https://www.visit-x.net/de/amateur/emmi-hill/?w=40...</td>
+                    <td>2025-09-25 01:00:44</td>
+                    <td>24,760</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://www.klickhier.at/xG" target="_blank">
+                            https://www.klickhier.at/xG                        </a>
+                    </td>
+                    <td>https://www.visit-x.world/VX/LP/FreeTop10?vclana=L...</td>
+                    <td>2025-11-05 04:51:27</td>
+                    <td>18,482</td>
+                </tr>
+                        </tbody>
+        </table>
+    </div>
+
+    <div class="mt-4">
+        <center><script type="text/javascript" src="https://b.big7.com/c.php?b=459&wmb=1533"></script></center>    </div>
+        </div>
+    </div>
+</div>
+
+<footer class="mt-auto">
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="row">
+                    <div class="col-md-8">
+                        <a href="https://klickhier.at/impressum.html">Imprint</a></p>                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <li><a href="/privacy-policy">Privacy Policy</a></li>
+                            <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="/js/cookieconsent.latest.min.js"></script>
+<script type="text/javascript" src="/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/share42.js?v=0.1"></script>
+<script type="text/javascript" src="/js/frontend.js?v=0.3"></script>
+</body>
+</html>

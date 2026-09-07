@@ -1,0 +1,11 @@
+https://2dd.pl {'root': 200, 'stats': 403, 'db_stats': 403, 'admin': 200}
+https://bitily.in {'root': 200, 'stats': 200, 'db_stats': 200, 'admin': 200}
+https://app.bitily.in {'root': 'SSLError(MaxRetryError("HTTPSConnectionPool(host=\'app.bitily', 'stats': 'SSLError(MaxRetryError("HTTPSConnectionPool(host=\'app.bitily', 'db_stats': 'SSLError(MaxRetryError("HTTPSConnectionPool(host=\'app.bitily', 'admin': 'SSLError(MaxRetryError("HTTPSConnectionPool(host=\'app.bitily'}
+https://yourls.website {'root': 'SSLError(MaxRetryError("HTTPSConnectionPool(host=\'yourls.web', 'stats': 'SSLError(MaxRetryError("HTTPSConnectionPool(host=\'yourls.web', 'db_stats': 'SSLError(MaxRetryError("HTTPSConnectionPool(host=\'yourls.web', 'admin': 'SSLError(MaxRetryError("HTTPSConnectionPool(host=\'yourls.web'}
+https://yourls.pro {'root': "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'yo", 'stats': "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'yo", 'db_stats': "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'yo", 'admin': "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'yo"}
+https://short.kodact.art {'root': 200, 'stats': 404, 'db_stats': 404, 'admin': 404}
+https://ctxr.me {'root': 200, 'stats': 502, 'db_stats': 502, 'admin': 502}
+http://2dd.pl {'root': 301, 'stats': 301, 'db_stats': 301, 'admin': 301}
+http://bitily.in {'root': 200, 'stats': 200, 'db_stats': 200, 'admin': 200}
+http://yourls.website {'root': 200, 'stats': 404, 'db_stats': 404, 'admin': 404}
+http://yourls.pro {'root': "ConnectionError(MaxRetryError('HTTPConnectionPool(host=\\'you", 'stats': "ConnectionError(MaxRetryError('HTTPConnectionPool(host=\\'you", 'db_stats': "ConnectionError(MaxRetryError('HTTPConnectionPool(host=\\'you", 'admin': "ConnectionError(MaxRetryError('HTTPConnectionPool(host=\\'you"}

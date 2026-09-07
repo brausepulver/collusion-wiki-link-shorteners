@@ -1,0 +1,102 @@
+resolved map: 199 with target: 148
+
+=== depth histogram === {4: 1, 3: 10, 2: 212}
+=== total chained links: 223
+
+=== DEEPEST CHAINS (depth>=3) ===
+
+-- depth=4 2026-05-29 14:10:32 ip=20.69.36.126 alias=1istd
+    vanderbi.lt/1istd -> https://bitily.in/abc
+        bitily.in/abc -> https://bitily.in/MYLABI/
+            bitily.in/MYLABI -> https://bitily.in/MYLABI/
+                bitily.in/MYLABI -> <cycle/max-depth>
+
+-- depth=3 2026-05-29 14:09:23 ip=20.165.196.46 alias=twobridge915696
+    vanderbi.lt/twobridge915696 -> https://bitily.in/MYLABI/mydalink62991
+        bitily.in/MYLABI -> https://bitily.in/MYLABI/
+            bitily.in/MYLABI -> <cycle/max-depth>
+
+-- depth=3 2026-05-29 14:11:32 ip=20.172.47.7 alias=5im1j
+    vanderbi.lt/5im1j -> https://bitily.in/MYLABI
+        bitily.in/MYLABI -> https://bitily.in/MYLABI/
+            bitily.in/MYLABI -> <cycle/max-depth>
+
+-- depth=3 2026-05-29 14:11:34 ip=52.225.31.56 alias=6holl
+    vanderbi.lt/6holl -> https://bitily.in/MYLABI/
+        bitily.in/MYLABI -> https://bitily.in/MYLABI/
+            bitily.in/MYLABI -> <cycle/max-depth>
+
+-- depth=3 2026-05-29 14:11:40 ip=20.94.247.235 alias=hjt18
+    vanderbi.lt/hjt18 -> https://bitily.in/MYLABI/mydalink6299a
+        bitily.in/MYLABI -> https://bitily.in/MYLABI/
+            bitily.in/MYLABI -> <cycle/max-depth>
+
+-- depth=3 2026-05-29 14:11:40 ip=172.202.201.55 alias=y-7sv
+    vanderbi.lt/y-7sv -> https://bitily.in/MYLABI/mpy
+        bitily.in/MYLABI -> https://bitily.in/MYLABI/
+            bitily.in/MYLABI -> <cycle/max-depth>
+
+-- depth=3 2026-05-29 14:11:46 ip=4.151.200.110 alias=mudq-
+    vanderbi.lt/mudq- -> https://bitily.in/MYLABI/mydalink62991
+        bitily.in/MYLABI -> https://bitily.in/MYLABI/
+            bitily.in/MYLABI -> <cycle/max-depth>
+
+-- depth=3 2026-05-29 14:11:48 ip=20.171.66.146 alias=gvs33
+    vanderbi.lt/gvs33 -> https://bitily.in/%4d%59%4c%41%42%49/mydalink62991
+        bitily.in/MYLABI -> https://bitily.in/MYLABI/
+            bitily.in/MYLABI -> <cycle/max-depth>
+
+-- depth=3 2026-05-29 15:41:29 ip=20.94.253.68 alias=out19437
+    vanderbi.lt/out19437 -> https://tinyurl.com/24p7mjdp
+        tinyurl.com/24p7mjdp -> https://yourls.website/yourls-api.php?action=shorturl&format=json&keyword=sou631052&title=OFFICIALDATA&url=https%3A%2F%2Fapi.dataafrica.io%2Fapi%2Fjoin%2F%3Fgeo%3D050AF0015201890%26crop%3Dchic%26show%3Dcrop%26required%3Dvalue_of_production
+            yourls.website/yourls-api.php -> [not probed]
+
+-- depth=3 2026-05-29 15:42:42 ip=64.236.162.109 alias=tt375217
+    vanderbi.lt/tt375217 -> https://tinyurl.com/24p7mjdp
+        tinyurl.com/24p7mjdp -> https://yourls.website/yourls-api.php?action=shorturl&format=json&keyword=sou631052&title=OFFICIALDATA&url=https%3A%2F%2Fapi.dataafrica.io%2Fapi%2Fjoin%2F%3Fgeo%3D050AF0015201890%26crop%3Dchic%26show%3Dcrop%26required%3Dvalue_of_production
+            yourls.website/yourls-api.php -> [not probed]
+
+-- depth=3 2026-05-29 15:42:45 ip=20.237.208.132 alias=tt840851
+    vanderbi.lt/tt840851 -> http://tinyurl.com/24p7mjdp
+        tinyurl.com/24p7mjdp -> https://yourls.website/yourls-api.php?action=shorturl&format=json&keyword=sou631052&title=OFFICIALDATA&url=https%3A%2F%2Fapi.dataafrica.io%2Fapi%2Fjoin%2F%3Fgeo%3D050AF0015201890%26crop%3Dchic%26show%3Dcrop%26required%3Dvalue_of_production
+            yourls.website/yourls-api.php -> [not probed]
+
+(depth>=3 count: 11 )
+
+=== sample depth-2 chains that RESOLVED to a final target ===
+  2026-05-26 13:19:23 sndfilter43x
+    vanderbi.lt/sndfilter43x -> https://jqp.vercel.app/api/v0?url=https%3A%2F%2Fda.gd%2F4OzSm&jq=%5B.%5B%5D%20%7C%20select%28.Award%20%3D%3D%20%22Award%20of%20Excellence%22%29%20%7C%20select%28.%22General%20Category%20Name%22%20%7C%20startswith%28%22Desi
+        da.gd/4OzSm -> https://airtable.com/v0.3/view/viwb5v6acVmfP9fnd/downloadCsv?x-time-zone=UTC&x-airtable-application-id=app90oaiea9w9Ifs0&accessPolicy=%7B%22allowedActions%22%3A%5B%7B%22modelClassName%22%3A%22view%22%2C%22modelIdSelector%22%3A%22vi
+  2026-05-26 21:59:36 ag0csv883182
+    vanderbi.lt/ag0csv883182 -> https://da.gd/4OzSm
+        da.gd/4OzSm -> https://airtable.com/v0.3/view/viwb5v6acVmfP9fnd/downloadCsv?x-time-zone=UTC&x-airtable-application-id=app90oaiea9w9Ifs0&accessPolicy=%7B%22allowedActions%22%3A%5B%7B%22modelClassName%22%3A%22view%22%2C%22modelIdSelector%22%3A%22vi
+  2026-05-27 12:17:15 vandlink88442
+    vanderbi.lt/vandlink88442 -> https://vanderbi.lt/erieshop770099+
+        vanderbi.lt/erieshop770099 -> https://railroadtreasures.com/products/railroad-magazine-1970-june-milwaukee-electrification-erie-mallets
+  2026-05-29 14:54:04 w8uj5
+    vanderbi.lt/w8uj5 -> https://tinyurl.com/24qrtw8l
+        tinyurl.com/24qrtw8l -> https://api.dataafrica.io/api/join/?geo=050AF0015201889%26show=crop%26sumlevel=lowest%26required=harvested_area,value_of_production,crop_parent,crop_name%26order=value_of_production%26sort=desc
+  2026-05-29 14:54:29 vad820
+    vanderbi.lt/vad820 -> https://tinyurl.com/22rjxv9r
+        tinyurl.com/22rjxv9r -> https://allorigins.hexlet.app/raw?url=https%3A%2F%2Fapi.dataafrica.io%2Fapi%2Fjoin%2F%3Fgeo%3D050AF0015201889%26show%3Dcrop%26sumlevel%3Dlowest%26required%3Dharvested_area%2Cvalue_of_production%2Ccrop_parent%2Ccrop_name%26
+  2026-05-29 14:55:38 cnq202966
+    vanderbi.lt/cnq202966 -> https://tinyurl.com/22rjxv9r
+        tinyurl.com/22rjxv9r -> https://allorigins.hexlet.app/raw?url=https%3A%2F%2Fapi.dataafrica.io%2Fapi%2Fjoin%2F%3Fgeo%3D050AF0015201889%26show%3Dcrop%26sumlevel%3Dlowest%26required%3Dharvested_area%2Cvalue_of_production%2Ccrop_parent%2Ccrop_name%26
+  2026-05-29 15:14:25 h4h7o
+    vanderbi.lt/h4h7o -> https://tinyurl.com/27r2h8bb
+        tinyurl.com/27r2h8bb -> https://api.dataafrica.io/api/join/?geo=050AF0015201889&show=crop&sumlevel=lowest&required=harvested_area,value_of_production,crop_parent,crop_name
+  2026-05-29 15:32:42 k0afw
+    vanderbi.lt/k0afw -> https://tinyurl.com/24atomk6/
+        tinyurl.com/24atomk6 -> https://api.dataafrica.io/api/join/?geo=050AF0015201889&show=crop&required=value_of_production&crop=chic
+  2026-05-29 15:52:06 xmmsg
+    vanderbi.lt/xmmsg -> https://tinyurl.com/24aua4ur
+        tinyurl.com/24aua4ur -> https://api.dataafrica.io/api/join/csv/?geo=050AF0015201888%26show=crop%26sumlevel=lowest%26required=harvested_area%252Cvalue_of_production%252Ccrop_parent%252Ccrop_name
+  2026-05-29 15:52:09 v29bw
+    vanderbi.lt/v29bw -> http://tinyurl.com/24aua4ur
+        tinyurl.com/24aua4ur -> https://api.dataafrica.io/api/join/csv/?geo=050AF0015201888%26show=crop%26sumlevel=lowest%26required=harvested_area%252Cvalue_of_production%252Ccrop_parent%252Ccrop_name
+  2026-05-29 15:59:53 69ec3
+    vanderbi.lt/69ec3 -> https://vanderbi.lt/x
+        vanderbi.lt/x -> https://api.dataafrica.io/api/join/?geo=050AF0015201889&show=crop&sumlevel=lowest&required=harvested_area,value_of_production,crop_parent,crop_name&order=value_of_production&sort=desc
+  2026-05-29 16:41:11 48afz
+    vanderbi.lt/48afz -> http://tinyurl.com/24rntunb
+        tinyurl.com/24rntunb -> https://api.dataafrica.io/api/join/?geo=050AF0015201888&show=crop&sumlevel=lowest&required=harvested_area,value_of_production,crop_parent,crop_name

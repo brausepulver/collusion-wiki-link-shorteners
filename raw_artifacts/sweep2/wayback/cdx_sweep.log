@@ -1,0 +1,83 @@
+GET prowiki.org 2026
+  prowiki.org 2026: 4017 captures
+GET prowiki.org 2025
+  prowiki.org 2025: 10000 captures
+GET wikiservice.at 2026
+  wikiservice.at 2026: 8055 captures
+GET wikiservice.at 2025
+  wikiservice.at 2025: 10000 captures
+GET vanderbi.lt 2026
+  vanderbi.lt 2026: 28 captures
+GET vanderbi.lt 2025
+  vanderbi.lt 2025: 119 captures
+GET yourls.pro 2026
+  yourls.pro 2026: 3 captures
+GET yourls.pro 2025
+  yourls.pro 2025: 0 captures
+GET yourls.website 2026
+  yourls.website 2026: 64 captures
+GET yourls.website 2025
+  yourls.website 2025: 0 captures
+GET bitily.in 2026
+  bitily.in 2026: 54 captures
+GET bitily.in 2025
+  bitily.in 2025: 0 captures
+GET 2dd.pl 2026
+  2dd.pl 2026: 0 captures
+GET 2dd.pl 2025
+  2dd.pl 2025: 0 captures
+GET api.dataafrica.io 2026
+  api.dataafrica.io 2026: 0 captures
+GET api.dataafrica.io 2025
+  api.dataafrica.io 2025: 0 captures
+GET api.worldpoverty.io 2026
+  api.worldpoverty.io 2026: 10 captures
+GET api.worldpoverty.io 2025
+  api.worldpoverty.io 2025: 9 captures
+GET api.usa.gov/crime 2026
+  api.usa.gov/crime 2026: 1 captures
+GET api.usa.gov/crime 2025
+  api.usa.gov/crime 2025: 4 captures
+GET cde.ucr.cjis.gov 2026
+  cde.ucr.cjis.gov 2026: 10000 captures
+GET cde.ucr.cjis.gov 2025
+  cde.ucr.cjis.gov 2025: 10000 captures
+GET api.counterapi.dev 2026
+  api.counterapi.dev 2026: 287 captures
+GET api.counterapi.dev 2025
+  api.counterapi.dev 2025: 163 captures
+GET countapi.mileshilliard.com 2026
+  countapi.mileshilliard.com 2026: 123 captures
+GET countapi.mileshilliard.com 2025
+  ERR URLError <urlopen error [Errno 111] Connection refused>
+  countapi.mileshilliard.com 2025: 3 captures
+GET jsonhero.io/j 2026
+  jsonhero.io/j 2026: 22 captures
+GET jsonhero.io/j 2025
+  jsonhero.io/j 2025: 48 captures
+GET jqp.vercel.app 2026
+  jqp.vercel.app 2026: 8 captures
+GET jqp.vercel.app 2025
+  jqp.vercel.app 2025: 11 captures
+GET md.succ.ai 2026
+  md.succ.ai 2026: 26 captures
+GET md.succ.ai 2025
+  ERR URLError <urlopen error [Errno 111] Connection refused>
+  md.succ.ai 2025: 0 captures
+GET allorigins.hexlet.app 2026
+  allorigins.hexlet.app 2026: 80 captures
+GET allorigins.hexlet.app 2025
+  allorigins.hexlet.app 2025: 0 captures
+GET publictestwiki.com 2026
+  publictestwiki.com 2026: 2514 captures
+GET publictestwiki.com 2025
+  publictestwiki.com 2025: 2297 captures
+GET usemod.org 2026
+  usemod.org 2026: 175 captures
+GET usemod.org 2025
+  usemod.org 2025: 245 captures
+GET pmwiki.org 2026
+  pmwiki.org 2026: 7552 captures
+GET pmwiki.org 2025
+  pmwiki.org 2025: 10000 captures
+DONE

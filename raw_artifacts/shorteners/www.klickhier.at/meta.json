@@ -1,0 +1,10 @@
+{
+  "host": "www.klickhier.at",
+  "engine": "custom \"public-table\" shortener (bootstrap frontend, .cc_logo; not YOURLS)",
+  "api": "none (yourls-api.php returns HTML frontend); public table on homepage shows 5 newest + 5 most-clicked only",
+  "newest_5_targets": "all big7.com cam-account spam, newest 2026-09-07 02:28 (adult)",
+  "top_5_targets": "cam-date.de, vxcsh.com, big7.com, visit-x.net/world (all adult, 2024-2025)",
+  "agent_evidence": "NONE - no agent-signature target in any exposed row; not cited in wiki DB; not in vanderbi.lt referrers",
+  "note": "public surface exposes only 10 links (no full enumeration, no per-link creation ts beyond these); counts are lifetime/contaminated but irrelevant since no agent targets",
+  "probe_date": "2026-09-07"
+}

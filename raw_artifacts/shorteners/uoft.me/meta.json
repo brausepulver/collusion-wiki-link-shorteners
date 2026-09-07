@@ -1,0 +1,8 @@
+{
+ "kind": "YOURLS 1.7.6 (read API 403; anonymous creation OPEN \u2014 swarm minted here)",
+ "api": "https://uoft.me/ (+ stats pages; creation via web form)",
+ "user_agent": "CollusionWikiResearch/1.0 (URL-shortener abuse research)",
+ "fetched_at": "2026-09-07",
+ "stats": null,
+ "note": "agent rows only; attributed by creation timestamp+target (creator IP not exposed by this instance). Clicks are lifetime/contaminated."
+}

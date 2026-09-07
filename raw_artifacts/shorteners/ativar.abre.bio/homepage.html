@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/frontend.css" />
+<meta name="keywords" content="short url, url shortener, online url shortener, free url shortener" />
+<meta name="description" content="Use this URL Shortener service to shorten your long URLs!" />
+<meta property="og:title" content="URL Shortener" />
+<meta property="og:description" content="Use this URL Shortener service to shorten your long URLs!" />
+<meta property="og:image" content="/images/logo.png" />
+<style type="text/css">
+/*<![CDATA[*/
+
+            .cc_logo { display: none !important; }
+        
+/*]]>*/
+</style>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+
+			window.cookieconsent_options = {
+				learnMore: 'Learn\x20more',
+				dismiss: 'OK',
+				message: 'This\x20website\x20uses\x20cookies\x20to\x20ensure\x20you\x20get\x20the\x20best\x20experience\x20on\x20our\x20website.',
+				theme:'light\x2Dfloating',
+				link: 'https\x3A\x2F\x2Fwww.google.com\x2Fintl\x2Fen\x2Fpolicies\x2Fprivacy\x2Fpartners\x2F',
+				path: '\x2Fteste\x2F\x3BSameSite\x3DLax',
+				expiryDays: 365
+			};
+		
+/*]]>*/
+</script>
+<title>URL Shortener</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <script type="text/javascript">
+$(document).ready(function() {
+    "use strict";
+
+	$(window).keydown(function(event){
+		if(event.keyCode === 13) {
+			event.preventDefault();
+			return false;
+		}
+	});
+
+	$.fn.shortlink({
+		ajax: 'https://ativar.abre.bio/ajax/short',
+		siteUrl: 'https://ativar.abre.bio',
+		qr: '#qr',
+		copy: '#copy',
+		shortlink: '#shortlink',
+		url: '#url',
+		create: '#create',
+		form: '#shortForm',
+		shortarea: '#short-area',
+		notice: '#copy-notice',
+		share: '.share42init',
+	});
+});
+</script>
+
+
+<h1 class="mt-4 text-primary text-center site-name">
+    URL Shortener</h1>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title text-center mb-4">
+            Paste the long URL and make it short!        </h5>
+
+        <form id="shortForm">
+            <div class="input-group mb-4">
+                <input type="text" class="form-control form-control-lg" name="url" id="url" placeholder="http://php8developer.com">
+
+                <div class="input-group-append">
+                    <button class="btn btn-primary" id="create">
+                        SHORTEN                    </button>
+                </div>
+            </div>
+        </form>
+
+        <p class="mt-4 text-center">
+            This is a free online service which helps you shorten long URLs that never expire.        </p>
+
+    </div>
+</div>
+
+
+
+<div id="short-area" class="disnone">
+    <h2 class="mt-4 text-primary text-center site-name">
+        Your shortened URL    </h2>
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="form-group row">
+                <label for="shortlink" class="col-md-2 col-form-label">
+                    Short link                </label>
+                <div class="col-md-10">
+                    <div class="input-group mb-4">
+                        <input type="text" class="form-control form-control-lg" name="shortLink" id="shortlink">
+
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" id="d_clip_button" data-clipboard-target="#shortlink">
+                                Copy                            </button>
+                        </div>
+
+                        <div id="copy-notice" style="visibility:hidden;">Copied</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label qr-label">QR Code</label>
+                <div class="col-md-10">
+                    <img src="#" title='app' alt='app' id="qr" class="qr"/>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+            <div class="share42init" data-path="/images/"></div>
+        </div>
+    </div>
+</div>
+
+
+<ul class="list-group list-group-horizontal-md mt-4" style="width: 100%">
+    <li class="list-group-item flex-fill">
+        Total Hits: <strong>6,817</strong>
+    </li>
+    <li class="list-group-item flex-fill">
+        Total URLs: <strong>1,139</strong>
+    </li>
+    <li class="list-group-item flex-fill">
+        Today's added URLs: <strong>3</strong>
+    </li>
+</ul>
+
+    <h3 class="text-primary mt-4">Recently added URLs</h3>
+    <div class="table-responsive">
+        <table class="table table-results">
+            <thead class="table-primary">
+            <tr>
+                <th>Short URL</th>
+                <th>Long URL</th>
+                <th>Datetime</th>
+                <th>Hits</th>
+            </tr>
+            </thead>
+            <tbody>
+                            <tr>
+                    <td>
+                        <a href="https://ativar.abre.bio/sx" target="_blank">
+                            https://ativar.abre.bio/sx                        </a>
+                    </td>
+                    <td>https://canadsport.com/</td>
+                    <td>2026-09-06 17:03:55</td>
+                    <td>153</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ativar.abre.bio/sw" target="_blank">
+                            https://ativar.abre.bio/sw                        </a>
+                    </td>
+                    <td>https://abre.bio/activate-user?email=0aa4f8508687f...</td>
+                    <td>2026-09-06 15:06:37</td>
+                    <td>1</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ativar.abre.bio/sv" target="_blank">
+                            https://ativar.abre.bio/sv                        </a>
+                    </td>
+                    <td>https://abre.bio/activate-user?email=db871f9eb7397...</td>
+                    <td>2026-09-06 11:56:27</td>
+                    <td>3</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ativar.abre.bio/su" target="_blank">
+                            https://ativar.abre.bio/su                        </a>
+                    </td>
+                    <td>https://abre.bio/activate-user?email=1b25920336472...</td>
+                    <td>2026-09-05 21:16:57</td>
+                    <td>3</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ativar.abre.bio/st" target="_blank">
+                            https://ativar.abre.bio/st                        </a>
+                    </td>
+                    <td>https://abre.bio/activate-user?email=0dab05585a3b8...</td>
+                    <td>2026-09-04 22:03:44</td>
+                    <td>2</td>
+                </tr>
+                        </tbody>
+        </table>
+    </div>
+
+    <h3 class="text-primary mt-4">Most popular URLs</h3>
+    <div class="table-responsive">
+        <table class="table table-results">
+            <thead class="table-primary">
+            <tr>
+                <th>Short URL</th>
+                <th>Long URL</th>
+                <th>Datetime</th>
+                <th>Hits</th>
+            </tr>
+            </thead>
+            <tbody>
+                            <tr>
+                    <td>
+                        <a href="https://ativar.abre.bio/iv" target="_blank">
+                            https://ativar.abre.bio/iv                        </a>
+                    </td>
+                    <td>https://tinyurl.com/preview/bk18mtestx</td>
+                    <td>2026-05-18 04:48:45</td>
+                    <td>666</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ativar.abre.bio/t" target="_blank">
+                            https://ativar.abre.bio/t                        </a>
+                    </td>
+                    <td>https://wooyodrai.ru/9JCq8gxM!G/</td>
+                    <td>2026-03-25 22:34:01</td>
+                    <td>579</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ativar.abre.bio/e" target="_blank">
+                            https://ativar.abre.bio/e                        </a>
+                    </td>
+                    <td>https://rogm.life/b/new.html</td>
+                    <td>2026-03-11 12:50:59</td>
+                    <td>554</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ativar.abre.bio/C" target="_blank">
+                            https://ativar.abre.bio/C                        </a>
+                    </td>
+                    <td>https://wooyodrai.ru/Rr6rY64heX6KibZKj@v/</td>
+                    <td>2026-03-26 12:39:04</td>
+                    <td>393</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://ativar.abre.bio/M" target="_blank">
+                            https://ativar.abre.bio/M                        </a>
+                    </td>
+                    <td>https://wooyodrai.ru/4xniW!XV8Rn/</td>
+                    <td>2026-03-27 11:32:27</td>
+                    <td>284</td>
+                </tr>
+                        </tbody>
+        </table>
+    </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="mt-auto">
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-lg-10 offset-lg-1">
+                <p>Developed by <strong><a href="http://php8developer.com">PHP8 Developer</a></strong></p>            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="/js/cookieconsent.latest.min.js"></script>
+<script type="text/javascript" src="/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/share42.js"></script>
+<script type="text/javascript" src="/js/frontend.js?v=0.2"></script>
+</body>
+</html>

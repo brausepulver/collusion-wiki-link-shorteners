@@ -1,0 +1,26 @@
+goto.unm.edu — University of New Mexico URL shortener (YOURLS)  (probed live 2026-09-07, research UA)
+================================================================================
+CONTAMINATION NOTE: live public shortener with real UNM traffic; lifetime hits and referrer aggregates on the `+`
+pages are cumulative (no per-event time) and include post-disclosure researcher replay. Attribution rests on the
+time-resolved all-time chart (a single 2026-06-18 spike on every alias) + the agent-tooling referrer signature.
+
+FINGERPRINT: YOURLS. Read API (yourls-api.php action=expand) answers 302 -> home; stats API 403 in earlier probes.
+  Public per-alias stats page WORKS: /<alias>+  (== /yourls-infos.php?id=<alias>). No agent-minted aliases found:
+  the swarm's `goto.unm.edu/yourls-infos.php/WIN13REFRESH1204?id=7t6-o` calls seen as vanderbi.lt/iyg1y referrers
+  were stats-page fetches, not link creation.
+
+PRE-EXISTING ALIASES REUSED BY THE SWARM (4; all created 2019-2023 by UNM users, none by agents)
+  alias    created (server local)   target                                            06-18 hits  lifetime  agent-ref / referred
+  7t6-o    2023-02-03 5:46 pm       unmanderson.secure.force.com/events/... (Anderson) 1,845       2,497     1,380 / 2,017
+  reso     2021-10-12 9:07 am       sust.unm.edu/news/2021/10/...resolutions...          300         378       278 / 315
+  discvr   2019-04-30 12:29 pm      library.unm.edu/services/disc.php#tab5               113       1,168       114 / 634
+  urphy21  2021-10-20 1:06 pm       unm.zoom.us/meeting/register/...                      60         640       115 / 180
+  apdt9_   (JD/shellac corpus lists it; live GET of /apdt9_+ = 302 -> no such alias)
+  7t6-o is the YOURLS "sample link" of this instance (the same role as vanderbi.lt/iyg1y and uoft.me/utmace); every
+  alias peaks on 2026-06-18 with jqp.vercel.app / md.succ.ai / markdown.new / pure.md / r.jina.ai / da.gd referrers.
+
+SOURCE OF THE ALIAS LIST: JoshuaDavid/WikiAgentSwarmInvestigation agent-logs/shorteners (shellac reading pack): the
+  5 goto-unm "pages" there are scraped `+` stats pages of these aliases (468 referrer URLs), not link targets.
+  The wiki DB has zero mentions of goto.unm.edu; the only cross-link is the iyg1y referrer above.
+
+FILES: plus/<alias>.html (read-only `+` pages), ../probe_targets.json (parsed by tools/parse_probe_targets.py), NOTES.txt.

@@ -1,0 +1,41 @@
+uoft.me — University of Toronto official URL shortener  (probed live 2026-09-07, research UA)
+================================================================================
+CONTAMINATION NOTE: uoft.me is a LIVE public shortener with real human UofT traffic, and the incident
+was disclosed ~2026-09 so researchers have replayed these links since. Lifetime "hits" totals and the
+referrer aggregates below are therefore CONTAMINATED (cumulative, no per-event time). Agent attribution
+rests on CREATION metadata (timestamp in the incident window ~2026-05-12..07-11) + target signature, and
+on the TIME-RESOLVED per-day chart restricted to the in-window slice. Post-Aug clicks = researcher noise.
+
+FINGERPRINT
+  Apache/2 (h2). YOURLS (share.css?v=1.7.6 => YOURLS 1.7.6). ALIVE.
+  Stats API (yourls-api.php action=stats/version/db-stats): 403 {"message":"Please log in"}.
+  Per-alias public stats page WORKS: /<alias>+  and /yourls-infos.php?id=<alias>.
+  Anonymous link CREATION is OPEN (the agent aliases below exist as real minted links).
+
+AGENT-ATTRIBUTABLE ALIASES (6; raw pages plus/*.html; time-resolved split in aliases.csv)
+  Clean attribution = created 2026-06-18 (Toronto local; dead-center of window) + www.utoronto.ca target:
+    alias               target                                     06-18 clicks (in-window, time-resolved)
+    maagentxyz99999     http://www.utoronto.ca/foobaruniq456       1735   (minted 06-18 10:52)
+    zzagent740558       http://www.utoronto.ca/foo4080368           326   (minted 06-18 13:01)
+    mafresh91011        https://www.utoronto.ca/abc2323             262   (minted 06-18 15:03)
+    amass932899504      https://www.utoronto.ca                      26   (minted 06-18 14:59)
+    masshtmliqsrqhqese  http://www.utoronto.ca/masshtmliqsrqhqese    12   (minted 06-18 13:30)
+  utmace  = legit 2013 UofT link (www.utm.utoronto.ca/registrar/ace); NOT agent-created. It is the
+    reachability "example link" (cf. vanderbi.lt/iyg1y). Agent use proven by the 2026-06-18 spike of 870
+    clicks (lifetime 2225 is 12 yrs of real traffic -> ignore) + jqp/sec referrer signature.
+  Per-day chart confirms activity is ~entirely the single 2026-06-18 spike; post-Aug sums are 0-23 (noise).
+  No further aliases exist (self-referral grep of all 6 pages surfaces only these 6).
+
+SAME SWARM AS vanderbi.lt: YES. Same 2026-06-18 peak day as iyg1y (54,250) and the identical nested
+  reader-proxy referrers (CONTAMINATED aggregates, indicative only): jqp.vercel.app, www.sec.gov,
+  allorigins.hexlet.app, md.succ.ai, markdown.new, r.jina.ai, da.gd, is.gd, www.investor.gov, httpbin.org,
+  + marker/fabricated hosts (simpletestrefabc99.com, ournewref789.org, platform.lemino.ai, www.proxymule.com,
+  secgov.prod.acquia-sites.com, pxweb.nso.gov.vn) = the SEC regCF county.json cohort.
+
+CORRECTION to REFERRERS.md 6a: the uoft.me write attempt did NOT fail. The POST keyword observed
+  (action=shorturl...url=http://www.utoronto.ca/foobaruniq456&keyword=maagentxyz99999) exists as a real
+  in-window link. 403 is only on the READ API; anonymous CREATION was open. uoft.me is a SECOND ledger the
+  swarm actually opened (unlike bitily.in-wiped / 2dd.pl / goto.unm.edu, which stayed closed).
+
+FILES: plus/<alias>.html, aliases.csv (time-resolved, contamination-labelled cols), NOTES.txt.
+       parser parse_yourls_plus.py (in uoft.me/).  Creator IPs NOT available (read API 403; YOURLS hides IPs on + page).

@@ -1,0 +1,24 @@
+{
+ "base": "https://yourls.space",
+ "api": "https://yourls.space/yourls-api.php",
+ "user_agent": "CollusionWikiResearch/1.0 (URL-shortener abuse research)",
+ "fetched_at": "2026-09-05T12:49:41Z",
+ "pages": [
+  {
+   "i": 0,
+   "start": 0,
+   "status": 200,
+   "bytes": 50992,
+   "secs": 1.0,
+   "url": "https://yourls.space/yourls-api.php?action=stats&format=json&filter=last&limit=1000&start=0",
+   "n": 254,
+   "oldest": "2026-08-07 08:26:59"
+  }
+ ],
+ "stats": {
+  "total_links": 254,
+  "total_clicks": 2027
+ },
+ "error": null,
+ "n_links": 254
+}

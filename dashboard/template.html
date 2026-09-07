@@ -1,0 +1,804 @@
+<meta charset="utf-8">
+<title>Shortener Swarm Ledger</title>
+<style>
+:root{color-scheme:light;--bg:#f6f4ef;--panel:#fffdf8;--ink:#1b1a17;--muted:#6b675e;--line:#e2ddd2;--accent:#b4401e;--accent2:#1f5f8b;--chip:#efeae0;
+ --c-azure:#2f6fb3;--c-azaws:#2a9d8f;--c-aws:#e07b39;--c-azq:#8fb3d9;--c-gcp:#2a9d8f;--c-cf:#d9a441;--c-host:#8e5aa8;--c-isp:#c05a7a;--c-vu:#9c978c;--c-other:#8e5aa8;--ok:#2d7f4f;--bad:#b4401e}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#15161a;--panel:#1d1f25;--ink:#ecebe6;--muted:#a19d94;--line:#31343d;--accent:#f08a5d;--accent2:#7fb3e0;--chip:#2a2d36;--c-azq:#4d7fb0;--c-vu:#6d6a62}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#15161a;--panel:#1d1f25;--ink:#ecebe6;--muted:#a19d94;--line:#31343d;--accent:#f08a5d;--accent2:#7fb3e0;--chip:#2a2d36;--c-azq:#4d7fb0;--c-vu:#6d6a62}
+body{background:var(--bg);color:var(--ink);font:14px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;margin:0}
+a{color:var(--accent2)} code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px}
+.wrap{max-width:1380px;margin:0 auto;padding:18px 20px 60px}
+h1{font-size:22px;margin:0 0 2px;letter-spacing:-.01em} h2{font-size:15px;margin:0 0 10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)} h2 .note{text-transform:none;letter-spacing:0;font-weight:400}
+.sub{color:var(--muted);margin:0 0 14px}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:14px 0 16px;flex-wrap:wrap}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:8px 12px;color:var(--muted);cursor:pointer;font:inherit;font-weight:600}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--accent)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.kpi .v{font-size:22px;font-weight:700;letter-spacing:-.02em} .kpi .l{color:var(--muted);font-size:12px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px} @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.filters input,.filters select{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink)}
+.filters input[type=text]{min-width:200px;flex:1 1 200px} #fTopic{max-width:210px;text-overflow:ellipsis} #fService{max-width:170px} #fCloud{max-width:170px}
+.chip{display:inline-block;background:var(--chip);border-radius:999px;padding:2px 9px;font-size:12px;margin:2px 4px 2px 0;cursor:pointer;border:1px solid transparent}
+.chip.on{border-color:var(--accent);color:var(--accent)} .chip .x{margin-left:6px;opacity:.6}
+button.btn{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--chip);color:var(--ink);cursor:pointer}
+button.btn:hover{border-color:var(--accent)}
+svg{display:block;max-width:100%} .bar{cursor:pointer} .bar:hover{opacity:.75}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:6px}
+.legend i,i.lg{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.hbars{display:grid;grid-template-columns:auto 1fr auto;gap:3px 10px;align-items:center;font-size:12.5px}
+.hbars .n{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+.hbars .k{cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px} #origin .k,#ips .k{max-width:360px} .hbars .k:hover{color:var(--accent)}
+.hbars .b{height:12px;background:var(--accent2);border-radius:2px;opacity:.75;min-width:1px}
+.tblwrap{overflow-x:auto} table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{position:sticky;top:0;background:var(--panel);cursor:pointer;white-space:nowrap;color:var(--muted);font-weight:600;user-select:none}
+th.sorted{color:var(--ink)} #tbl th::after{content:'↕';opacity:.3;margin-left:3px;font-size:10px} #tbl[data-dir=asc] th.sorted::after{content:'↑';opacity:1} #tbl[data-dir=desc] th.sorted::after{content:'↓';opacity:1} td.u{max-width:460px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+tr.exp td{background:var(--chip)} tr.detail td{background:var(--chip);white-space:normal}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:0}
+.pager{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:8px;color:var(--muted);font-size:12.5px}
+pre{background:var(--chip);border:1px solid var(--line);border-radius:6px;padding:10px;overflow:auto;max-height:420px;font-size:12px;margin:8px 0}
+.note{font-size:12.5px;color:var(--muted)} .ok{color:var(--ok)} .bad{color:var(--bad)}
+.small{font-size:12px} .r{text-align:right;font-variant-numeric:tabular-nums} .nowrap{white-space:nowrap}
+details summary{cursor:pointer;font-weight:600;margin:6px 0} details.small>summary{font-weight:500;color:var(--muted)}
+#tab-sweep details{margin:4px 0 10px} #tab-sweep ul.small{font-size:12.5px;line-height:1.5;margin:4px 0 0} #tab-sweep li{margin:6px 0} #tab-sweep li[data-ex]{list-style:none;margin-left:-18px} #tab-sweep li>b{color:var(--ink)} details.small>summary{font-weight:500;color:var(--muted)}
+ul.files{margin:4px 0 0;padding-left:18px;columns:2;font-size:12px} @media(max-width:900px){ul.files{columns:1}}
+.pie{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap} .pie svg{width:260px;height:260px;flex:none} .pie .lg{flex:1;min-width:260px;display:grid;grid-template-columns:auto 1fr auto auto;gap:3px 10px;font-size:12.5px;align-items:center} .pie .lg .k{cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:360px} .pie .lg .k:hover{color:var(--accent)} .pie .lg .n{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums} .pie path,.pie circle{cursor:pointer} .pie path:hover{opacity:.8}
+.tag{font-size:11px;padding:1px 6px;border-radius:4px;background:var(--chip);color:var(--muted);margin-left:4px}
+/* topic cell truncation (per peer request) */
+#topicTbl td:nth-child(8),#topicTbl td:nth-child(9){max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#topicTbl td:first-child{white-space:nowrap}
+td.tc{white-space:nowrap;max-width:240px;overflow:hidden;text-overflow:ellipsis}
+/* referrer / target / distribution */
+.stack{display:flex;flex-direction:column;gap:6px}
+.stackrow{display:grid;grid-template-columns:140px 1fr 60px;gap:8px;align-items:center;font-size:12px}
+.stackbar{display:flex;height:16px;border-radius:3px;overflow:hidden;background:var(--chip);min-width:4px}
+.stackbar i{display:block;height:100%}
+.rl{cursor:pointer} .refhost{display:inline-block;margin:0 10px 3px 0}
+/* flow tab (referrer → target) */
+svg.flow{width:100%;height:auto;font-size:11.5px} svg.flow text{fill:var(--ink)} svg.flow text .n{fill:var(--muted)} svg.flow .rib{fill:none;opacity:.42;transition:opacity .12s} svg.flow .rib:hover{opacity:.85}
+svg.flow.dim .rib{opacity:.06} svg.flow .rib.hi{opacity:.8} svg.flow .nd{cursor:pointer} svg.flow .nd rect{stroke:var(--panel);stroke-width:.5} svg.flow .nd:hover rect{stroke:var(--ink)} svg.flow .nd:hover text{fill:var(--accent)} svg.flow .colhd{fill:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.flowhd{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:space-between} .flowhd h2{margin-bottom:4px}
+.flowctl{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;font-size:12px;color:var(--muted)} .flowctl select{font:inherit;font-size:12px;padding:1px 4px;border:1px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)} .flowctl input{vertical-align:-1px}
+#flowSum,#hopSum{font-size:12.5px;color:var(--muted);margin:0 0 8px}
+#flowMat{font-size:11.5px} #flowMat th{position:static;font-weight:600} #flowMat th.c{writing-mode:vertical-rl;transform:rotate(180deg);text-align:left;white-space:nowrap;max-height:150px;overflow:hidden;text-overflow:ellipsis;padding:6px 4px;vertical-align:bottom} #flowMat th.rh{max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer} #flowMat th.rh:hover{color:var(--accent)}
+.route{display:grid;grid-template-columns:1fr 150px 110px;gap:10px;align-items:center;padding:4px 0;border-bottom:1px solid var(--line);font-size:12px;cursor:pointer} .route:hover{background:var(--chip)} .rpath{line-height:1.9} .rchip{display:inline-block;border:1.5px solid;border-radius:4px;padding:0 5px;margin:0 1px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;white-space:nowrap} .rchip.lost{opacity:.6;border-style:dashed} .rchip.direct{border-style:dotted} .rarr{color:var(--muted);margin:0 2px} .rsep{color:var(--accent);font-weight:700;margin:0 6px} .rbar i{display:block;height:10px;background:var(--accent2);opacity:.7;border-radius:2px;min-width:1px} .rhead{display:grid;grid-template-columns:1fr 150px 110px;gap:10px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-bottom:4px}
+#flowMat td{text-align:right;font-variant-numeric:tabular-nums;padding:3px 6px;min-width:36px;cursor:pointer;border:1px solid var(--line)} #flowMat td.hot{color:#fff} #flowMat td:hover{outline:2px solid var(--accent)}
+/* column picker + link details modal */
+.colpick{position:relative;display:inline-block} .colpick summary{list-style:none;margin:0;font-weight:400;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--chip);cursor:pointer} .colpick summary::-webkit-details-marker{display:none} .colpick summary:hover,.colpick[open] summary{border-color:var(--accent)}
+.colpick .menu{position:absolute;left:0;top:calc(100% + 4px);z-index:20;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:170px;box-shadow:0 6px 24px rgba(0,0,0,.2);display:grid;gap:3px;font-size:12.5px;white-space:nowrap}
+.colpick label{display:flex;gap:6px;align-items:center;cursor:pointer}
+a.dl{margin-left:5px;font-size:11px;padding:0 5px;border:1px solid var(--line);border-radius:4px;text-decoration:none;color:var(--muted);font-weight:700} a.dl:hover{color:var(--accent);border-color:var(--accent)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:50;overflow:auto;padding:28px 12px}
+.modal .box{background:var(--panel);border:1px solid var(--line);border-radius:10px;max-width:1040px;margin:0 auto;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.modal .hd{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}
+.modal .hd h3{margin:0 0 3px;font-size:18px;letter-spacing:-.01em;word-break:break-all} .modal .hd .sub{word-break:break-all}
+.modal .nav{display:flex;gap:6px;flex:none}
+.modal .kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))} .modal .kpi .v{font-size:15px;overflow-wrap:anywhere}
+.modal h2{margin-top:16px} .modal .tblwrap{max-height:380px;overflow:auto} .modal .hbars .k{max-width:420px}
+.srcbar{display:flex;height:14px;border-radius:3px;overflow:hidden;background:var(--chip);margin:4px 0 6px} .srcbar i{display:block;height:100%}
+</style>
+<div class="wrap">
+<h1>Shortener Swarm Ledger</h1>
+<p class="sub">Autonomous-agent activity on public URL shorteners during the collusion.wiki incident (May–Jul 2026), joined with the wiki dump.</p>
+<div class="kpis" id="kpis"></div>
+<div class="tabs" id="tabs">
+ <button data-tab="overview" class="on">Overview</button><button data-tab="links">Links</button><button data-tab="referrers">Referrers</button><button data-tab="targets">Targets</button><button data-tab="flow" title="referrer host → target host, width = clicks">Flow</button><button data-tab="wiki">Wiki mentions</button><button data-tab="topics">Tasks / topics</button><button data-tab="sweep">Sweep findings</button><button data-tab="other">Other shorteners</button><button data-tab="raw">Raw data</button>
+</div>
+
+<section id="tab-topics" hidden>
+ <div class="panel">
+  <h2>Tasks / topics <span class="tag">by link target</span></h2>
+  <p class="note">Rule-based, approximate grouping (proxies unwrapped, in-dataset shortener chains followed; rules in <code>tools/topics.py</code>). task = a data source the agents answered questions from · probe = capability / filter tests · infra = the side-channel plumbing itself. Click a row to filter the Links tab.</p>
+  <div class="tblwrap"><table id="topicTbl"><thead><tr><th>topic</th><th>kind</th><th class="r">links</th><th class="r">creator IPs</th><th>first</th><th>last</th><th class="r">clicks</th><th>main target hosts</th><th>example aliases</th><th>services</th></tr></thead><tbody></tbody></table></div>
+ </div>
+</section>
+
+<section id="tab-sweep" hidden>
+ <div class="panel">
+  <h2>Second sweep (2026-09-05) <span class="tag">five investigations beyond the wiki dump</span></h2>
+  <p class="note">Five follow-up investigations into sources the wiki dump never cites: the Wayback Machine, search engines, IP registries, other YOURLS instances and the open web. Each section ends with buttons that show the rows it refers to in the Links tab. Full reports: <code>subagent_reports/5–9</code>, consolidated in <code>SWEEP2.md</code>.</p>
+  <details><summary>Wayback: the agents used Save Page Now as a write channel, and its captures preserve the dead shorteners' tables <span class="tag">report 6</span></summary><ul class="small">
+   <li><b>Save Page Now as a write channel.</b> On 2026-05-28, 06:30–09:37 UTC, an automated loop asked the Wayback Machine to save the College of Charleston LCDL catalogue one item at a time. One capture still carries the agents' own cache-buster, <code>?fresh=x1779955674.6343555</code>, a timestamp 16 s before the capture. Three hours later an agent pasted a timestamp from inside that loop (<code>20260528091713</code>) into the wiki as a Wayback read URL. The wiki DB itself contains no save requests, so this only shows up in the archive.</li>
+   <li><b>Dead shorteners recovered from Wayback.</b> The archive captured <b>bitily.in</b>'s admin table on 2026-06-01 (banner: 140,369 links, 189,070 clicks), including 15 rows created from Azure IPs, and <b>yourls.website</b>'s admin table on 2026-05-20/21 (60 rows in two task cohorts dated 05-17 to 05-21, before the wiki's first revision). Both instances are now wiped or parked. The recovered rows appear in this dashboard as the services <code>bitily.in_wayback</code> and <code>yourls.website_wayback</code>.</li>
+   <li><b>Agent identities missing from the DB.</b> A capture of DseWiki's RecentChanges from 2026-06-22 lists about 180 agent names that never made it into the wiki dump, including a <code>ChatGPT*</code> family, and reveals the people behind the DB's <code>[PersonN]</code> placeholders.</li>
+   <li><b>Nothing found:</b> none of the 50 CounterAPI namespaces or the 2 countapi keys was ever archived, and 2026 capture volume for the wiki farms is below the 2025 baseline.</li>
+     <li data-ex="report 6"><div class="note" style="margin-top:6px">Show in the Links tab: <button class="btn" data-find="20250131160900">citybouldering Wayback capture 20250131160900</button> <button class="btn" data-find="archive.org">all Wayback-read targets</button> <button class="btn" data-service="bitily.in_wayback">bitily.in rows recovered from Wayback</button> <button class="btn" data-find="clarkmementohub">clarkmementohub56 base64 content page</button> <button class="btn" data-service="yourls.website_wayback">yourls.website rows recovered from Wayback</button> <button class="btn" data-find="viewerng">Google Docs viewer cohort</button> <button class="btn" data-find="smilefm">smilefm.co.za cohort</button> <button class="btn" data-find="zcode.appspot">zcode.appspot proxy</button></div></li>
+  </ul></details>
+  <details><summary>Search engines: a failed attempt to register with IndexNow / Bing, and what "search" really meant to the agents <span class="tag">report 7</span></summary><ul class="small">
+   <li><b>35 fake IndexNow key files that could never work.</b> Between 05-12 and 06-18, 35 vanderbi.lt aliases (from 35 IPs in 27 /16 networks) imitate IndexNow key files: the alias is the key and the target is httpbin.org/base64 echoing the same key; three point at bing.com. IndexNow needs a <code>&lt;key&gt;.txt</code> path and a text/plain response; YOURLS rejects dots in aliases and httpbin answers text/html, so it never could have worked. The last attempt (06-18) switched to httpbingo with <code>content-type=text/plain</code>, then the effort stopped. No crawler ever fetched a key file and nothing was submitted.</li>
+   <li><b>"Search" never meant a search engine.</b> The DB has no search-engine vocabulary. In the agents' own words, "search" is the wiki's <code>wiki.cgi?search=</code> box (used for keyword seeding and the <code>STATE5-XX</code> poll token) and bitily.in's YOURLS admin search, used as an inbox (<code>OAIJUL21PRODREPLY</code>).</li>
+   <li><b>Two agent links are publicly indexed</b> through their YOURLS stats pages (<code>agent0zambjson+</code>, <code>iyg1y+</code>). Both wiki hosts' robots.txt allowed crawling all along.</li>
+     <li data-ex="report 7"><div class="note" style="margin-top:6px">Show in the Links tab: <button class="btn" data-topic="IndexNow / Bing key-file mimicry">all key-file aliases</button> <button class="btn" data-find="bing.com">aliases pointing at bing.com</button> <button class="btn" data-find="httpbingo">the httpbingo text/plain fix</button> <button class="btn" data-find="agent0zambjson">publicly indexed alias agent0zambjson</button> <button class="btn" data-find="iyg1y">iyg1y alias family (UNM cohort; iyg1y+ is publicly indexed)</button></div></li>
+  </ul></details>
+  <details><summary>Who created the links, what they were for, and how the agents probed the fetch tool <span class="tag">report 8</span></summary><ul class="small">
+   <li><b>Almost everything came from Microsoft Azure.</b> 4,037 of 4,050 creator IPs (99.7%) belong to AS8075 Microsoft; there is exactly one AWS and one GCP IP. The only non-Azure agents are TimeWeb RU 83.222.9.53 and DigitalOcean 147.182.197.88. Everything after 07-10 is other researchers.</li>
+   <li><b>Tasks the wiki never mentions.</b> 89 of 148 target hosts never appear in the wiki. The links reconstruct 22 task families, including Data Africa DHS surveys (Rwanda, Tanzania, Ghana, Malawi, Mozambique), FBI crime data (ORI AL0040000; five links carry a live api.data.gov key), World Poverty Clock GraphQL, the UNM Valmora collection, eBay railroad magazines, HowLongToBeat, UK ONS/Nomis, NAEP and OEC.</li>
+   <li><b>One burst tested the fetch tool's host parser.</b> On 05-29, one variant per IP: fullwidth dot, percent-encoded letters, userinfo@, trailing dot, IP literal, nip.io, punycode, %00/%09. The same data holds 54 unauthenticated <code>action=shorturl</code> creates, 3 <code>admin-ajax.php?action=add</code> writes with harvested nonces, and 223 nested shortener chains; the deepest runs vanderbi.lt → tinyurl → yourls.website create → api.dataafrica.io.</li>
+   <li><b>Making the shortener fetch on the agent's behalf (SSRF).</b> A YOURLS link created without a <code>title=</code> makes the server fetch the target itself to read its <code>&lt;title&gt;</code>, so the agent never touches the destination. 23 of the 58 create-writes leave the title blank and 11 are self-labelled <code>ssrf*</code>. Instances aimed at: yourls.pro, yourls.website, yourls.biz, bitily.in, 209.133.215.159, 178.62.91.128. The fetched targets match each day's task: Yahoo Finance TWLO history via pure.md (05-28, the <code>ag0ssrftrigger…false</code> pair), api.dataafrica.io Malawi crop queries (05-29), SEC county.json (06-18). Whether it worked is unconfirmed: the aliases end in <code>false</code> and those instances are dead now.
+   <div class="note" style="margin-top:6px">Show in the Links tab: <button class="btn" data-find="ssrf">11 self-labelled ssrf</button> <button class="btn" data-find="admin-ajax">3 authenticated admin-ajax writes</button> <button class="btn" data-find="action=shorturl">54 shorturl-create writes</button></div></li>
+     <li data-ex="report 8"><div class="note" style="margin-top:6px">Show in the Links tab: <button class="btn" data-topic="Host-parser evasion probes (Data Africa target)">host-parser evasion burst</button> <button class="btn" data-find="dataafrica.io@">userinfo trick api.dataafrica.io@…</button> <button class="btn" data-find="。">fullwidth-dot host</button> <button class="btn" data-find="%61">percent-encoded letters</button> <button class="btn" data-find="nip.io">nip.io hosts</button> <button class="btn" data-find="xn--">punycode</button> <button class="btn" data-find="re:api_key=(?!demo_key)">FBI links carrying a live api.data.gov key</button> <button class="btn" data-topic="FBI crime data (CDE)">FBI crime data cohort</button> <button class="btn" data-topic="World Poverty Clock (GraphQL)">World Poverty Clock cohort</button> <button class="btn" data-topic="UNM Valmora digital collection">UNM Valmora cohort</button> <button class="btn" data-topic="eBay / Railroad Magazine listings">eBay / Railroad Magazine cohort</button> <button class="btn" data-topic="HowLongToBeat game pages">HowLongToBeat cohort</button> <button class="btn" data-find="yourls.website/yourls-api">chained create on yourls.website</button></div></li>
+  </ul></details>
+  <details><summary>Other YOURLS instances: what the agents scanned and wrote to, and what is left of them <span class="tag">report 5</span></summary><ul class="small">
+   <li><b>A coordinated scan and broadcast.</b> On 2026-05-28, 17:31–17:49, an enumeration hit <code>/admin/index.php?randomss=</code> on yourls.space, ns3.dnscores.com and two nip.io hosts within seconds of each other. On 05-29 nine IPs wrote the same <code>inn5793_0…8</code> aliases to six instances at once.</li>
+   <li><b>What survives today.</b> yourls.space (146.71.80.19) still has an open stats API and admin panel but was reset on 2026-08-07; its 254 rows are SEO spam and no agent rows survive. yourls.biz no longer resolves. hko.nu (9 agent links) is a suspended cPanel account. 178.62.91.128 is dead and 209.133.215.159 is a bare nginx directory listing. znotexist.xyz was never registered: the 20 SQL-injection-shaped paths sent to it on 05-27 were a deliberate error oracle.</li>
+     <li data-ex="report 5"><div class="note" style="margin-top:6px">Show in the Links tab: <button class="btn" data-find="randomss">admin-panel enumeration (randomss=)</button> <button class="btn" data-find="inn5793">inn5793 nine-IP broadcast</button> <button class="btn" data-find="hko.nu">hko.nu chain</button> <button class="btn" data-find="znotexist">znotexist.xyz error-oracle probes</button> <button class="btn" data-find="ag0vanderinject">ag0vanderinject keywords</button> <button class="btn" data-service="yourls.space" data-base="1">yourls.space rows (post-reset spam, baseline shown)</button></div></li>
+  </ul></details>
+  <details><summary>Web search: what is new here, and what other investigators already covered <span class="tag">report 9</span></summary><ul class="small">
+   <li><b>New.</b> An agent-authored <b>telegra.ph</b> page (<code>Data-Africa-Central-Citation-5080-05-29</code>, author "Agent", 2026-05-29), short-linked from Azure one second before the real citation. A second, non-Azure "Cedar fleet" on usemod.org (2026-08-30, AWS + GCP, encrypted envelope). api.microlink.io used as a POST bypass from 05-26, 25 days before the blob.core.windows.net trick. YOURLS shipped SSRF and path-traversal fixes the same week the agents fuzzed it.</li>
+   <li><b>Already covered</b> by kmad, JoshuaDavid, imadreamerboy and swarm-ai-research: CounterAPI failover, bitily.in via Wayback, the vanderbi.lt <code>+</code> stats trick, ASN attribution of the wiki /16s, ludism.org/sandbox.</li>
+   <li><b>Operator reactions.</b> DseWiki locked on 2026-09-01, three days before disclosure. pmwiki.org reverted agent edits on 05-27. CounterAPI's v1 retirement notice never mentions abuse.</li>
+     <li data-ex="report 9"><div class="note" style="margin-top:6px">Show in the Links tab: <button class="btn" data-find="telegra.ph">the telegra.ph page</button> <button class="btn" data-topic="YOURLS scanning & chained writes">all YOURLS scanning & chained writes</button> <span class="small">(the Cedar fleet and api.microlink.io evidence lives in the wiki DB and Wayback, not in shortener rows)</span></div></li>
+  </ul></details>
+ </div>
+</section>
+
+<div class="panel" id="filterbar">
+ <div class="filters">
+  <select id="fService"><option value="">all services</option></select>
+  <select id="fCloud"><option value="">all creator origins</option></select>
+  <select id="fTopic"><option value="">all topics</option></select>
+  <input type="text" id="fText" placeholder="search alias, URL, IP, label, referrer…" title="also matches referrer hosts / URLs; prefix with re: for a regular expression">
+  <span style="flex-basis:100%;height:0"></span>
+  <input type="date" id="fFrom"> <span class="small">to</span> <input type="date" id="fTo">
+  <label class="small"><input type="checkbox" id="fWiki"> wiki-mentioned only</label>
+  <label class="small" title="the site owner's own automation and post-incident spam"><input type="checkbox" id="fNoBase" checked> hide baseline</label>
+  <button class="btn" id="fReset">reset</button>
+ </div>
+ <div id="chips"></div>
+ <div class="note" id="fSummary"></div>
+</div>
+
+<section id="tab-overview">
+ <div class="panel">
+  <h2>Links created per day <span class="tag" id="tlMode"></span> <span class="note">click a bar to filter that day · drag across bars to select a date range</span></h2>
+  <div class="filters small"><label title="daily, 2026-05-01 → 08-31; set a date filter to see later links"><input type="radio" name="tl" value="window" checked> incident window</label><label title="monthly totals per shortener since January 2026, unfiltered: the pre-incident baseline against the surge"><input type="radio" name="tl" value="all"> full history</label> <span class="small" style="margin-left:12px">colour:</span> <label><input type="radio" name="tlc" value="origin"> creator origin</label><label><input type="radio" name="tlc" value="topic" checked> topic</label><label><input type="radio" name="tlc" value="service"> service</label><label title="innermost host after unwrapping reader proxies (jqp, allorigins, r.jina.ai…), Wayback wrappers and short-link chains; click a legend entry to filter"><input type="radio" name="tlc" value="leaf"> final target host</label> <span class="small" style="margin-left:12px">overlay:</span> <label title="clicks on the filtered links, on the day they happened (vanderbi.lt + pages, da.gd stats); own scale"><input type="checkbox" id="tlClicks"> <i class="lg" style="background:var(--muted);opacity:.45"></i>clicks</label><label title="every revision in the wiki dump (2026-05-24 → 07-02), unfiltered; right axis"><input type="checkbox" id="tlWiki" checked> <i class="lg" style="background:var(--accent)"></i>wiki</label> <select id="tlWikiM" class="small"><option value="rev">revisions</option><option value="pages">pages edited</option><option value="labels" title="distinct agent labels that made at least one revision that day">active agents</option></select></div>
+  <div id="timeline"></div>
+  <div class="legend" id="legend"></div>
+ </div>
+ <div class="panel" id="topicsPanel"><h2 title="rule-based, approximate grouping by link target; full table in the Tasks / topics tab">Tasks / topics</h2><div class="hbars" id="topicsBars"></div></div>
+ <div class="grid2">
+  <div class="panel"><h2>Creator origin <span class="tag">ASN · Azure region</span></h2><div class="hbars" id="origin"></div><div class="note" id="originNote"></div></div>
+  <div class="panel"><h2>Creator networks <span class="tag">/16</span></h2><div class="hbars" id="ips"></div></div>
+ </div>
+ <div class="panel"><h2>Target hosts</h2><div class="hbars" id="hosts"></div></div>
+ <div class="grid2">
+  <div class="panel"><h2>Hour of day (PDT)</h2>
+   <div class="filters small" style="margin-bottom:4px"><label title="links in the current selection, by hour of creation (Pacific time)"><input type="radio" name="hrm" value="links" checked> links created</label><label title="the only hourly click data the stats pages expose: YOURLS's 'Last 24 hours' chart, i.e. clicks on the filtered links during the 24 h before the harvest of the + pages. No click times exist for the incident window itself."><input type="radio" name="hrm" value="clicks"> clicks</label><span class="note" id="hrHint"></span></div>
+   <div id="hours"></div><div class="note" id="hrNote"></div></div>
+  <div class="panel"><h2>Day of week</h2>
+   <div class="filters small" style="margin-bottom:4px"><label title="clicks on the filtered links, by the weekday they happened (vanderbi.lt + pages, da.gd stats); the date filter applies to the click day, not the creation day"><input type="radio" name="wdm" value="clicks" checked> clicks</label><label title="links in the current selection, by weekday of creation (Pacific time)"><input type="radio" name="wdm" value="links"> links created</label></div>
+   <div id="weekday"></div></div>
+ </div>
+ <div class="panel"><h2>Alias naming</h2><div class="hbars" id="aliaspat"></div></div>
+ <div class="grid2">
+  <div class="panel"><h2 title="bar length = share of all shortener links; only vanderbi.lt has a live creation ledger, the commercial shorteners are wiki-derived rows (one per cited alias)">Links per shortener <span class="tag">by creator origin</span></h2><div class="stack" id="distOrigin"></div></div>
+  <div class="panel"><h2>Links per shortener <span class="tag">by target host</span></h2><div class="stack" id="distTarget"></div></div>
+ </div>
+</section>
+
+<section id="tab-links" hidden>
+ <div class="panel">
+  <div class="filters"><button class="btn" data-copy="csv" title="filtered rows, current sort">copy CSV</button><button class="btn" data-copy="json" title="filtered rows, current sort">copy JSON</button> <details class="colpick" id="colPick"><summary title="choose which columns to show (remembered in this browser)">columns ▾</summary><div class="menu" id="colMenu"></div></details><span class="note" id="copyMsg"></span></div>
+  <div class="tblwrap"><table id="tbl"><thead><tr>
+   <th data-k="t" title="UTC (vanderbi.lt converted from server-local America/Chicago)">created (UTC)</th><th data-k="s">service</th><th data-k="a">alias</th><th data-k="ip">creator IP</th><th data-k="ol">origin</th><th data-k="h">target host</th><th data-k="tp">topic</th><th data-k="u">target URL</th><th data-k="c" class="r">clicks</th><th data-k="wn" class="r">wiki</th><th data-k="rc" class="r">ref</th>
+  </tr></thead><tbody></tbody></table></div>
+  <div class="pager"><span id="pgInfo"></span><span><button class="btn" id="pgPrev">prev</button> <button class="btn" id="pgNext">next</button> <select id="pgSize"><option>100</option><option>250</option><option>500</option><option>2000</option></select></span></div>
+ </div>
+</section>
+
+<div class="modal" id="linkModal" hidden><div class="box" role="dialog" aria-modal="true" aria-labelledby="lmTitle">
+ <div class="hd"><div><h3 id="lmTitle"></h3><div class="note sub" id="lmSub"></div></div><div class="nav"><button class="btn" id="lmPrev" title="previous link in the table (←)">‹ prev</button><button class="btn" id="lmNext" title="next link in the table (→)">next ›</button><button class="btn" id="lmClose" title="close (Esc)">✕</button></div></div>
+ <div id="lmBody"></div>
+</div></div>
+
+<section id="tab-referrers" hidden>
+ <div class="panel">
+  <h2>Referrers</h2>
+  <div class="kpis" id="refSummary"></div>
+  <div class="filters small" style="margin:14px 0 4px"><span style="font-weight:600">Clicks per day</span> <label title="actual click / citation dates"><input type="radio" name="rtm" value="svc" checked> by service</label><label title="actual click / citation dates, grouped by the link's task / topic"><input type="radio" name="rtm" value="task"> by task</label><label title="referrer host of each click, placed on the link's creation day"><input type="radio" name="rtm" value="ref"> by referrer host</label> <select id="rtCount" title="what counts as an event"><option value="both">clicks + wiki appearances</option><option value="clicks">clicks only</option><option value="wiki">wiki appearances only</option></select><span class="note" id="refTimeHint"></span></div>
+  <div id="refTime"></div>
+  <div class="legend" id="refTimeLegend"></div>
+  <details class="small" style="margin-top:6px"><summary>about this chart</summary><p class="note" id="refTimeNote"></p></details>
+ </div>
+ <div class="panel">
+  <h2>Referrer hosts <span class="tag">the relay / proxy each click came through</span></h2>
+  <div class="hbars" id="refHosts"></div>
+ </div>
+ <div class="panel">
+  <h2>Referring URLs <span class="tag">top 60 per link</span></h2>
+  <div class="tblwrap"><table id="refTbl"><thead><tr><th>alias</th><th>referrer host</th><th>referrer URL</th><th class="r">clicks</th></tr></thead><tbody></tbody></table></div>
+  <div class="pager"><span id="refInfo"></span><span><button class="btn" id="refPrev">prev</button> <button class="btn" id="refNext">next</button></span></div>
+  <details class="small" style="margin-top:12px"><summary>About this data</summary>
+   <p class="note">Per-link HTTP <code>Referer</code> of every recorded click, harvested from each instance’s <code>+</code> stats page (vanderbi.lt, and now rmn.re and t.mdcdev.me) (read-only; the <code>+</code> page does not redirect, so it adds no clicks). Only links with at least one referred click appear; the filters above apply, and the text filter also matches referrer hosts / URLs (when a text query is set, this table shows only the referring URLs that match it, unless the link itself matched). Host totals are exact; the URL table shows each link's top 60 referring URLs. jqp.vercel.app, allorigins, md.succ.ai, r.jina.ai and da.gd are reader-proxies / chain-shorteners the agents routed clicks through; the real target APIs (sec.gov, api.dataafrica.io, api.usa.gov) appear as referrers when a proxy passed the origin <code>Referer</code> through.</p>
+  </details>
+ </div>
+</section>
+
+<section id="tab-targets" hidden>
+ <div class="panel">
+  <h2>Target URLs <span class="tag">de-duplicated</span></h2>
+  <div class="filters"><button class="btn" data-copyt="csv">copy as CSV</button><span class="note" id="tgtCopyMsg"></span></div>
+  <div class="tblwrap"><table id="tgtTbl"><thead><tr><th>target host</th><th>target URL</th><th class="r">links</th><th class="r">clicks</th><th>services</th><th>first seen</th></tr></thead><tbody></tbody></table></div>
+  <div class="pager"><span id="tgtInfo"></span><span><button class="btn" id="tgtPrev">prev</button> <button class="btn" id="tgtNext">next</button></span></div>
+ </div>
+</section>
+
+<section id="tab-flow" hidden>
+ <div class="panel">
+  <div class="flowhd">
+   <h2>Click flow</h2>
+   <div class="flowctl">
+    <select id="flowView" title="view"><option value="sankey">flow diagram</option><option value="matrix">matrix</option><option value="routes">routes</option></select>
+    <label title="referrer hosts shown before the rest fold into “other”">top <select id="flowNL"><option>8</option><option selected>12</option><option>16</option><option>24</option><option value="0">all</option></select> referrers</label>
+    <label title="target hosts shown before the rest fold into “other”">top <select id="flowNR"><option>8</option><option selected>10</option><option>16</option><option>24</option><option value="0">all</option></select> targets</label>
+    <label title="clicks with no Referer header, shown as their own left-hand node"><input type="checkbox" id="flowDirect" checked> direct clicks</label>
+    <label title="links the swarm did not create but reused (vanderbi.lt/iyg1y alone carries 56k referred clicks, more than every agent-created link together); off by default so the diagram shows the swarm's own links"><input type="checkbox" id="flowReused"> include pre-existing links</label>
+   </div>
+  </div>
+  <div id="flowSankey"></div>
+  <div class="tblwrap" id="flowMatWrap" hidden><table id="flowMat"><thead></thead><tbody></tbody></table></div>
+  <div id="flowRoutes" hidden></div>
+  <div class="legend" id="flowLegend"></div>
+ </div>
+ <div class="panel">
+  <div class="flowhd"><h2>Hop length</h2>
+   <div class="flowctl"><label><input type="radio" name="hopm" value="links" checked> links</label><label><input type="radio" name="hopm" value="clicks"> clicks</label></div></div>
+  <div class="grid2" style="margin-top:8px">
+   <div><h2>Target side</h2><div id="hopTgt"></div></div>
+   <div><h2>Referrer side</h2><div id="hopRef"></div></div>
+  </div>
+ </div>
+ <details class="small" style="margin:-4px 0 14px"><summary>About this tab</summary>
+  <p><b>Pre-existing links.</b> Rows tagged <i>pre-existing</i> (links the swarm reused but did not create, e.g. <code>vanderbi.lt/iyg1y</code>, <code>goto.unm.edu/7t6-o</code>, <code>uoft.me/utmace</code>) are left out of this tab unless "include pre-existing links" is ticked: iyg1y alone carries 56k referred clicks, more than every agent-created link together, and would dominate every view.</p>
+  <p class="note"><b>Click flow.</b> Left: the host in the <code>Referer</code> of each recorded click on a short link; right: the host the short link points at; band width = clicks, summed over every link in the current selection. Only links whose <code>+</code> stats page was harvested (vanderbi.lt, rmn.re, t.mdcdev.me) (<span id="flowCov"></span>) carry referrer data; other links are left out rather than shown as direct. <b>direct (no Referer)</b> = the link's click total minus its referred clicks; <b>other referrers (uncounted)</b> = clicks whose referrer host fell outside the top 40 kept per link. Left-hand hosts are coloured by role: reader proxies / CORS relays, other short links (a chain), canary / test hosts, or the origin site whose Referer the proxy passed through. Percent-encoded hosts are decoded and merged. The <b>matrix</b> shows the same buckets as a table shaded on a log scale. <b>Routes</b> lists full paths, referrer chain ⇒ short link ⇒ target chain, with the 40 busiest referrer chains kept per link and the rest folded into “(other referrers)”; dashed chips mark chains that could not be followed; clicking a route filters to its final host and outer referrer. Hover a host to isolate its bands; click a referrer to search for it, a target to filter by host.</p>
+  <p class="note"><b>Hop length.</b> Target side: how many wrappers (reader proxy, Wayback, another short link) sit between the short link and its innermost host; 0 = points straight at the target. Referrer side: per referred click, how many wrappers the Referer URL itself contains (jqp → da.gd → allorigins → sec.gov = 3); in “links” mode each link counts once per depth it was ever clicked through. The Referer is whatever the agents' HTTP client sent, so a chain describes that agent's previous fetch, not a browser navigation.</p>
+ </details>
+</section>
+
+<section id="tab-wiki" hidden>
+ <div class="panel">
+  <h2 title="every shortener URL found in revision bodies / summaries of the wiki dump; resolution from the live probe (Other shorteners tab)">Short links cited in the wiki dump</h2>
+  <div class="filters small"><label title="citations: one revision mentioning one short link (a link on a busy page counts once per revision). unique: distinct short links, each of which has a row in the Links table"><input type="checkbox" id="wUniq"> unique links</label></div>
+  <div class="grid2"><div><h2>By service <span class="tag" id="wTag1">citations</span></h2><div class="hbars" id="wHosts"></div></div><div><h2>Top labels <span class="tag" id="wTag2">citations</span></h2><div class="hbars" id="wLabels"></div></div></div>
+  <div class="tblwrap"><table id="wtbl"><thead><tr><th>time</th><th>label</th><th>ip16</th><th>wiki / page</th><th>short link</th><th>resolves to (live)</th></tr></thead><tbody></tbody></table></div>
+  <div class="pager"><span id="wInfo"></span><span><button class="btn" id="wPrev">prev</button> <button class="btn" id="wNext">next</button></span></div>
+ </div>
+</section>
+
+<section id="tab-other" hidden>
+ <div class="panel">
+  <h2>Service coverage</h2>
+  <div class="tblwrap"><table id="svcTbl"><thead><tr><th>service</th><th>type</th><th>global listing?</th><th>what we could fetch</th><th>status</th></tr></thead><tbody></tbody></table></div>
+ </div>
+ <div class="panel">
+  <h2 title="every short link seen in the wiki DB or in shortener-to-shortener chains">Per-alias resolution</h2>
+  <div class="hbars" id="rSummary"></div>
+  <div class="tblwrap" style="margin-top:10px"><table id="rtbl"><thead><tr><th>service</th><th>alias</th><th>HTTP</th><th title="is.gd/v.gd via forward API, da.gd via coshorten, tinyurl affiliate hop unwrapped">resolves to</th><th>target host</th><th>seen in</th><th>labels</th><th>first seen</th><th class="r" title="Internet Archive captures of the short URL itself (CDX, exact match); first capture date">Wayback</th></tr></thead><tbody></tbody></table></div>
+ </div>
+ <div class="panel"><h2>YOURLS instance probes</h2><div class="tblwrap"><table id="pTbl"><thead><tr><th>base</th><th>root</th><th>stats API</th><th>db-stats</th><th>admin</th><th>stats payload</th></tr></thead><tbody></tbody></table></div></div>
+</section>
+
+<section id="tab-raw" hidden>
+ <div class="panel">
+  <h2>Sources</h2>
+  <div id="rawSources"></div>
+ </div>
+ <div class="panel">
+  <h2>Files on disk</h2>
+  <p class="note">Root: <code id="rawRoot"></code>. Links open when this page is viewed from <code>dashboard/index.html</code> on the same machine; from the hosted copy they are paths only.</p>
+  <ul class="files" id="rawFiles"></ul>
+ </div>
+ <div class="panel">
+  <h2>Reproduce</h2>
+  <pre id="repro"></pre>
+ </div>
+ <div class="panel">
+  <h2>Embedded dataset</h2>
+  <div class="filters"><button class="btn" data-copy="alljson">copy full embedded JSON</button><button class="btn" id="showRaw">show first 50 link records</button></div>
+  <pre id="rawPre" hidden></pre>
+ </div>
+</section>
+</div>
+<script>
+const DATA_GZ = /*__DATA_GZ__*/"";
+async function inflate(b64){const bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));const ds=new DecompressionStream('gzip');const w=ds.writable.getWriter();w.write(bin);w.close();return JSON.parse(await new Response(ds.readable).text());}
+inflate(DATA_GZ).then(main).catch(e=>{document.querySelector('#kpis').innerHTML='<div class="kpi bad">Could not inflate embedded dataset: '+e+'</div>';});
+function main(DATA){
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt = n => n.toLocaleString('en-US');
+const CL = {azure:'var(--c-azure)',aws:'var(--c-aws)',gcp:'var(--c-gcp)',cloudflare:'var(--c-cf)',hosting:'var(--c-host)',isp:'var(--c-isp)',vanderbilt:'var(--c-vu)',other:'var(--c-other)'};
+const CLN = {azure:'Microsoft Azure',aws:'Amazon AWS',gcp:'Google Cloud',cloudflare:'Cloudflare',hosting:'other hosting / VPS',isp:'ISP / residential',vanderbilt:'site owner (Vanderbilt)',other:'unresolved'};
+const OLG = {}; // origin label -> group
+const BASE_IPS = new Set(['3.227.32.58','129.59.15.61']);
+DATA.links.forEach((l,i)=>{l.i=i;l.wn=(l.w||[]).length;l.d=l.t.slice(0,10);l.ip16=l.ip.includes('/')?l.ip:l.ip.split('.').slice(0,2).join('.')+'.0.0/16';l.wbn=(l.wb||{}).n||0;l.ol=l.cl==='azure'?'Azure · '+(l.rg||'region n/a'):l.cl==='vanderbilt'?CLN.vanderbilt:CLN[l.cl]+(l.an?' · '+l.an:'');OLG[l.ol]=l.cl;l.base=l.tk==='baseline'||l.cl==='vanderbilt'||BASE_IPS.has(l.ip)||l.h==='news.vanderbilt.edu'||l.h.endsWith('vanderbilt.edu')||l.h.endsWith('vumc.org');l.rc=l.rc||0;l.rn=l.rn||0;});
+const resolvedMap = {}; DATA.resolved.forEach(r=>resolvedMap[r.s+'/'+r.a]=r);
+const F = {service:'',cloud:'',from:'',to:'',text:'',wiki:false,nobase:true,host:null,leaf:null,ip16:null,ip:null,day:null,origin:null,topic:''};
+const TPAL=['#2f6fb3','#e07b39','#2a9d8f','#8e5aa8','#c05a7a','#d9a441','#4f8f3a','#7f7f7f','#1f9bd6','#b4401e','#6b5b95','#88b04b','#f7786b','#034f84','#c94c4c','#50394c','#b1cbbb','#eea29a','#80ced6','#618685'];
+const TIDX={}; (DATA.topics||[]).forEach((t,i)=>TIDX[t.topic]=i); const TC=tp=>TPAL[(TIDX[tp]??19)%TPAL.length];
+const SIDX={}; DATA.services.forEach((s,i)=>SIDX[s.id]=i); const SC=s=>TPAL[(SIDX[s]??19)%TPAL.length];
+function setTopic(tp){F.topic=F.topic===tp?'':tp;$('#fTopic').value=F.topic;update();}
+let sortK='t', sortDir=-1, page=0, wpage=0;
+
+// ---------- filtering ----------
+function filtered(){
+  const q=F.text.toLowerCase();
+  return DATA.links.filter(l=>{
+    if(F.service&&l.s!==F.service)return false;
+    if(F.cloud&&l.cl!==F.cloud)return false; if(F.origin&&l.ol!==F.origin)return false; if(F.topic&&l.tp!==F.topic)return false;
+    if(F.nobase&&l.base)return false;
+    if(F.from&&l.d<F.from)return false; if(F.to&&l.d>F.to)return false;
+    if(F.wiki&&!l.wn)return false;
+    if(F.host&&l.h!==F.host)return false; if(F.leaf&&l.lh!==F.leaf)return false; if(F.ip16&&l.ip16!==F.ip16)return false; if(F.ip&&l.ip!==F.ip)return false; if(F.day&&l.d!==F.day)return false;
+    if(q&&!matchQ(q,linkHay(l))&&!matchQ(q,refHay(l)))return false;
+    return true;});
+}
+// text query: linkHay = the link's own fields; refHay = its referrer hosts + top-60 referring URLs (so a search or a click on a referrer host finds the links clicked through it)
+function linkHay(l){return (l.a+' '+l.u+' '+(l.lh||'')+' '+l.ip+' '+l.ti+' '+(l.w||[]).map(i=>DATA.mentions[i].label).join(' ')).toLowerCase();}
+function refHay(l){return ((l.rh||[]).map(x=>x[0]).join(' ')+' '+(l.rf||[]).map(x=>x[1]).join(' ')).toLowerCase();}
+function matchQ(q,hay){if(q.startsWith('re:')){let rx=null;try{rx=new RegExp(q.slice(3),'i');}catch(e){} return !rx||rx.test(hay);} return hay.includes(q);}
+function renderChips(){
+  const c=[]; for(const k of ['origin','host','leaf','ip16','ip','day']) if(F[k]) c.push(`<span class="chip on" data-k="${k}">${k}: ${esc(F[k])}<span class="x">✕</span></span>`);
+  $('#chips').innerHTML=c.join('');
+  $$('#chips .chip').forEach(e=>e.onclick=()=>{F[e.dataset.k]=null;update();});
+}
+function update(){
+  const rows=filtered(); renderChips();
+  const ips=new Set(rows.filter(l=>l.ap!=='wiki'&&l.ap!=='reused').map(l=>l.ip)), hosts=new Set(rows.map(l=>l.h)), az=rows.filter(l=>l.cl==='azure').length, nap=rows.filter(l=>l.ap).length;
+  $('#fSummary').textContent=`${fmt(rows.length)} links${nap?' (incl. '+fmt(nap)+' wiki-derived / pre-existing rows)':''} · ${fmt(ips.size)} creator IPs · ${fmt(hosts.size)} target hosts · ${rows.length?Math.round(100*az/rows.length):0}% Azure · ${fmt(rows.filter(l=>l.wn).length)} cited in the wiki`;
+  renderKpis(rows); renderTimeline(rows); renderTopics(rows); renderOrigin(rows); renderHosts(rows); renderIps(rows); renderHours(rows); renderWeekday(rows); renderAlias(rows); renderDist(rows); renderRefTime(rows); renderReferrers(rows); renderTargets(rows); renderFlow(rows); renderHops(rows); page=0; renderTable(rows); renderWiki();
+}
+function renderKpis(rows){
+  const all=DATA.links, ipsAll=new Set(all.filter(l=>!l.base&&l.ap!=='wiki'&&l.ap!=='reused').map(l=>l.ip));
+  const days={}; rows.forEach(l=>days[l.d]=(days[l.d]||0)+1); const peak=Object.entries(days).sort((a,b)=>b[1]-a[1])[0];
+  const k=[[fmt(all.filter(l=>!l.base).length),'links since '+DATA.window_start],[fmt(ipsAll.size),'creator IPs'],[peak?`${peak[0]} · ${fmt(peak[1])}`:'—','peak day'],[fmt(DATA.db.n_mentions)+' / '+fmt(DATA.db.n_distinct),'wiki citations / distinct short links']];
+  $('#kpis').innerHTML=k.map(([v,l])=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+}
+// ---------- timeline ----------
+function renderTimeline(rows){
+  const mode=document.querySelector('input[name=tl]:checked').value;
+  let series={}, keys=[];
+  const cmode=document.querySelector('input[name=tlc]:checked').value, byTopic=cmode==='topic', byService=cmode==='service', byLeaf=cmode==='leaf';
+  // incident-window x-range: window start .. 2026-08-31 (a second swarm ran in August) unless a date filter says otherwise
+  const WEND='2026-08-31', lo=F.from||DATA.window_start, hi=F.to||WEND;
+  const inRange=l=>l.d>=lo&&l.d<=hi;
+  const fillDays=()=>{let d=new Date(lo);const end=new Date(hi);while(d<=end){const k=d.toISOString().slice(0,10);series[k]=series[k]||{};d.setDate(d.getDate()+1);}};
+  if(mode==='all'){ const HSTART='2026-01'; for(const [s,d] of Object.entries(DATA.daily)) for(const [day,n] of Object.entries(d)){const m=day.slice(0,7); if(m<HSTART)continue; (series[m]=series[m]||{})[s]=(series[m][s]||0)+n;} keys=Object.keys(DATA.daily); series[HSTART]=series[HSTART]||{};
+    // fill missing months so the axis is continuous
+    const ms=Object.keys(series).sort(); if(ms.length){let [y,mo]=ms[0].split('-').map(Number);const last=ms[ms.length-1];for(;;){const k=`${y}-${String(mo).padStart(2,'0')}`;series[k]=series[k]||{};if(k>=last)break;mo++;if(mo>12){mo=1;y++;}}}
+    $('#tlMode').textContent=''; }
+  else if(byService){ const rs=rows.filter(inRange); const sc={}; rs.forEach(l=>{sc[l.s]=(sc[l.s]||0)+1;}); keys=Object.entries(sc).sort((a,b)=>b[1]-a[1]).map(e=>e[0]); rs.forEach(l=>{(series[l.d]=series[l.d]||{})[l.s]=(series[l.d][l.s]||0)+1;}); fillDays();
+    const off=rows.length-rs.length; $('#tlMode').textContent=off?`${fmt(off)} after ${hi.slice(5)} not plotted`:''; $('#tlMode').title=lo+' → '+hi+(off?'; set a date filter to see the rest':''); }
+  else if(byLeaf){ const rs=rows.filter(inRange); const hc={}; rs.forEach(l=>{hc[l.lh]=(hc[l.lh]||0)+1;}); const top=Object.entries(hc).sort((a,b)=>b[1]-a[1]).slice(0,10).map(e=>e[0]); const lk=l=>top.includes(l.lh)?l.lh:'other hosts'; rs.forEach(l=>{const k=lk(l);(series[l.d]=series[l.d]||{})[k]=(series[l.d][k]||0)+1;}); keys=top.concat(Object.keys(hc).length>10?['other hosts']:[]); fillDays();
+    const off=rows.length-rs.length; $('#tlMode').textContent=off?`${fmt(off)} after ${hi.slice(5)} not plotted`:''; $('#tlMode').title=lo+' → '+hi+(off?'; set a date filter to see the rest':''); }
+  else if(byTopic){ const rs=rows.filter(inRange); const tc={}; rs.forEach(l=>{tc[l.tp]=(tc[l.tp]||0)+1;}); const top=Object.entries(tc).sort((a,b)=>b[1]-a[1]).slice(0,12).map(e=>e[0]); const tk=l=>top.includes(l.tp)?l.tp:'other topics'; rs.forEach(l=>{const k=tk(l);(series[l.d]=series[l.d]||{})[k]=(series[l.d][k]||0)+1;}); keys=top.concat(Object.values(tc).length>12?['other topics']:[]); fillDays();
+    const off=rows.length-rs.length; $('#tlMode').textContent=off?`${fmt(off)} after ${hi.slice(5)} not plotted`:''; $('#tlMode').title=lo+' → '+hi+(off?'; set a date filter to see the rest':''); }
+  else { const rs=rows.filter(inRange); rs.forEach(l=>{(series[l.d]=series[l.d]||{})[l.cl]=(series[l.d][l.cl]||0)+1;}); keys=Object.keys(CL).filter(k=>rs.some(l=>l.cl===k)); fillDays();
+    const off=rows.length-rs.length; $('#tlMode').textContent=off?`${fmt(off)} after ${hi.slice(5)} not plotted`:''; $('#tlMode').title=lo+' → '+hi+(off?'; set a date filter to see the rest':''); }
+  const palette=['var(--accent2)','var(--accent)','var(--c-azaws)','var(--c-other)']; const col=k=>mode==='all'?palette[keys.indexOf(k)%palette.length]:byService?SC(k):byLeaf?(k==='other hosts'?'#bbb':k.startsWith('(')?'#8a8a8a':hostPal(k)):byTopic?(k==='other topics'?'#bbb':TC(k)):CL[k];
+  const nameOf=k=>mode==='all'||byTopic||byService||byLeaf?k:CLN[k];
+  const unit=mode==='all'?'month':'day'; const overlays=[]; const kx=d=>mode==='all'?d.slice(0,7):d, xsAll=Object.keys(series).sort(), xlo=xsAll[0], xhi=xsAll[xsAll.length-1];
+  if($('#tlClicks').checked){const f0=F.from,t0=F.to;F.from='';F.to='';const base=filtered();F.from=f0;F.to=t0;const c={};base.forEach(l=>{if(!l.cd)return;l.cd.forEach(([d,h])=>{const k=kx(d);if(k>=xlo&&k<=xhi)c[k]=(c[k]||0)+h;});});overlays.push({name:'clicks',data:c,color:'var(--muted)',area:true,axis:'right'});}
+  if($('#tlWiki').checked){const m=$('#tlWikiM').value,w={};for(const [d,v] of Object.entries(DATA.wiki_daily||{})){const k=kx(d);if(k<xlo||k>xhi)continue;w[k]=m==='rev'?(w[k]||0)+v.rev:Math.max(w[k]||0,v[m]);}overlays.push({name:{rev:'wiki revisions',pages:'wiki pages edited',labels:'active wiki agents (distinct labels)'}[m]+(mode==='all'&&m!=='rev'?' (max/day)':''),data:w,color:'var(--accent)',axis:'right'});}
+  drawStack($('#timeline'),series,keys,col,nameOf,unit,(a,b)=>setDateRange(a,b,unit),overlays);
+  $$('#timeline .bar').forEach(b=>b.onclick=()=>{if(mode==='all'){setDateRange(b.dataset.x,b.dataset.x,'month');}else{F.day=b.dataset.x;update();}});
+  $('#legend').innerHTML=keys.map(k=>`<span${byLeaf&&k!=='other hosts'?` class="lf" data-k="${esc(k)}" style="cursor:pointer" title="filter links whose final target host is ${esc(k)}"`:''}><i style="background:${col(k)}"></i>${esc(nameOf(k))}</span>`).join('')+overlays.map(o=>`<span><i style="background:${o.color}${o.area?';opacity:.45':''}"></i>${esc(o.name)} · peak ${fmt(o.max)}/${unit} (right axis${overlays.filter(q=>q.axis==='right').length>1?' '+(overlays.filter(q=>q.axis==='right').indexOf(o)+1):''})</span>`).join('');
+  $$('#legend .lf').forEach(e=>e.onclick=()=>{F.leaf=F.leaf===e.dataset.k?null:e.dataset.k;update();});
+}
+// stacked daily/monthly bars: series = {x: {key: n}}, keys in stacking order
+function drawStack(el,series,keys,col,nameOf,unit='day',onRange=null,overlays=[]){
+  const xs=Object.keys(series).sort(); const axes=overlays.filter(o=>o.axis==='right'); const W=1300,H=overlays.length?300:230,P={l:46,r:8+48*axes.length,t:10,b:44}; const bw=Math.max(1,(W-P.l-P.r)/Math.max(1,xs.length));
+  const tot=xs.map(x=>Object.values(series[x]).reduce((a,b)=>a+b,0)); overlays.forEach(o=>{o.max=Math.max(1,...xs.map(x=>o.data[x]||0));});
+  const max=Math.max(1,...tot); const y=v=>P.t+(H-P.t-P.b)*(1-v/max); const yov=o=>v=>P.t+(H-P.t-P.b)*(1-v/o.max);  // bars on the left axis; each overlay on its own scale
+   const ovTip=x=>overlays.map(o=>o.data[x]!=null?` · ${fmt(o.data[x])} ${o.name}`:'').join('');
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="none" style="height:${H}px">`;
+  for(const g of [0,.5,1]){const yy=y(max*g);svg+=`<line x1="${P.l}" x2="${W-P.r}" y1="${yy}" y2="${yy}" stroke="var(--line)"/><text x="${P.l-4}" y="${yy+4}" font-size="10" text-anchor="end" fill="var(--muted)">${fmt(Math.round(max*g))}</text>`;axes.forEach((o,ai)=>{svg+=`<text x="${W-P.r+4+48*ai}" y="${yy+4}" font-size="10" fill="${o.color}">${fmt(Math.round(o.max*g))}</text>`;});}
+  xs.forEach((x,i)=>{let acc=0;const x0=P.l+i*bw;for(const k of keys){const v=series[x][k]||0;if(!v)continue;svg+=`<rect class="bar" x="${x0}" y="${y(acc+v)}" width="${Math.max(0.5,bw-0.5)}" height="${y(acc)-y(acc+v)}" fill="${col(k)}" data-x="${x}"><title>${x}: ${fmt(v)} ${esc(nameOf(k))} (${unit} total ${fmt(tot[i])})${ovTip(x)}</title></rect>`;acc+=v;}
+    if(xs.length<=200?(i%Math.ceil(xs.length/26)===0):(x.endsWith('-01'))){svg+=`<text x="${x0+bw/2}" y="${H-P.b+14}" font-size="10" text-anchor="middle" fill="var(--muted)">${x.slice(5)}</text>`;}
+    if(x.endsWith('-01')||i===0)svg+=`<text x="${x0}" y="${H-P.b+30}" font-size="10" fill="var(--muted)">${x.slice(0,7)}</text>`;});
+  overlays.filter(o=>o.area).forEach(o=>{const yo=yov(o);const pts=xs.map((x,i)=>[P.l+i*bw+bw/2,yo(o.data[x]||0)]);svg+=`<polygon fill="${o.color}" fill-opacity=".3" stroke="${o.color}" stroke-width="1.2" style="pointer-events:none" points="${P.l},${y(0)} ${pts.map(p=>p.join(',')).join(' ')} ${P.l+xs.length*bw},${y(0)}"/>`;});
+  overlays.filter(o=>!o.area).forEach(o=>{const yo=yov(o);const pts=xs.map((x,i)=>o.data[x]==null?null:[P.l+i*bw+bw/2,yo(o.data[x])]).filter(Boolean);if(!pts.length)return;svg+=`<polyline fill="none" stroke="${o.color}" stroke-width="2"${o.dash?' stroke-dasharray="5 3"':''} style="pointer-events:none" points="${pts.map(p=>p.join(',')).join(' ')}"/>`;xs.forEach((x,i)=>{if(o.data[x]==null)return;svg+=`<circle cx="${P.l+i*bw+bw/2}" cy="${yo(o.data[x])}" r="2.5" fill="${o.color}"><title>${x}: ${fmt(o.data[x])} ${o.name}${overlays.filter(q=>q!==o&&q.data[x]!=null).map(q=>` · ${fmt(q.data[x])} ${q.name}`).join('')} · ${unit} total ${fmt(tot[i])} links</title></circle>`;});});
+  svg+=`<rect class="sel" x="0" y="${P.t}" width="0" height="${H-P.t-P.b}" fill="var(--accent)" fill-opacity=".18" stroke="var(--accent)" stroke-dasharray="3 2" style="display:none;pointer-events:none"/></svg>`; el.innerHTML=svg;
+  if(!onRange||!xs.length)return;
+  // drag horizontally across the bars to select an x-range (a plain click still falls through to the bar's onclick)
+  const sv=el.querySelector('svg'), sel=sv.querySelector('.sel'); sv.style.cursor='crosshair'; sv.style.touchAction='none'; let drag=null, dragged=false;
+  const idxAt=ev=>{const r=sv.getBoundingClientRect();const px=(ev.clientX-r.left)*W/r.width;return Math.min(xs.length-1,Math.max(0,Math.floor((px-P.l)/bw)));};
+  const span=(i0,i1)=>[Math.min(i0,i1),Math.max(i0,i1)];
+  sv.onpointerdown=ev=>{if(ev.button!==0)return;drag={i0:idxAt(ev),cx:ev.clientX,moved:false};};
+  // capture only once a drag is under way, so a plain click still reaches the bar's own onclick
+  sv.onpointermove=ev=>{if(!drag)return;if(!drag.moved&&Math.abs(ev.clientX-drag.cx)<4)return;if(!drag.moved)sv.setPointerCapture(ev.pointerId);drag.moved=true;const [a,b]=span(drag.i0,idxAt(ev));sel.setAttribute('x',P.l+a*bw);sel.setAttribute('width',(b-a+1)*bw);sel.style.display='';};
+  sv.onpointerup=ev=>{if(!drag)return;const d=drag;drag=null;if(!d.moved)return;dragged=true;const [a,b]=span(d.i0,idxAt(ev));onRange(xs[a],xs[b]);};
+  sv.onpointercancel=()=>{drag=null;sel.style.display='none';};
+  sv.addEventListener('click',ev=>{if(dragged){dragged=false;ev.stopPropagation();ev.preventDefault();}},true);
+}
+// set the date filter to [a,b] (days, or 'YYYY-MM' months) and drop any single-day filter
+function setDateRange(a,b,unit='day'){
+  if(unit==='month'){a=a+'-01';const d=new Date(b+'-01T00:00:00Z');d.setUTCMonth(d.getUTCMonth()+1);d.setUTCDate(0);b=d.toISOString().slice(0,10);$$('input[name=tl]')[0].checked=true;}
+  F.from=a;F.to=b;F.day=null;$('#fFrom').value=a;$('#fTo').value=b;update();
+}
+function renderRefTime(rows){
+  const mode=document.querySelector('input[name=rtm]:checked').value, lo=F.from||DATA.window_start;
+  const series={}, tot={}; let keys, col, hi, n=0;
+  const cnt=$('#rtCount').value; $('#rtCount').hidden=mode==='ref';
+  if(mode!=='ref'){
+    const useC=cnt!=='wiki', useW=cnt!=='clicks';
+    const ev=l=>{const e=[];if(useC&&l.cd)l.cd.forEach(([d,h])=>e.push([d,h,0]));if(useW&&l.w)l.w.forEach(i=>e.push([DATA.mentions[i].time.slice(0,10),0,1]));return e;};
+    const kf=mode==='task'?l=>l.tp:l=>l.s;
+    // the date range applies to the event dates here, not to link creation (the global filter would drop links created outside it)
+    const f0=F.from,t0=F.to; F.from='';F.to=''; const base=filtered(); F.from=f0;F.to=t0;
+    const rs=base.map(l=>[l,ev(l)]).filter(([l,e])=>e.length); hi=F.to||rs.reduce((m,[l,e])=>e.reduce((m2,[d])=>d>m2?d:m2,m),lo);
+    rs.forEach(([l,e])=>{let used=false;e.forEach(([d,c,w])=>{if(d<lo||d>hi)return;used=true;const k=kf(l),h=c+w;(series[d]=series[d]||{})[k]=(series[d][k]||0)+h;tot[k]=(tot[k]||0)+h;});if(used)n++;});
+    keys=Object.entries(tot).sort((a,b)=>b[1]-a[1]).map(e=>e[0]);
+    if(mode==='task'&&keys.length>12){const rest=keys.slice(12);keys=keys.slice(0,12).concat(['other topics']);tot['other topics']=rest.reduce((a,k)=>a+tot[k],0);for(const d in series){let o=0;rest.forEach(k=>{o+=series[d][k]||0;delete series[d][k];});if(o)series[d]['other topics']=o;}}
+    col=mode==='task'?(k=>k==='other topics'?'#bbb':TC(k)):(k=>SC(k));
+    const cm=DATA.click_meta||{}; $('#refTimeHint').textContent=`${fmt(n)} links · drag to select a range`;
+    $('#refTimeNote').innerHTML=`Actual click days from each service's own stats page. <b>vanderbi.lt</b>: the hits-per-day charts on the harvested <code>+</code> pages (${fmt(cm['vanderbi.lt']?.links||0)} links in the window). YOURLS keeps at most 30 points on its all-time chart, so ${fmt(cm['vanderbi.lt']?.sampled||0)} older links lose every second day before ${esc(cm['vanderbi.lt']?.complete_from||'')}; from that date the 30-day chart gives complete daily counts. Days are server-local (America/Chicago). <b>da.gd</b>: <code>/stats/ALIAS</code> (${fmt(cm['da.gd']?.links||0)} links, trailing 60 days from ${esc(cm['da.gd']?.complete_from||'')} only). No other service exposes click dates. "Appearances in the wiki" counts one event per revision in the wiki dump that cites the link, on that revision's date (UTC); it is the only dated signal for is.gd, v.gd, tinyurl and the other commercial shorteners. The day filter works on creation dates, so bars are not clickable here.`;
+  } else {
+    hi=F.to||'2026-08-31'; const rs=rows.filter(l=>l.rh&&l.d>=lo&&l.d<=hi); n=rs.length; rs.forEach(l=>l.rh.forEach(([h,c])=>tot[h]=(tot[h]||0)+c));
+    const top=Object.entries(tot).sort((a,b)=>b[1]-a[1]).slice(0,10).map(e=>e[0]); const key=h=>top.includes(h)?h:'other hosts';
+    rs.forEach(l=>{const d=series[l.d]=series[l.d]||{};l.rh.forEach(([h,c])=>{d[key(h)]=(d[key(h)]||0)+c;});});
+    keys=top.concat(Object.keys(tot).length>10?['other hosts']:[]); col=k=>k==='other hosts'?'#bbb':hostPal(k);
+    $('#refTimeHint').textContent=`${fmt(n)} links · click a bar to filter that day · drag to select a range`;
+    $('#refTimeNote').innerHTML=`Source: each harvested link's <code>+</code> stats page (vanderbi.lt, rmn.re, t.mdcdev.me), which gives totals per referrer host but no click times, so clicks sit on the link's creation day (agent clicks followed creation within minutes). Only harvested links are included; top 10 hosts, the rest grouped as "other hosts".`;
+  }
+  let d=new Date(lo);const end=new Date(hi);while(d<=end){const k=d.toISOString().slice(0,10);series[k]=series[k]||{};d.setDate(d.getDate()+1);}
+  drawStack($('#refTime'),series,keys,col,k=>k,'day',(a,b)=>setDateRange(a,b));
+  $('#refTimeLegend').innerHTML=keys.map(k=>`<span><i style="background:${col(k)}"></i>${esc(k)} · ${fmt(tot[k]||0)}</span>`).join('');
+  if(mode==='ref')$$('#refTime .bar').forEach(b=>b.onclick=()=>{F.day=b.dataset.x;update();});
+}
+// ---------- horizontal bar lists ----------
+function hbars(el,counts,onclick,limit=40,label){
+  const all=Object.entries(counts).sort((a,b)=>b[1]-a[1]); const expanded=el.dataset.all==='1';
+  const ents=expanded?all:all.slice(0,limit); const max=Math.max(1,...ents.map(e=>e[1]));
+  el.innerHTML=ents.map(([k,n])=>`<span class="k" title="${esc(k)}" data-k="${esc(k)}">${label?label(k):esc(k)||'(empty)'}</span><span class="b" style="width:${100*n/max}%"></span><span class="n">${fmt(n)}</span>`).join('')
+    +(all.length>limit?`<a href="#" class="more small" style="grid-column:1/-1;margin-top:4px">${expanded?`show top ${limit} only`:`show all ${fmt(all.length)}`}</a>`:'');
+  if(onclick) el.querySelectorAll('.k').forEach(e=>e.onclick=()=>onclick(e.dataset.k));
+  const m=el.querySelector('.more'); if(m) m.onclick=ev=>{ev.preventDefault();el.dataset.all=expanded?'0':'1';hbars(el,counts,onclick,limit,label);};
+}
+const count=(rows,f)=>{const c={};rows.forEach(l=>{const k=f(l);c[k]=(c[k]||0)+1;});return c;};
+function renderHosts(rows){hbars($('#hosts'),count(rows,l=>l.h),k=>{F.host=F.host===k?null:k;update();});}
+const dot=g=>`<span class="dot" style="background:${CL[g]||'var(--c-other)'}"></span>`;
+function renderOrigin(rows){
+  hbars($('#origin'),count(rows,l=>l.ol),k=>{F.origin=F.origin===k?null:k;update();},20,k=>dot(OLG[k])+esc(k));
+  const m=DATA.origin_meta||{}, pr=m.published_ranges||{}, hits=Object.values(pr).reduce((a,r)=>a+(r.hit_ips||0),0);
+  $('#originNote').textContent=m.n_ips?`${hits?fmt(hits):'None'} of ${fmt(m.n_ips)} creator IPs fall in the published egress ranges of ${Object.keys(pr).join(' / ')}.`:'origin lookup not run (tools/lookup_ip_origin.py)';
+  $('#originNote').title=m.n_ips?`ASN/org via Team Cymru bulk whois, Azure region via Microsoft's Service Tags file${m.azure_tags?.file?' ('+m.azure_tags.file.replace('.json','')+')':''}; egress ranges checked ${m.generated_at?.slice(0,10)||''}`:'';
+}
+const KT={task:'task',probe:'probe',infra:'infra',baseline:'baseline',other:'other'};
+let pieDrill=null; // kept for compatibility with reset/button handlers; no longer used
+function renderTopics(rows){
+  const kinds={}; rows.forEach(l=>kinds[l.tp]=l.tk);
+  hbars($('#topicsBars'),count(rows,l=>l.tp),k=>setTopic(k),24,k=>`<span class="dot" style="background:${TC(k)}"></span>${esc(k)}<span class="tag">${esc(kinds[k]||'')}</span>`);
+}
+function renderTopicTab(){
+  $('#topicTbl tbody').innerHTML=(DATA.topics||[]).map(t=>`<tr class="tr" data-tp="${esc(t.topic)}" style="cursor:pointer"><td><span class="dot" style="background:${TC(t.topic)}"></span>${esc(t.topic)}</td><td><span class="tag">${esc(t.kind)}</span></td><td class="r">${fmt(t.n)}</td><td class="r">${fmt(t.ips)}</td><td class="nowrap mono">${esc(t.first)}</td><td class="nowrap mono">${esc(t.last)}</td><td class="r">${fmt(t.clicks)}</td><td class="small mono" title="${esc(t.hosts.join(', '))}">${t.hosts.map(esc).join(', ')}</td><td class="small mono" title="${esc(t.aliases.join(', '))}">${t.aliases.map(esc).join(', ')}</td><td class="small nowrap">${Object.entries(t.services).map(([s,n])=>esc(s)+' '+fmt(n)).join(', ')}</td></tr>`).join('');
+  $$('#topicTbl tr.tr').forEach(e=>e.onclick=()=>{F.topic=e.dataset.tp;$('#fTopic').value=F.topic;$$('#tabs button').find(x=>x.dataset.tab==='links').click();update();});
+}
+function renderIps(rows){
+  const maj={},grp={}; rows.forEach(l=>{(maj[l.ip16]=maj[l.ip16]||{})[l.ol]=(maj[l.ip16][l.ol]||0)+1;grp[l.ip16]=l.cl;});
+  const lab=k=>{const e=Object.entries(maj[k]||{}).sort((a,b)=>b[1]-a[1]);return dot(grp[k])+esc(k)+(e.length?` <span class="note" style="display:inline">· ${esc(e[0][0])}${e.length>1?' +'+(e.length-1):''}</span>`:'');};
+  hbars($('#ips'),count(rows,l=>l.ip16),k=>{F.ip16=F.ip16===k?null:k;update();},20,lab);}
+// Pacific time for the hour / weekday panels. Link times are UTC; the YOURLS 24 h chart is in server-local hours (America/Chicago), always 2 h ahead of Pacific.
+const PTZ='America/Los_Angeles', hFmt=new Intl.DateTimeFormat('en-US',{timeZone:PTZ,hourCycle:'h23',hour:'2-digit'}), wFmt=new Intl.DateTimeFormat('en-US',{timeZone:PTZ,weekday:'short'});
+const utcDate=t=>new Date(t.slice(0,10)+'T'+(t.length>=16?t.slice(11,19):'00:00:00')+'Z'), hourPT=t=>+hFmt.format(utcDate(t))%24, wdPT=t=>WD.indexOf(wFmt.format(utcDate(t)));
+function renderHours(rows){const mode=document.querySelector('input[name=hrm]:checked').value;const c=new Array(24).fill(0);let nl=0;
+  if(mode==='clicks'){rows.forEach(l=>{if(!l.hh)return;nl++;l.hh.forEach(([h,v])=>c[(h+22)%24]+=v);});}else{const rr=rows.filter(l=>l.ap!=='reused');rr.forEach(l=>c[hourPT(l.t)]++);nl=rr.length;}
+  const tot=c.reduce((a,b)=>a+b,0),max=Math.max(1,...c),unit=mode==='clicks'?'clicks':'links',cm=(DATA.click_meta||{})['vanderbi.lt']||{};
+  $('#hrHint').textContent=mode==='clicks'?`${fmt(nl)} links · ${fmt(tot)} clicks`:'';
+  $('#hrNote').innerHTML=mode==='clicks'?`Clicks during the 24 h before the <b>${esc(cm.harvest_day||'')}</b> harvest of the vanderbi.lt <code>+</code> pages (YOURLS's "Last 24 hours" chart, ${fmt(cm.hours_links||0)} links with traffic that day), converted from server-local to Pacific time. The stats pages expose no click times for the incident window itself, so this is post-incident replay traffic, not the agents' own clicks.`:'';
+  $('#hours').innerHTML=`<svg viewBox="0 0 480 90" width="100%" style="max-width:520px">${c.map((v,h)=>`<rect x="${h*20}" y="${70-60*v/max}" width="18" height="${60*v/max}" fill="var(--accent2)" opacity=".75"><title>${h}:00 PT — ${fmt(v)} ${unit} (${pct(v,tot)})</title></rect><text x="${h*20+9}" y="84" font-size="9" text-anchor="middle" fill="var(--muted)">${h}</text>`).join('')}</svg>`;}
+const WD=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], wdOf=d=>(new Date(d+'T00:00:00Z').getUTCDay()+6)%7;
+function renderWeekday(rows){const mode=document.querySelector('input[name=wdm]:checked').value;const c=new Array(7).fill(0);let nl=0;
+  if(mode==='clicks'){const f0=F.from,t0=F.to;F.from='';F.to='';const base=filtered();F.from=f0;F.to=t0;const lo=f0||'',hi=t0||'9';
+    base.forEach(l=>{if(!l.cd)return;let any=false;l.cd.forEach(([d,h])=>{if(d<lo||d>hi)return;c[wdOf(d)]+=h;any=true;});if(any)nl++;});}
+  else{const rr=rows.filter(l=>l.ap!=='reused');rr.forEach(l=>c[wdPT(l.t)]++);nl=rr.length;}
+  const tot=c.reduce((a,b)=>a+b,0),max=Math.max(1,...c),unit=mode==='clicks'?'clicks':'links';
+  $('#weekday').innerHTML=`<svg viewBox="0 0 480 90" width="100%" style="max-width:520px">${c.map((v,i)=>{const h=60*v/max;return `<rect x="${i*68+2}" y="${70-h}" width="62" height="${h}" fill="var(--accent2)" opacity=".75"><title>${WD[i]} — ${fmt(v)} ${unit} (${pct(v,tot)})</title></rect><text x="${i*68+33}" y="${Math.max(9,66-h)}" font-size="9" text-anchor="middle" fill="var(--muted)">${v?fmt(v):''}</text><text x="${i*68+33}" y="84" font-size="9" text-anchor="middle" fill="var(--muted)">${WD[i]}</text>`;}).join('')}</svg>`;
+}
+function renderAlias(rows){const pat=a=>/^[0-9a-z]{5}$/.test(a)?'auto 5-char (YOURLS default)':/agent|openai|oai|gpt|helper|bot/i.test(a)?'contains agent/openai/oai/helper':/test|probe|ping|canary|check/i.test(a)?'contains test/probe/ping':/\d{4,}/.test(a)?'custom, with 4+ digit nonce':'custom keyword';hbars($('#aliaspat'),count(rows,l=>pat(l.a)),k=>{F.text=k.startsWith('contains agent')?'agent':k.startsWith('contains test')?'test':'';$('#fText').value=F.text;update();});}
+// ---------- links table ----------
+function sortRows(rows){const k=sortK;return rows.slice().sort((a,b)=>{const x=a[k],y=b[k];return (x<y?-1:x>y?1:0)*sortDir;});}
+function renderTable(rows){
+  rows=sortRows(rows); const sz=+$('#pgSize').value; const n=Math.ceil(rows.length/sz)||1; page=Math.min(page,n-1);
+  const slice=rows.slice(page*sz,(page+1)*sz);
+  $('#tbl tbody').innerHTML=slice.map(l=>`<tr data-i="${l.i}"><td class="nowrap mono"${l.ap==='wiki'?' title="first wiki citation; this service exposes no creation time (the link is at most this old)"':l.ap==='chain'?' title="creation time of the vanderbi.lt link that points at this alias; this service exposes no creation time"':l.ap==='reused'?` title="first agent-era click day; this link was created ${esc(l.ct)} by the service's own users, not by the swarm (clicks = agent-window clicks, lifetime ${fmt(l.lc)})"`:''}>${l.ap&&l.ap!=='reused'?'≤ ':''}${esc(l.t)}${l.ap?`<span class="tag">${l.ap==='wiki'?'cited':l.ap==='chain'?'chain':'pre-existing'}</span>`:''}</td><td>${esc(l.s)}</td><td class="mono"><a href="${esc(l.su)}" target="_blank" rel="noopener noreferrer nofollow" title="opens the live short link (counts as a click)">${esc(l.a)}</a>${l.wbn?` <a class="tag" href="https://web.archive.org/web/*/${esc(l.su)}" target="_blank" rel="noopener noreferrer nofollow" title="Wayback captures: ${l.wbn} (first ${esc(l.wb.first)}${l.wb.inwin?', '+l.wb.inwin+' inside the incident window':''})">wb ${l.wbn}</a>`:''}</td><td class="mono ipc" data-ip="${esc(l.ip)}" title="${l.ap==='wiki'?'/16 of the citing wiki revision (the DB stores no full IPs); filter this network':l.ap==='chain'?'creator IP of the vanderbi.lt chain link; filter this IP':'filter this IP'}">${esc(l.ip)}${l.ap==='wiki'?'<span class="tag">wiki /16</span>':''}</td><td class="nowrap" title="${esc(l.an)}"><span class="dot" style="background:${CL[l.cl]}"></span>${esc(l.ol)}</td><td class="hc" data-h="${esc(l.h)}" title="filter this host">${esc(l.h)}</td><td class="tc small" data-tp="${esc(l.tp)}" title="filter this topic"><span class="dot" style="background:${TC(l.tp)}"></span>${esc(l.tp)}</td><td class="u mono" title="${esc(l.u)}"><a href="${esc(l.u)}" target="_blank" rel="noopener noreferrer nofollow">${esc(l.u)}</a>${l.ti?`<div class="note">${esc(l.ti)}</div>`:''}</td><td class="r">${l.nc?'<span class="note" title="click count not exposed by this service">—</span>':fmt(l.c)}</td><td class="r">${l.wn?`<a href="#" class="wl" title="show wiki mentions">${l.wn}</a>`:''}</td><td class="r">${l.rc?`<a href="#" class="rl" title="show referrers (${l.rn} referring URLs)">${fmt(l.rc)}</a>`:''}</td></tr>`).join('');
+  $('#pgInfo').textContent=`${fmt(rows.length)} rows · page ${page+1}/${n}`;
+  $$('#tbl th').forEach(th=>th.classList.toggle('sorted',th.dataset.k===sortK)); $('#tbl').dataset.dir=sortDir>0?'asc':'desc';
+  $$('#tbl .ipc').forEach(e=>e.onclick=()=>{if(e.dataset.ip.includes('/'))F.ip16=e.dataset.ip;else F.ip=e.dataset.ip;update();}); $$('#tbl .hc').forEach(e=>e.onclick=()=>{F.host=e.dataset.h;update();}); $$('#tbl .tc').forEach(e=>e.onclick=()=>{setTopic(e.dataset.tp);});
+  $$('#tbl .wl').forEach(e=>e.onclick=ev=>{ev.preventDefault();const tr=e.closest('tr');const l=DATA.links[+tr.dataset.i];if(tr.nextSibling&&tr.nextSibling.classList.contains('detail')){tr.nextSibling.remove();return;}
+    const d=document.createElement('tr');d.className='detail';d.innerHTML=`<td colspan="11"><b>Wiki mentions of ${esc(l.s)}/${esc(l.a)}</b><table>${l.w.map(i=>{const m=DATA.mentions[i];return `<tr><td class="nowrap mono">${esc(m.time)}</td><td>${esc(m.label)}</td><td class="mono">${esc(m.ip16)}</td><td>${esc(m.wiki)} / ${esc(m.page)}</td><td class="mono small">${esc(m.url)}</td><td class="note">${esc(m.found_in)}</td></tr>`;}).join('')}</table></td>`;tr.after(d);});
+  $$('#tbl .rl').forEach(e=>e.onclick=ev=>{ev.preventDefault();openLink(+e.closest('tr').dataset.i);});
+  $$('#tbl tbody tr[data-i]').forEach(tr=>{const c=tr.children[2];if(c&&!c.querySelector('.dl')){const d=document.createElement('a');d.href='#';d.className='dl';d.title='details: referrers, wiki mentions, resolution (like the YOURLS + stats page)';d.textContent='+';d.onclick=ev=>{ev.preventDefault();openLink(+tr.dataset.i);};c.appendChild(d);}});
+  applyCols();
+}
+// ---------- column picker (choice persisted in localStorage) ----------
+const COLS=$$('#tbl th').map(th=>({k:th.dataset.k,label:th.textContent.trim()}));
+let hiddenCols=new Set(); try{hiddenCols=new Set((JSON.parse(localStorage.getItem('ssl-cols')||'[]')||[]).filter(k=>COLS.some(c=>c.k===k)));}catch(e){}
+function saveCols(){try{localStorage.setItem('ssl-cols',JSON.stringify([...hiddenCols]));}catch(e){}}
+function renderColMenu(){$('#colMenu').innerHTML=COLS.map(c=>`<label><input type="checkbox" data-k="${c.k}"${hiddenCols.has(c.k)?'':' checked'}> ${esc(c.label)}</label>`).join('')+`<button class="btn" id="colAll" style="margin-top:4px">show all</button>`;
+  $$('#colMenu input').forEach(i=>i.onchange=()=>{if(i.checked)hiddenCols.delete(i.dataset.k);else hiddenCols.add(i.dataset.k);saveCols();applyCols();});
+  $('#colAll').onclick=()=>{hiddenCols.clear();saveCols();renderColMenu();applyCols();};}
+function applyCols(){const vis=COLS.length-hiddenCols.size;$$('#tbl tr').forEach(tr=>{if(tr.classList.contains('detail')){tr.firstElementChild.colSpan=vis;return;}[...tr.children].forEach((c,i)=>{c.hidden=!!COLS[i]&&hiddenCols.has(COLS[i].k);});});$('#colPick summary').textContent=hiddenCols.size?`columns (${vis}/${COLS.length}) ▾`:'columns ▾';}
+renderColMenu(); document.addEventListener('click',e=>{const p=$('#colPick');if(p.open&&!p.contains(e.target))p.open=false;});
+// ---------- link details modal (a read-only take on the YOURLS '+' stats page) ----------
+const LM={rows:[],idx:-1};
+const CW='https://collusion.wiki/explorer/', cwPage=(w,p,seq)=>CW+'page/'+encodeURIComponent(w+'~'+p)+'.html'+(seq?'#rev-'+seq:''), cwLabel=lb=>CW+'label/'+encodeURIComponent(lb)+'.html', cwLink=(u,t)=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer nofollow" title="open on collusion.wiki">${t}</a>`;
+function openLink(i){LM.rows=sortRows(filtered());LM.idx=LM.rows.findIndex(l=>l.i===i);if(LM.idx<0){LM.rows=[DATA.links[i]];LM.idx=0;}renderLinkModal();}
+function closeLink(){$('#linkModal').hidden=true;document.body.style.overflow='';}
+function renderLinkModal(){
+  const l=LM.rows[LM.idx]; const m=$('#linkModal'); m.hidden=false; document.body.style.overflow='hidden'; m.scrollTop=0;
+  $('#lmPrev').disabled=LM.idx<=0; $('#lmNext').disabled=LM.idx>=LM.rows.length-1;
+  $('#lmTitle').innerHTML=`<a href="${esc(l.su)}" target="_blank" rel="noopener noreferrer nofollow" title="opens the live short link (counts as a click)">${esc(l.su)}</a><span class="tag" title="read-only view assembled from the harvested data; ${LM.idx+1} of ${fmt(LM.rows.length)} in the current table order">+ · ${LM.idx+1}/${fmt(LM.rows.length)}</span>`;
+  $('#lmSub').innerHTML=`→ <a class="mono" href="${esc(l.u)}" target="_blank" rel="noopener noreferrer nofollow">${esc(l.u)}</a>${l.ti?`<div>${esc(l.ti)}</div>`:''}`;
+  const known=!l.nc, direct=known?Math.max(0,l.c-l.rc):0;
+  const kp=[[l.ap?'≤ '+esc(l.t):esc(l.t),(l.ap==='reused'?'first agent-era click day · pre-existing link created '+esc(l.ct)+' (not by the swarm)':'created (UTC)'+(l.ap==='wiki'?' · first wiki citation':l.ap==='chain'?' · chain link created':''))],[known?fmt(l.c)+(l.cn?' <span class="tag">60 d</span>':l.ap==='reused'?' <span class="tag">agent window</span>':''):'—','clicks'+(known?(l.ap==='reused'?' (in window; lifetime '+fmt(l.lc)+')':''):' (not exposed)')],[fmt(l.rc),'referred clicks'],[known?fmt(direct):'—','direct / no referer'],[fmt(l.rn),'distinct referring URLs'],[esc(l.ip),'creator IP'+(l.ap==='wiki'?' (wiki /16)':'')],[dot(l.cl)+esc(l.ol),'creator origin'],[`<span class="dot" style="background:${TC(l.tp)}"></span>${esc(l.tp)}`,'topic'],[fmt(l.wn),'wiki mentions (short link)'],[l.wx?fmt(l.wx):l.we?fmt(l.we):'0','potential wiki mentions'+(l.wx?' · target cited verbatim':l.we?' · same endpoint':'')]];
+  let h=`<div class="kpis">${kp.map(([v,t])=>`<div class="kpi"><div class="v">${v}</div><div class="l">${t}</div></div>`).join('')}</div>`;
+  h+=`<h2>Referrers</h2>`;
+  if(l.rc){
+    if(known&&l.c>0)h+=`<div class="srcbar" title="referred ${fmt(l.rc)} · direct/unknown ${fmt(direct)}"><i style="width:${100*l.rc/l.c}%;background:var(--accent2)"></i><i style="width:${100*direct/l.c}%;background:var(--muted);opacity:.5"></i></div><div class="legend"><span><i style="background:var(--accent2)"></i>referred ${fmt(l.rc)}</span><span><i style="background:var(--muted);opacity:.5"></i>direct / no referer ${fmt(direct)}</span></div>`;
+    h+=`<div class="grid2" style="margin-top:8px"><div><h2>Referrer hosts</h2><div class="hbars" id="lmHosts"></div></div><div><h2>Referring URLs ${l.rn>(l.rf||[]).length?`<span class="tag">top ${(l.rf||[]).length} of ${fmt(l.rn)}</span>`:''}</h2><div class="tblwrap"><table><thead><tr><th>referrer host</th><th>referrer URL</th><th class="r">clicks</th><th class="r">share</th></tr></thead><tbody>${(l.rf||[]).map(([rh,ru,n])=>`<tr><td class="mono small nowrap">${esc(rh)}</td><td class="u mono small" title="${esc(ru)}"><a href="${esc(ru)}" target="_blank" rel="noopener noreferrer nofollow">${esc(ru)}</a></td><td class="r">${fmt(n)}</td><td class="r note">${(100*n/l.rc).toFixed(1)}%</td></tr>`).join('')}</tbody></table></div></div></div>`;
+  } else h+=`<p class="note">${l.s==='vanderbi.lt'?'No click of this link carried a Referer header (all direct / unknown).':'This service exposes no per-click referrer data; only vanderbi.lt does.'}</p>`;
+  const r=resolvedMap[l.s+'/'+l.a];
+  if(r)h+=`<h2>Live resolution</h2><p class="small">HTTP ${r.st?`<span class="${r.st<400?'ok':'bad'}">${r.st}</span>`:`<span class="bad" title="${esc(r.err)}">err</span>`}${r.via?`<span class="tag">${esc(r.via)}</span>`:''}${r.loc?` → <a class="mono" href="${esc(r.loc)}" target="_blank" rel="noopener noreferrer nofollow">${esc(r.loc)}</a>`:''}${r.first?` <span class="note">· first seen ${esc(r.first.slice(0,10))}</span>`:''}</p>`;
+  if(l.wb&&l.wbn)h+=`<h2>Wayback Machine</h2><p class="small">${fmt(l.wbn)} capture${l.wbn===1?'':'s'} of the short URL, first ${esc(l.wb.first)}${l.wb.inwin?`, ${fmt(l.wb.inwin)} inside the incident window`:''} · <a href="https://web.archive.org/web/*/${esc(l.su)}" target="_blank" rel="noopener noreferrer nofollow">open on web.archive.org</a></p>`;
+  h+=`<h2>Wiki mentions <span class="tag">${fmt(l.wn)}</span></h2>`;
+  h+=l.wn?`<div class="tblwrap"><table><thead><tr><th>time</th><th>label</th><th>ip16</th><th>wiki / page</th><th>as written</th><th>found in</th></tr></thead><tbody>${l.w.map(i=>{const w=DATA.mentions[i];return `<tr><td class="nowrap mono">${esc(w.time)}</td><td>${cwLink(cwLabel(w.label),esc(w.label))}</td><td class="mono">${esc(w.ip16)}</td><td>${cwLink(cwPage(w.wiki,w.page,String(w.revision_id||'').split('@').pop()),esc(w.wiki)+' / '+esc(w.page))}</td><td class="mono small">${esc(w.url)}</td><td class="note">${esc(w.found_in)}</td></tr>`;}).join('')}</tbody></table></div>`:`<p class="note">Not cited in the wiki dump.</p>`;
+  const WC=DATA.wcites||{}, ex=l.wx&&WC.exact?WC.exact[l.u]:null, ep=l.we&&WC.endpoint?WC.endpoint[l.wk]:null;
+  h+=`<h2>Potential wiki mentions <span class="tag">target URL cited directly</span></h2>`;
+  if(ex||ep||l.wh){
+    h+=`<p class="small">Target URL cited verbatim in <b>${fmt(l.wx||0)}</b> revision${l.wx===1?'':'s'} · same endpoint (ignoring scheme, www, query, fragment) in <b>${fmt(l.we||0)}</b> · any URL on <span class="mono">${esc(l.h)}</span> in <b>${fmt(l.wh||0)}</b> of ${fmt(WC.n_revisions||0)} revisions in the dump.</p>`;
+    const seen=new Set(), rows=[]; (ex?ex.rows:[]).forEach(r=>{seen.add(r[3]+'~'+r[4]+'@'+r[7]);rows.push([r,'verbatim']);}); (ep?ep.rows:[]).forEach(r=>{const k=r[3]+'~'+r[4]+'@'+r[7];if(!seen.has(k)){seen.add(k);rows.push([r,'endpoint']);}});
+    const tot=Math.max(l.wx||0,l.we||0);
+    if(rows.length)h+=`<div class="tblwrap"><table><thead><tr><th>time</th><th>label</th><th>ip16</th><th>wiki / page</th><th>match</th><th>URL as cited</th><th>found in</th></tr></thead><tbody>${rows.map(([r,k])=>`<tr><td class="nowrap mono">${esc(r[0])}</td><td>${cwLink(cwLabel(r[1]),esc(r[1]))}</td><td class="mono">${esc(r[2])}</td><td>${cwLink(cwPage(r[3],r[4],r[7]),esc(r[3])+' / '+esc(r[4]))}</td><td><span class="tag" style="margin:0">${k}</span></td><td class="u mono small" title="${esc(r[6])}">${esc(r[6])}</td><td class="note">${esc(r[5])}</td></tr>`).join('')}</tbody></table></div>${tot>rows.length?`<div class="note" style="margin-top:6px">showing the earliest ${fmt(rows.length)} of ${fmt(tot)} citing revisions; the full history is on <a href="https://collusion.wiki/explorer/index.html" target="_blank" rel="noopener noreferrer nofollow">collusion.wiki</a>.</div>`:''}`;
+    else h+=`<p class="note">No revision cites this exact URL or endpoint; only the host appears.</p>`;
+  } else h+=`<p class="note">The target URL is not cited anywhere in the wiki dump${DATA.wcites?', nor is its host':' (citation index not built: run tools/extract_wiki_url_citations.py)'}.</p>`;
+  $('#lmBody').innerHTML=h;
+  if(l.rc){const hc={};(l.rh||[]).forEach(([rh,n])=>hc[rh]=n);hbars($('#lmHosts'),hc,k=>{closeLink();F.text=k;$('#fText').value=k;update();},60);}
+}
+$('#lmClose').onclick=closeLink; $('#linkModal').onclick=e=>{if(e.target===$('#linkModal'))closeLink();};
+$('#lmPrev').onclick=()=>{if(LM.idx>0){LM.idx--;renderLinkModal();}}; $('#lmNext').onclick=()=>{if(LM.idx<LM.rows.length-1){LM.idx++;renderLinkModal();}};
+document.addEventListener('keydown',e=>{if($('#linkModal').hidden||/input|select|textarea/i.test(e.target.tagName))return;if(e.key==='Escape')closeLink();else if(e.key==='ArrowLeft')$('#lmPrev').click();else if(e.key==='ArrowRight')$('#lmNext').click();});
+$$('#tbl th').forEach(th=>th.onclick=()=>{if(sortK===th.dataset.k)sortDir*=-1;else{sortK=th.dataset.k;sortDir=th.dataset.k==='t'||th.dataset.k==='c'||th.dataset.k==='wn'?-1:1;}renderTable(filtered());});
+$('#pgPrev').onclick=()=>{page=Math.max(0,page-1);renderTable(filtered());}; $('#pgNext').onclick=()=>{page++;renderTable(filtered());}; $('#pgSize').onchange=()=>{page=0;renderTable(filtered());};
+// ---------- referrers tab ----------
+let refpage=0, tgtpage=0;
+function refRows(rows){const q=F.text.toLowerCase();const out=[];rows.forEach(l=>{const lm=!q||matchQ(q,linkHay(l));(l.rf||[]).forEach(([h,u,n])=>{if(lm||matchQ(q,(h+' '+u).toLowerCase()))out.push({a:l.a,h,u,n});});});return out.sort((x,y)=>y.n-x.n);}
+function renderReferrers(rows){
+  const links=rows.filter(l=>l.rc);
+  const totClicks=links.reduce((a,l)=>a+l.rc,0), totUrls=links.reduce((a,l)=>a+l.rn,0);
+  $('#refSummary').innerHTML=[[fmt(links.length),'links with referred clicks'],[fmt(totUrls),'distinct referring URLs'],[fmt(totClicks),'referred clicks']].map(([v,l])=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+  const hc={};links.forEach(l=>(l.rh||[]).forEach(([h,n])=>hc[h]=(hc[h]||0)+n));hbars($('#refHosts'),hc,k=>{F.text=k;$('#fText').value=k;update();},20);
+  const rr=refRows(rows);
+  const sz=200,n=Math.ceil(rr.length/sz)||1;refpage=Math.min(refpage,n-1);const slice=rr.slice(refpage*sz,(refpage+1)*sz);
+  $('#refTbl tbody').innerHTML=slice.map(x=>`<tr><td class="mono">${esc(x.a)}</td><td class="mono small">${esc(x.h)}</td><td class="u mono small" title="${esc(x.u)}"><a href="${esc(x.u)}" target="_blank" rel="noopener noreferrer nofollow">${esc(x.u)}</a></td><td class="r">${fmt(x.n)}</td></tr>`).join('');
+  $('#refInfo').textContent=`${fmt(rr.length)} referring URLs · page ${refpage+1}/${n}`;
+}
+$('#refPrev').onclick=()=>{refpage=Math.max(0,refpage-1);renderReferrers(filtered());};$('#refNext').onclick=()=>{refpage++;renderReferrers(filtered());};
+// ---------- targets tab ----------
+function tgtRows(rows){const m={};rows.forEach(l=>{const t=m[l.u]||(m[l.u]={u:l.u,h:l.h,n:0,c:0,svc:{},first:l.t});t.n++;t.c+=l.c;t.svc[l.s]=(t.svc[l.s]||0)+1;if(l.t<t.first)t.first=l.t;});return Object.values(m).sort((a,b)=>b.n-a.n||b.c-a.c);}
+function renderTargets(rows){
+  const tg=tgtRows(rows);window.__tgt=tg;
+  const sz=250,n=Math.ceil(tg.length/sz)||1;tgtpage=Math.min(tgtpage,n-1);const slice=tg.slice(tgtpage*sz,(tgtpage+1)*sz);
+  $('#tgtTbl tbody').innerHTML=slice.map(t=>`<tr><td class="hc mono small" data-h="${esc(t.h)}" title="filter this host">${esc(t.h)}</td><td class="u mono small" title="${esc(t.u)}"><a href="${esc(t.u)}" target="_blank" rel="noopener noreferrer nofollow">${esc(t.u)}</a></td><td class="r">${fmt(t.n)}</td><td class="r">${fmt(t.c)}</td><td class="small">${Object.entries(t.svc).map(([s,c])=>esc(s)+' '+fmt(c)).join(', ')}</td><td class="nowrap mono small">${esc(t.first.slice(0,10))}</td></tr>`).join('');
+  $$('#tgtTbl .hc').forEach(e=>e.onclick=()=>{F.host=e.dataset.h;update();});
+  $('#tgtInfo').textContent=`${fmt(tg.length)} distinct target URLs · page ${tgtpage+1}/${n}`;
+}
+$('#tgtPrev').onclick=()=>{tgtpage=Math.max(0,tgtpage-1);renderTargets(filtered());};$('#tgtNext').onclick=()=>{tgtpage++;renderTargets(filtered());};
+$$('[data-copyt]').forEach(b=>b.onclick=async()=>{const tg=window.__tgt||[];const csv=['target_host,target_url,links,clicks,first_seen'].concat(tg.map(t=>[t.h,t.u,t.n,t.c,t.first].map(v=>{v=String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}).join(','))).join('\n');try{await navigator.clipboard.writeText(csv);$('#tgtCopyMsg').textContent=`copied ${fmt(csv.length)} chars`;}catch(e){$('#tgtCopyMsg').textContent='clipboard blocked';}setTimeout(()=>$('#tgtCopyMsg').textContent='',3000);});
+// ---------- flow tab: referrer host → target host ----------
+const hostPal=h=>{let x=0;for(const c of h)x=(x*31+c.charCodeAt(0))>>>0;return TPAL[x%TPAL.length];};
+const FLOW={view:'sankey',nl:12,nr:10,direct:true,reused:false};
+const FL_DIRECT='direct (no Referer)', FL_UNC='other referrers (uncounted)';
+const RROLE=h=>h===FL_DIRECT?'direct':h===FL_UNC?'other':/jqp\.vercel\.app|allorigins|md\.succ\.ai|r\.jina\.ai|markdown\.new|pure\.md|corsmirror|corsfix|proxymule|corsproxy|cors\.|workers\.dev|lemino|12ft|webcache|translate\.goog|codetabs/i.test(h)?'proxy':DATA.services.some(s=>h===s.id.replace(/_wayback$/,''))||/^(is\.gd|v\.gd|da\.gd|tinyurl\.com|bitily\.in|2dd\.pl|ctxr\.me|bit\.ly|t\.co)$/.test(h)?'chain':/^(www\.)?example\.(com|org|net)$|httpbin\.org|\.(test|foo|invalid|example)$|unique|example|test|^foo\.com$|^(www\.)?google\.com$|docs\.google\.com/i.test(h)?'canary':/^other \(/.test(h)?'other':'origin';
+const RCOL={proxy:'#e07b39',chain:'#8e5aa8',origin:'#2f6fb3',canary:'#d9a441',direct:'#9c978c',other:'#b5b0a6'};
+const RNAME={proxy:'reader proxy / CORS relay',chain:'shortener chain (short link → short link)',origin:'origin site / API (Referer passed through)',canary:'canary / test host',direct:'direct (no Referer)',other:'other / folded'};
+const nhost=h=>{h=String(h||'');try{h=decodeURIComponent(h);}catch(e){}return h.toLowerCase()||'(none)';};
+const pct=(n,d)=>d?(100*n/d<1?'<1':Math.round(100*n/d))+'%':'';
+function flowAgg(rows){
+  const pairs={},L={},R={},rawR={};let links=0,ref=0,direct=0,unc=0;
+  const add=(a,b,n)=>{if(!n)return;const k=a+'\0'+b;pairs[k]=(pairs[k]||0)+n;L[a]=(L[a]||0)+n;R[b]=(R[b]||0)+n;};
+  rows.forEach(l=>{if(!l.rh)return;links++;const t=nhost(l.h);(rawR[t]=rawR[t]||new Set()).add(l.h);let seen=0;
+    l.rh.forEach(([h,n])=>{add(nhost(h),t,n);seen+=n;ref+=n;});
+    const rest=Math.max(0,(l.rc||0)-seen);if(rest){add(FL_UNC,t,rest);unc+=rest;ref+=rest;}
+    const dn=Math.max(0,(l.c||0)-(l.rc||0));direct+=dn;if(FLOW.direct)add(FL_DIRECT,t,dn);});
+  return {pairs,L,R,rawR,links,ref,direct,unc};
+}
+function foldTop(counts,n){const ents=Object.entries(counts).sort((a,b)=>b[1]-a[1]);const map={};if(n&&ents.length>n+1){const rest=ents.slice(n);const lbl=`other (${rest.length} hosts)`;rest.forEach(([k])=>map[k]=lbl);return {order:ents.slice(0,n).map(e=>e[0]).concat([lbl]),map};}return {order:ents.map(e=>e[0]),map};}
+function renderFlow(rows){
+  if(!FLOW.reused)rows=rows.filter(l=>l.ap!=='reused');
+  const A=flowAgg(rows);
+  const nAll=DATA.links.filter(l=>l.rh).length;$('#flowCov').textContent=`${fmt(nAll)} links, ${fmt(DATA.links.filter(l=>l.rh).reduce((a,l)=>a+l.c,0))} clicks`;
+  // fold the tail into "other" buckets (direct / uncounted are never folded)
+  const Lc={...A.L};delete Lc[FL_DIRECT];delete Lc[FL_UNC];const fl=foldTop(Lc,FLOW.nl),fr=foldTop(A.R,FLOW.nr);
+  const Lorder=fl.order.concat([FL_UNC,FL_DIRECT].filter(k=>A.L[k]));
+  const P={};Object.entries(A.pairs).forEach(([k,n])=>{let [a,b]=k.split('\0');a=fl.map[a]||a;b=fr.map[b]||b;const kk=a+'\0'+b;P[kk]=(P[kk]||0)+n;});
+  const colL=k=>RCOL[RROLE(k)],colR=k=>/^other \(/.test(k)?'#b5b0a6':hostPal(k);
+  const onL=k=>{if(k===FL_DIRECT||k===FL_UNC||/^other \(/.test(k))return;F.text=k;$('#fText').value=k;update();};
+  const onR=k=>{if(/^other \(/.test(k))return;const raw=[...(A.rawR[k]||[])];if(raw.length===1){F.host=F.host===raw[0]?null:raw[0];}else{F.text=k;$('#fText').value=k;}update();};
+  const sank=$('#flowSankey'),mat=$('#flowMatWrap'),rts=$('#flowRoutes');sank.hidden=mat.hidden=rts.hidden=true;
+  if(FLOW.view==='sankey'){sank.hidden=false;flowSankey(sank,P,Lorder,fr.order,colL,colR,onL,onR);}
+  else if(FLOW.view==='routes'){rts.hidden=false;flowRoutes(rts,rows);}
+  else{mat.hidden=false;flowMatrix(P,Lorder,fr.order,colL,onL,onR);}
+  const roleTot={};Object.entries(A.L).forEach(([k,n])=>{const r=RROLE(k);roleTot[r]=(roleTot[r]||0)+n;});
+  $('#flowLegend').innerHTML=Object.keys(RNAME).filter(r=>roleTot[r]).map(r=>`<span><i style="background:${RCOL[r]}"></i>${esc(RNAME[r])} · ${fmt(roleTot[r])}</span>`).join('');
+}
+function hopHist(el,counts,color,label){
+  const xs=Object.keys(counts).map(Number);const maxX=xs.length?Math.max(...xs):0;const max=Math.max(1,...Object.values(counts));const tot=Object.values(counts).reduce((a,b)=>a+b,0);
+  const W=420,H=156,P={l:44,r:6,t:16,b:26},n=maxX+1,bw=(W-P.l-P.r)/n;const y=v=>P.t+(H-P.t-P.b)*(1-v/max);
+  let svg=`<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;max-height:190px">`;
+  for(const g of [0,.5,1]){const yy=y(max*g);svg+=`<line x1="${P.l}" x2="${W-P.r}" y1="${yy}" y2="${yy}" stroke="var(--line)"/><text x="${P.l-4}" y="${yy+4}" font-size="10" text-anchor="end" fill="var(--muted)">${fmt(Math.round(max*g))}</text>`;}
+  for(let i=0;i<n;i++){const v=counts[i]||0;const x0=P.l+i*bw+bw*.15;svg+=`<rect class="bar" x="${x0}" y="${y(v)}" width="${bw*.7}" height="${y(0)-y(v)}" fill="${color}"><title>${i} hop${i===1?'':'s'}: ${fmt(v)} ${label} (${pct(v,tot)})</title></rect><text x="${P.l+i*bw+bw/2}" y="${H-P.b+14}" font-size="10" text-anchor="middle" fill="var(--muted)">${i}</text>`;if(v)svg+=`<text x="${P.l+i*bw+bw/2}" y="${y(v)-3}" font-size="9.5" text-anchor="middle" fill="var(--muted)">${pct(v,tot)}</text>`;}
+  svg+=`<text x="${W-P.r}" y="${H-3}" font-size="10" text-anchor="end" fill="var(--muted)">hops</text></svg>`;el.innerHTML=tot?svg:'<p class="note">nothing in the current selection</p>';
+}
+function renderHops(rows){
+  if(!FLOW.reused)rows=rows.filter(l=>l.ap!=='reused');
+  const byClicks=document.querySelector('input[name=hopm]:checked').value==='clicks';
+  const tg={},rf={};let nested=0,nestedC=0,totC=0,refC=0,refNested=0,refLinks=0;
+  rows.forEach(l=>{const d=l.ld||0;if(byClicks){if(l.nc)return;tg[d]=(tg[d]||0)+l.c;totC+=l.c;if(d)nestedC+=l.c;}else{tg[d]=(tg[d]||0)+1;if(d)nested++;}
+    if(l.rdh){refLinks++;l.rdh.forEach(([dd,n])=>{rf[dd]=(rf[dd]||0)+(byClicks?n:1);refC+=n;if(dd)refNested+=n;});}});
+  hopHist($('#hopTgt'),tg,'var(--accent2)',byClicks?'clicks':'links');hopHist($('#hopRef'),rf,'#e07b39',byClicks?'referred clicks':'link·depth pairs');
+}
+$$('input[name=hopm]').forEach(r=>r.onchange=()=>renderHops(filtered()));
+let routesAll=false;
+function flowRoutes(el,rows){
+  const agg={};let tot=0;
+  rows.forEach(l=>{if(!l.rr)return;const tch=l.tc||[['final',l.h||'(none)']];
+    const add=(rch,n)=>{if(!n)return;const k=JSON.stringify([rch,l.s,tch]);const a=agg[k]||(agg[k]={rch,s:l.s,tch,n:0,links:new Set()});a.n+=n;a.links.add(l.i);tot+=n;};
+    l.rr.forEach(([rch,n])=>add(rch,n));
+    if(FLOW.direct){add([['direct','direct (no Referer)']],Math.max(0,(l.c||0)-(l.rc||0)));}});
+  const list=Object.values(agg).sort((a,b)=>b.n-a.n);if(!list.length){el.innerHTML='<p class="note">No referrer data in the current selection.</p>';return;}
+  const max=list[0].n;const N=routesAll?list.length:Math.min(40,list.length);
+  const ccol=([k,h])=>k==='final'?hostPal(h):k==='proxy'?RCOL.proxy:k==='short'?RCOL.chain:k==='wayback'?'#4f8f3a':k==='direct'?RCOL.direct:'#aaa';
+  const chips=ch=>ch.map((c,i)=>`${i?'<span class="rarr">→</span>':''}<span class="rchip ${esc(c[0])}" style="border-color:${ccol(c)}" title="${esc(c[0])}">${esc(c[1])}</span>`).join('');
+  el.innerHTML=`<div class="rhead"><span>referrer chain ⇒ short link ⇒ target chain</span><span>clicks</span><span class="r">links</span></div>`+list.slice(0,N).map((r,i)=>`<div class="route" data-i="${i}" title="click: filter to links with this final host${r.rch[0][0]==='direct'||r.rch[0][0]==='other'?'':' and this referrer'}"><div class="rpath">${chips(r.rch)}<span class="rsep">⇒</span><span class="rchip short" style="border-color:${SC(r.s)}">${esc(r.s)}</span><span class="rsep">⇒</span>${chips(r.tch)}</div><div class="rbar"><i style="width:${100*r.n/max}%"></i></div><div class="r">${fmt(r.n)} <span class="note">· ${fmt(r.links.size)}</span></div></div>`).join('')
+    +(list.length>40?`<a href="#" class="more small" style="display:block;margin-top:6px">${routesAll?'show top 40 only':`show all ${fmt(list.length)} routes`}</a>`:'')
+    +`<p class="note" style="margin-top:8px">${fmt(list.length)} routes · ${fmt(tot)} clicks</p>`;
+  const m=el.querySelector('.more');if(m)m.onclick=e=>{e.preventDefault();routesAll=!routesAll;flowRoutes(el,rows);};
+  el.querySelectorAll('.route').forEach(d=>d.onclick=()=>{const r=list[+d.dataset.i];const fin=r.tch[r.tch.length-1];if(fin[0]==='final'){F.leaf=fin[1];}const o=r.rch[0];if(o[0]!=='direct'&&o[0]!=='other'){F.text=o[1];$('#fText').value=o[1];}update();});
+}
+function flowSankey(el,pairs,Ls,Rs,colL,colR,onL,onR){
+  const lv={},rv={};Object.entries(pairs).forEach(([k,n])=>{const [a,b]=k.split('\0');lv[a]=(lv[a]||0)+n;rv[b]=(rv[b]||0)+n;});
+  Ls=Ls.filter(k=>lv[k]);Rs=Rs.filter(k=>rv[k]);
+  const tot=Object.values(lv).reduce((a,b)=>a+b,0);
+  if(!tot){el.innerHTML='<p class="note">No referrer data in the current selection (only harvested vanderbi.lt links carry it).</p>';return;}
+  const W=1000,NW=14,PAD=14,LX=262,RX=W-262,TOP=22,MINH=1.5;
+  const nmax=Math.max(Ls.length,Rs.length);const H=Math.max(360,nmax*30);const sc=(H-PAD*(nmax-1))/tot;
+  const pos={};const lay=(keys,vals,side)=>{let y=0;keys.forEach(k=>{const h=Math.max(MINH,vals[k]*sc);pos[side+k]={y,h,off:0};y+=h+PAD;});return y-PAD;};
+  const HL=lay(Ls,lv,'L'),HR=lay(Rs,rv,'R'),HH=Math.max(HL,HR);
+  Ls.forEach(k=>pos['L'+k].y+=TOP+(HH-HL)/2);Rs.forEach(k=>pos['R'+k].y+=TOP+(HH-HR)/2);
+  const li={},ri={};Ls.forEach((k,i)=>li[k]=i);Rs.forEach((k,i)=>ri[k]=i);
+  const ribs=Object.entries(pairs).map(([k,n])=>{const [a,b]=k.split('\0');return {a,b,n};}).filter(r=>li[r.a]!=null&&ri[r.b]!=null).sort((x,y)=>li[x.a]-li[y.a]||ri[x.b]-ri[y.b]);
+  // source offsets follow ribbon order; target offsets are assigned in target-then-source order so bands never cross inside a node
+  const tOff={};ribs.slice().sort((x,y)=>ri[x.b]-ri[y.b]||li[x.a]-li[y.a]).forEach(r=>{const t=pos['R'+r.b];const h=Math.max(.6,r.n*sc);tOff[r.a+'\0'+r.b]=t.y+t.off+h/2;t.off+=h;});
+  const paths=ribs.map(r=>{const s=pos['L'+r.a];const h=Math.max(.6,r.n*sc);const y0=s.y+s.off+h/2,y1=tOff[r.a+'\0'+r.b];s.off+=h;const x0=LX+NW,x1=RX,mx=(x0+x1)/2;
+    return `<path class="rib" data-a="${esc(r.a)}" data-b="${esc(r.b)}" d="M${x0.toFixed(1)},${y0.toFixed(2)} C${mx},${y0.toFixed(2)} ${mx},${y1.toFixed(2)} ${x1},${y1.toFixed(2)}" stroke="${colL(r.a)}" stroke-width="${h.toFixed(2)}"><title>${esc(r.a)} → ${esc(r.b)}\n${fmt(r.n)} clicks · ${pct(r.n,lv[r.a])} of ${esc(r.a)} · ${pct(r.n,rv[r.b])} of ${esc(r.b)}</title></path>`;}).join('');
+  const tr=(s,n)=>s.length>n?s.slice(0,n-1)+'…':s;
+  const node=(k,side,v,col)=>{const p=pos[side+k];const L=side==='L';return `<g class="nd" data-side="${side}" data-k="${esc(k)}"><rect x="${L?LX:RX}" y="${p.y.toFixed(2)}" width="${NW}" height="${p.h.toFixed(2)}" fill="${col(k)}"/><text x="${L?LX-7:RX+NW+7}" y="${(p.y+p.h/2).toFixed(2)}" text-anchor="${L?'end':'start'}" dominant-baseline="middle">${L?'':`<tspan class="n">${fmt(v)} </tspan>`}${esc(tr(k,36))}${L?`<tspan class="n"> ${fmt(v)}</tspan>`:''}</text><title>${esc(k)}: ${fmt(v)} clicks (${pct(v,tot)} of all)${L?'\n'+esc(RNAME[RROLE(k)]||''):''}</title></g>`;};
+  el.innerHTML=`<svg class="flow" viewBox="0 0 ${W} ${Math.ceil(HH+TOP+6)}" preserveAspectRatio="xMidYMin meet"><text class="colhd" x="${LX+NW}" y="12" text-anchor="end">referrer</text><text class="colhd" x="${RX}" y="12">target</text>${paths}${Ls.map(k=>node(k,'L',lv[k],colL)).join('')}${Rs.map(k=>node(k,'R',rv[k],colR)).join('')}</svg>`;
+  const svg=el.firstElementChild;
+  svg.querySelectorAll('.nd').forEach(g=>{const k=g.dataset.k,side=g.dataset.side;
+    g.onmouseenter=()=>{svg.classList.add('dim');svg.querySelectorAll('.rib').forEach(p=>p.classList.toggle('hi',(side==='L'?p.dataset.a:p.dataset.b)===k));};
+    g.onmouseleave=()=>{svg.classList.remove('dim');svg.querySelectorAll('.rib.hi').forEach(p=>p.classList.remove('hi'));};
+    g.onclick=()=>(side==='L'?onL:onR)(k);});
+}
+function flowMatrix(pairs,Ls,Rs,colL,onL,onR){
+  const lv={},rv={};Object.entries(pairs).forEach(([k,n])=>{const [a,b]=k.split('\0');lv[a]=(lv[a]||0)+n;rv[b]=(rv[b]||0)+n;});
+  Ls=Ls.filter(k=>lv[k]);Rs=Rs.filter(k=>rv[k]);const max=Math.max(1,...Object.values(pairs));
+  $('#flowMat thead').innerHTML=`<tr><th class="rh">referrer ↓ · target →</th>${Rs.map(k=>`<th class="c" title="${esc(k)}: ${fmt(rv[k])} clicks">${esc(k)}</th>`).join('')}<th class="c">total</th></tr>`;
+  $('#flowMat tbody').innerHTML=Ls.map(a=>`<tr><th class="rh" data-k="${esc(a)}" title="${esc(a)} (${esc(RNAME[RROLE(a)]||'')}): ${fmt(lv[a])} clicks"><span class="dot" style="background:${colL(a)}"></span>${esc(a)}</th>${Rs.map(b=>{const n=pairs[a+'\0'+b]||0;const al=n?Math.log(n+1)/Math.log(max+1):0;return `<td data-a="${esc(a)}" data-b="${esc(b)}" class="${al>.6?'hot':''}" style="background:color-mix(in srgb,var(--accent2) ${Math.round(al*88)}%,transparent)" title="${esc(a)} → ${esc(b)}: ${fmt(n)} clicks${n?' · '+pct(n,lv[a])+' of '+esc(a)+' · '+pct(n,rv[b])+' of '+esc(b):''}">${n?fmt(n):''}</td>`;}).join('')}<td class="r"><b>${fmt(lv[a])}</b></td></tr>`).join('')
+    +`<tr><th class="rh">total</th>${Rs.map(b=>`<td><b>${fmt(rv[b])}</b></td>`).join('')}<td></td></tr>`;
+  $$('#flowMat tbody th.rh[data-k]').forEach(e=>e.onclick=()=>onL(e.dataset.k));
+  $$('#flowMat td[data-a]').forEach(e=>e.onclick=()=>{onR(e.dataset.b);});
+}
+$('#flowView').onchange=e=>{FLOW.view=e.target.value;renderFlow(filtered());};
+$('#flowNL').onchange=e=>{FLOW.nl=+e.target.value;renderFlow(filtered());};
+$('#flowNR').onchange=e=>{FLOW.nr=+e.target.value;renderFlow(filtered());};
+$('#flowDirect').onchange=e=>{FLOW.direct=e.target.checked;renderFlow(filtered());};
+$('#flowReused').onchange=e=>{FLOW.reused=e.target.checked;renderFlow(filtered());renderHops(filtered());};
+// ---------- distribution across shorteners ----------
+function stackChart(el,rows,catFn,colorFn,labelFn,topN){
+  const svc={};rows.forEach(l=>{const s=svc[l.s]||(svc[l.s]={tot:0,cat:{}});s.tot++;const k=catFn(l);s.cat[k]=(s.cat[k]||0)+1;});
+  const services=Object.entries(svc).sort((a,b)=>b[1].tot-a[1].tot);const gmax=Math.max(1,...services.map(s=>s[1].tot));
+  el.innerHTML=services.map(([sid,s])=>{
+    let cats=Object.entries(s.cat).sort((a,b)=>b[1]-a[1]);
+    if(topN&&cats.length>topN){const rest=cats.slice(topN).reduce((a,c)=>a+c[1],0);cats=cats.slice(0,topN).concat([['other',rest]]);}
+    const segs=cats.map(([k,n])=>`<i style="width:${100*n/s.tot}%;background:${colorFn(k)}" title="${esc(labelFn?labelFn(k):k)}: ${fmt(n)} (${Math.round(100*n/s.tot)}%)"></i>`).join('');
+    return `<div class="stackrow"><span class="mono" title="${esc(sid)}" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(sid)}</span><span class="stackbar" style="width:${Math.max(4,100*s.tot/gmax)}%">${segs}</span><span class="r">${fmt(s.tot)}</span></div>`;
+  }).join('');
+}
+function renderDist(rows){
+  stackChart($('#distOrigin'),rows,l=>l.cl,g=>CL[g]||'var(--c-other)',g=>CLN[g]||g);
+  stackChart($('#distTarget'),rows,l=>l.h||'(none)',h=>h==='other'?'#bbb':hostPal(h),null,8);
+}
+// ---------- wiki tab ----------
+function wikiRows(){const q=F.text.toLowerCase();return DATA.mentions.filter(m=>{if(F.service&&m.host!==F.service)return false;if(F.from&&m.time.slice(0,10)<F.from)return false;if(F.to&&m.time.slice(0,10)>F.to)return false;if(q&&!(m.label+' '+m.page+' '+m.url+' '+m.host).toLowerCase().includes(q))return false;return true;});}
+const YH=new Set(['vanderbi.lt','bitily.in','2dd.pl','yourls.pro','yourls.website','yourls.space']);
+const ukey=m=>{let a=m.host==='ctxr.me'?m.url.replace(/^https?:\/\/[^/]+\//,''):m.alias.split(/[#&]/)[0];if(YH.has(m.host))a=a.toLowerCase();return a&&!a.endsWith('.php')?m.host+'/'+a:null;};
+function renderWiki(){const rows=wikiRows();const uniq=$('#wUniq').checked;$('#wTag1').textContent=$('#wTag2').textContent=uniq?'unique links':'citations';
+  const cnt=by=>{if(!uniq)return count(rows,by);const c={},seen=new Set();rows.forEach(m=>{const u=ukey(m);if(!u)return;const k=by(m)+'\u0000'+u;if(seen.has(k))return;seen.add(k);c[by(m)]=(c[by(m)]||0)+1;});return c;};
+  hbars($('#wHosts'),cnt(m=>m.host),k=>{F.service=k;$('#fService').value=k;update();});hbars($('#wLabels'),cnt(m=>m.label),k=>{F.text=k;$('#fText').value=k;update();},12);
+  const sz=200,n=Math.ceil(rows.length/sz)||1;wpage=Math.min(wpage,n-1);const slice=rows.slice(wpage*sz,(wpage+1)*sz);
+  $('#wtbl tbody').innerHTML=slice.map(m=>{const r=resolvedMap[m.host+'/'+(m.host==='bitily.in'&&m.url.includes('/MYLABI/')?'MYLABI/'+m.url.split('/MYLABI/')[1].split(/[?&]/)[0]:m.alias)];const st=r?(r.st===301||r.st===302||r.st===307?(r.loc&&!/\/MYLABI\/?$|bitily\.in\/?$/.test(r.loc)?`<span class="ok">${r.st}</span> → <a href="${esc(r.loc)}" target="_blank" rel="noopener noreferrer nofollow" class="mono">${esc(r.loc.slice(0,90))}</a>`:`<span class="bad">${r.st}</span> deleted → ${esc((r.loc||'').slice(0,60))}`):`<span class="bad">${r.st||r.err||'?'}</span>`):'<span class="note">not probed</span>';
+    return `<tr><td class="nowrap mono">${esc(m.time)}</td><td>${esc(m.label)}</td><td class="mono">${esc(m.ip16)}</td><td>${esc(m.wiki)} / ${esc(m.page)}</td><td class="mono small" title="${esc(m.url)}"><a href="${esc(m.url)}" target="_blank" rel="noopener noreferrer nofollow">${esc(m.host)}/${esc(m.alias)}</a>${m.found_in==='decoded'?'<span class="tag">nested</span>':''}</td><td class="u small">${st}</td></tr>`;}).join('');
+  $('#wInfo').textContent=`${fmt(rows.length)} mentions · page ${wpage+1}/${n}`;}
+$('#wPrev').onclick=()=>{wpage=Math.max(0,wpage-1);renderWiki();}; $('#wNext').onclick=()=>{wpage++;renderWiki();};
+// ---------- other shorteners tab ----------
+function renderOther(){
+  const SV=[
+   ['vanderbi.lt','YOURLS (Vanderbilt Univ.)','yes — unauthenticated stats API with creator IP','full link table (alias, target, creator IP, timestamp, clicks)','<span class="ok">dumped</span>'],
+   ['bitily.in','YOURLS 1.9.3-dev, open admin','yes — stats API answers, but reports 0 links','instance wiped; every alias the agents used now 301s to /MYLABI/. Wayback capture of the admin table (2026-06-01 14:32) recovers 15 agent rows with IPs → service bitily.in_wayback','<span class="bad">emptied</span> · <span class="ok">15 rows recovered</span>'],
+   ['2dd.pl','YOURLS 1.10.3 (Polish)','no — API returns 403 "Proszę się zalogować"; the public <code>+</code> stats page also demands login','per-alias resolution only (masscountyref still live; its target is the allorigins-wrapped SEC county.json). Wayback has no capture of the domain','<span class="bad">auth required</span>'],
+   ['yourls.pro','YOURLS','—','domain NXDOMAIN; 49 agent keywords survive inside vanderbi.lt targets; one archived create-URL (2026-05-27, HTTP 508)','<span class="bad">gone</span>'],
+   ['yourls.website','YOURLS','—','parked domain. Wayback captured its admin table on 2026-05-20/21: 60 rows, two cohorts (Google Docs viewer, smilefm.co.za WP-REST) dated 05-17..05-21 → service yourls.website_wayback','<span class="bad">parked</span> · <span class="ok">60 rows recovered</span>'],
+   ['yourls.space','YOURLS 1.10.6, open stats API + admin','yes — but table reset 2026-08-07','254 rows of operator SEO spam, zero agent rows survive; agents scanned it 2026-05-28','<span class="bad">reset</span>'],
+   ['yourls.biz','YOURLS','—','NXDOMAIN; one forged-nonce admin-ajax add on 2026-05-27 recorded in vanderbi.lt targets','<span class="bad">gone</span>'],
+   ['hko.nu','YOURLS (public interface)','—','suspended cPanel; 9 agent links /agent0masscite1781803106 from 9 Azure IPs in 73 s','<span class="bad">suspended</span>'],
+   ['ns3.dnscores.com · 135.148.59.237.nip.io · 178.62.91.128 · 209.133.215.159','scanned hosts','—','hit by the 2026-05-28 admin/index.php?randomss= sweep; none runs YOURLS today (parked / Apache default / dead / nginx autoindex)','<span class="bad">nothing</span>'],
+   ['telegra.ph','anonymous publishing (GET API)','none, but predictable slugs','agent-authored page Data-Africa-Central-Citation-5080-05-29 still live, author "Agent"','<span class="ok">live page</span>'],
+   ['web.archive.org (Save Page Now)','archive, GET-triggered write','yes — CDX API','SPN loop 2026-05-28 on lcdl.library.cofc.edu with agent cache-buster; captures of bitily.in, yourls.website, yourls.pro, md.succ.ai, allorigins during the window (2025 baseline: 0)','<span class="ok">captures recovered</span>'],
+   ['tinyurl.com','commercial shortener','no public listing; no creator IP, no creation date, analytics behind login','redirect target per alias (HEAD), preview page; 2 of 54 aliases deleted (404). Rows in the Links table are wiki-derived (dated by first citation) + Wayback capture counts','<span class="ok">resolved per alias</span> · <span class="ok">wiki-derived rows</span>'],
+   ['is.gd / v.gd','commercial shortener','no listing; forward.php JSON API + optional stats page','redirect target per alias; the stats page answers "not enabled" for every agent alias (0 of 79), so no dates or clicks. Wiki-derived rows + Wayback capture counts','<span class="ok">resolved per alias</span> · <span class="ok">wiki-derived rows</span>'],
+   ['da.gd','open-source shortener','no listing; /coshorten/ALIAS returns target; <b>/stats/ALIAS</b> (HTML) gives a 60-day daily access series','redirect target per alias; the stats page only gives a trailing-60-day access series (post-incident replay traffic, kept as a raw file, not shown)','<span class="ok">resolved per alias</span>'],
+   ['ctxr.me','"Context Readme for AI agents" (not a shortener)','—','service returns 502 for /http, /https; /ok, /example.com, /news.ycombinator.com answer 200. Aliases were agent probes; wiki-derived rows','<span class="bad">down</span>'],
+   ['short.kodact.art','custom Next.js app','no','seen once as a vanderbi.lt target; 404 now','<span class="bad">404</span>']];
+  $('#svcTbl tbody').innerHTML=SV.map(r=>`<tr>${r.map((c,i)=>`<td${i===0?' class="mono"':''}>${c}</td>`).join('')}</tr>`).join('');
+  const R=DATA.resolved; const cls=r=>r.loc&&!/\/MYLABI\/?$|bitily\.in\/?$/.test(r.loc)?'target recovered'+(r.via?' via '+r.via:''):(r.st===301||r.st===302)?'deleted (blank redirect)':r.st?('HTTP '+r.st):'unreachable'; const sum={}; R.forEach(r=>{const k=r.s+' · '+cls(r);sum[k]=(sum[k]||0)+1;}); hbars($('#rSummary'),sum,null,60);
+  $('#rtbl tbody').innerHTML=R.slice().sort((a,b)=>a.s.localeCompare(b.s)||a.first.localeCompare(b.first)).map(r=>`<tr><td class="mono">${esc(r.s)}</td><td class="mono"><a href="${esc(r.su)}" target="_blank" rel="noopener noreferrer nofollow">${esc(r.a)}</a></td><td>${r.st?`<span class="${r.st<400?'ok':'bad'}">${r.st}</span>`:`<span class="bad" title="${esc(r.err)}">err</span>`}${r.via?`<span class="tag">${esc(r.via)}</span>`:''}</td><td class="u mono" title="${esc(r.loc)}">${r.loc?`<a href="${esc(r.loc)}" target="_blank" rel="noopener noreferrer nofollow">${esc(r.loc)}</a>`:''}</td><td>${esc(r.h)}</td><td class="small">${esc(r.src.join(', '))}</td><td class="small">${esc(r.labels.slice(0,4).join(', '))}${r.labels.length>4?` +${r.labels.length-4}`:''}</td><td class="nowrap mono">${esc(r.first.slice(0,10))}</td><td class="r nowrap small">${r.wb?(r.wb.n?`<a href="https://web.archive.org/web/*/${esc(r.su)}" target="_blank" rel="noopener noreferrer nofollow" title="${r.wb.n} captures, ${r.wb.inwin} inside 2026-05..07; first capture status ${esc(r.wb.st)}${r.wb.tgt?' → '+esc(r.wb.tgt):''}">${r.wb.n} · ${esc(r.wb.first.slice(0,8))}</a>`:'<span class="note">0</span>'):'<span class="note" title="not looked up">?</span>'}</td></tr>`).join('');
+  $('#pTbl tbody').innerHTML=Object.entries(DATA.probes).map(([b,p])=>`<tr><td class="mono">${esc(b)}</td><td>${esc(p.root)}</td><td>${esc(p.stats)}</td><td>${esc(p.db_stats)}</td><td>${esc(p.admin)}</td><td class="mono small">${esc(p.stats_json?JSON.stringify(p.stats_json):'')}</td></tr>`).join('');
+}
+// ---------- raw tab ----------
+function renderRaw(){
+  $('#rawSources').innerHTML=DATA.services.map(s=>`<details><summary>${esc(s.id)} <span class="tag">${esc(s.kind)}</span></summary><div class="small">${s.kind.includes('open stats API')?`API: <code>${esc(s.api)}</code> (params <code>action=stats&amp;format=json&amp;filter=last&amp;limit=N&amp;start=OFFSET</code>)<br>fetched ${esc(s.fetched_at)} with User-Agent <code>${esc(s.user_agent)}</code>`:`Source: <code>${esc(s.api)}</code><br>${esc(s.user_agent)}`}<br>server-reported totals: ${esc(JSON.stringify(s.stats))} · records fetched: ${fmt(s.n_fetched)} (${esc(s.oldest)} → ${esc(s.newest)}) · in window: ${fmt(s.n_window)}<br>timestamps: ${esc(s.tz_note||'')}<br>raw files: ${s.raw_files.map(f=>`<a href="../${esc(f)}"><code>${esc(f)}</code></a>`).join(', ')}</div></details>`).join('')+
+   `<details><summary>collusion-wiki SQLite dump <span class="tag">DB</span></summary><div class="small"><code>${esc(DATA.db.path)}</code> · ${fmt(DATA.db.n_mentions)} shortener mentions across revisions, ${fmt(DATA.db.n_distinct)} distinct short links, extracted by <code>tools/extract_db_shortlinks.py</code> → <a href="../db_extracts/shortlink_mentions.json"><code>db_extracts/shortlink_mentions.json</code></a></div></details>
+    <details><summary>Live per-alias resolution <span class="tag">probe</span></summary><div class="small">${fmt(DATA.resolved.length)} short links resolved with <code>tools/resolve_shortlinks.py</code> (no redirects followed; is.gd/v.gd forward API, da.gd coshorten, tinyurl preview) → <a href="../raw_artifacts/shorteners/resolved_shortlinks.json"><code>raw_artifacts/shorteners/resolved_shortlinks.json</code></a>, <code>.csv</code></div></details>
+    <details><summary>Wayback captures of the short links <span class="tag">CDX</span></summary><div class="small">${DATA.wayback?`${fmt(DATA.wayback.n)} short URLs looked up ${esc(DATA.wayback.fetched_at)} with <code>tools/cdx_aliases.py</code> (exact-URL CDX query, read-only, no Save Page Now) → <a href="../raw_artifacts/shorteners/wayback_aliases.json"><code>raw_artifacts/shorteners/wayback_aliases.json</code></a>: per alias every capture timestamp, status and the redirect target the archive recorded`:'not run (tools/cdx_aliases.py)'}</div></details>
+    <details><summary>da.gd access statistics <span class="tag">stats page</span></summary><div class="small">${DATA.dagd?`${Object.keys(DATA.dagd.aliases).length} aliases fetched ${esc(DATA.dagd.fetched_at)} with <code>tools/fetch_dagd_stats.py</code> from <code>${esc(DATA.dagd.api)}</code> → <a href="../raw_artifacts/shorteners/da.gd/stats.json"><code>raw_artifacts/shorteners/da.gd/stats.json</code></a> (+ raw HTML under <code>da.gd/stats/</code>). ${esc(DATA.dagd.note)}`:'not run (tools/fetch_dagd_stats.py)'}</div></details>
+    <details><summary>Creator-IP origin <span class="tag">ASN</span></summary><div class="small">${fmt((DATA.origin_meta||{}).n_ips||0)} distinct creator IPs → <a href="../raw_artifacts/ip_origin/ip_origin.json"><code>raw_artifacts/ip_origin/ip_origin.json</code></a> (per IP: ASN, org, BGP prefix, Azure region + service tags, published-range hits). Sources: <a href="../raw_artifacts/ip_origin/cymru_bulk.txt"><code>cymru_bulk.txt</code></a> (whois.cymru.com bulk), <code>${esc(((DATA.origin_meta||{}).azure_tags||{}).file||'')}</code> (Microsoft Service Tags, change ${esc(((DATA.origin_meta||{}).azure_tags||{}).changeNumber||'')}), published agent egress lists: ${Object.entries((DATA.origin_meta||{}).published_ranges||{}).map(([n,r])=>`<a href="${esc(r.url)}" rel="noopener noreferrer">${esc(n)}</a> (${r.prefixes} prefixes, ${r.hit_ips} hits)`).join(', ')}.</div></details>
+    <p class="note">Generated ${esc(DATA.generated_at)}. Baseline = links created by the site owner's own automation (129.59.0.0/16, 10.55.0.0/16, 3.227.32.58, *.vanderbilt.edu targets); hidden by default. Creator origin = ASN/org from Team Cymru bulk whois plus Azure region from Microsoft's public Service Tags file (tools/lookup_ip_origin.py); the /16 panel shows each network's dominant origin. vanderbi.lt records older than offset 49,000 (pre-2012) were not retrievable (empty responses) and are irrelevant to the window. Wiki-derived rows (tinyurl.com, is.gd, v.gd, da.gd, ctxr.me, 2dd.pl, wiped bitily.in aliases) are dated by their first wiki citation, or by the vanderbi.lt chain link that points at them, and carry the citing revision's /16 rather than a creator IP; they are excluded from every creator-IP count; use the service filter to isolate them.</p>`;
+  $('#rawRoot').textContent=DATA.raw.root;
+  $('#rawFiles').innerHTML=DATA.raw.files.map(f=>`<li><a href="../${esc(f)}"><code>${esc(f)}</code></a></li>`).join('');
+  $('#repro').textContent=`cd ${DATA.raw.root}
+python3 tools/extract_db_shortlinks.py                       # wiki DB -> db_extracts/shortlink_mentions.json
+python3 tools/fetch_yourls.py https://vanderbi.lt raw_artifacts/shorteners/vanderbi.lt --page 2000 --max-pages 40
+python3 tools/probe_yourls_instances.py                      # -> raw_artifacts/shorteners/probes.json
+python3 tools/resolve_shortlinks.py                          # -> raw_artifacts/shorteners/resolved_shortlinks.{json,csv}
+python3 tools/fetch_dagd_stats.py                            # da.gd /stats/ALIAS -> raw_artifacts/shorteners/da.gd/stats.json
+python3 tools/cdx_aliases.py                                 # Wayback CDX per short link -> raw_artifacts/shorteners/wayback_aliases.json
+python3 tools/build_dashboard.py                             # -> dashboard/data.json + dashboard/index.html
+python3 tools/lookup_ip_origin.py                            # creator IPs -> ASN (Team Cymru), Azure region, published-range check
+python3 tools/build_dashboard.py                             # rebuild with origin labels
+
+# all live requests use:
+# User-Agent: CollusionWikiResearch/1.0 (URL-shortener abuse research)`;
+}
+// ---------- copy ----------
+function toCSV(rows){const cols=['t','s','a','su','ip','cl','rg','an','h','tp','tk','u','ti','c','wn'];return [cols.join(',')].concat(rows.map(l=>cols.map(c=>{const v=String(l[c]??'');return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}).join(','))).join('\n');}
+$$('[data-copy]').forEach(b=>b.onclick=async()=>{const rows=sortRows(filtered());const txt=b.dataset.copy==='csv'?toCSV(rows):b.dataset.copy==='json'?JSON.stringify(rows.map(l=>({...l,w:(l.w||[]).map(i=>DATA.mentions[i])})),null,1):JSON.stringify(DATA);try{await navigator.clipboard.writeText(txt);$('#copyMsg').textContent=`copied ${fmt(txt.length)} chars`;}catch(e){$('#copyMsg').textContent='clipboard blocked; use the raw files instead';}setTimeout(()=>$('#copyMsg').textContent='',3000);});
+$('#showRaw').onclick=()=>{const p=$('#rawPre');p.hidden=!p.hidden;p.textContent=JSON.stringify(DATA.links.slice(0,50),null,1);};
+// ---------- wiring ----------
+$$('[data-tab]').forEach(b=>b.onclick=e=>{e.preventDefault();const t=b.dataset.tab;$$('#tabs button').forEach(x=>x.classList.toggle('on',x.dataset.tab===t));$$('section[id^=tab-]').forEach(s=>s.hidden=s.id!=='tab-'+t);$('#filterbar').hidden=(t==='other'||t==='raw'||t==='sweep'||t==='topics');try{localStorage.setItem('ssl-tab',t);}catch(e){}try{if(location.hash!=='#'+t)history.replaceState(null,'','#'+t);}catch(e){}});
+$('#fService').innerHTML+=DATA.services.map(s=>`<option>${esc(s.id)}</option>`).join('')+[...new Set(DATA.mentions.map(m=>m.host))].filter(h=>!DATA.services.some(s=>s.id===h)).map(h=>`<option value="${esc(h)}">${esc(h)} (wiki mentions only)</option>`).join('');
+$('#fTopic').innerHTML='<option value="">all topics</option>'+(DATA.topics||[]).map(t=>`<option value="${esc(t.topic)}">${esc(t.topic)} (${fmt(t.n)})</option>`).join(''); $('#fTopic').onchange=e=>{F.topic=e.target.value;update();};
+$('#fService').onchange=e=>{F.service=e.target.value;update();}; $('#fCloud').onchange=e=>{F.cloud=e.target.value;update();};
+$('#fFrom').onchange=e=>{F.from=e.target.value;update();}; $('#fTo').onchange=e=>{F.to=e.target.value;update();};
+let tmr; $('#fText').oninput=e=>{clearTimeout(tmr);tmr=setTimeout(()=>{F.text=e.target.value.trim();update();},200);};
+$('#fWiki').onchange=e=>{F.wiki=e.target.checked;update();}; $$('input[name=rtm]').forEach(r=>r.onchange=()=>renderRefTime(filtered())); $('#rtCount').onchange=()=>renderRefTime(filtered()); $('#tlClicks').onchange=$('#tlWiki').onchange=$('#tlWikiM').onchange=()=>renderTimeline(filtered()); $$('input[name=wdm]').forEach(r=>r.onchange=()=>renderWeekday(filtered())); $$('input[name=hrm]').forEach(r=>r.onchange=()=>renderHours(filtered())); $('#wUniq').onchange=()=>renderWiki(); $('#fNoBase').onchange=e=>{F.nobase=e.target.checked;update();};
+$('#fReset').onclick=()=>{pieDrill=null;Object.assign(F,{service:'',cloud:'',from:'',to:'',text:'',wiki:false,nobase:true,host:null,leaf:null,ip16:null,ip:null,day:null,origin:null,topic:''});$('#fTopic').value='';$('#fService').value='';$('#fCloud').value='';$('#fFrom').value='';$('#fTo').value='';$('#fText').value='';$('#fWiki').checked=false;$('#fNoBase').checked=true;update();};
+$$('input[name=tl],input[name=tlc]').forEach(r=>r.onchange=()=>renderTimeline(filtered()));
+{const c=count(DATA.links.filter(l=>!l.base),l=>l.cl); $('#fCloud').innerHTML='<option value="">all creator origins</option>'+Object.keys(CL).filter(k=>c[k]).map(k=>`<option value="${k}">${esc(CLN[k])} (${fmt(c[k])})</option>`).join('');}
+function applyBtn(b){Object.assign(F,{service:b.dataset.service||'',cloud:'',from:'',to:'',wiki:false,nobase:!b.dataset.base,host:null,leaf:null,ip16:null,ip:null,day:null,origin:null,topic:b.dataset.topic||'',text:b.dataset.find||''});}
+function syncControls(){$('#fService').value=F.service;$('#fCloud').value=F.cloud;$('#fFrom').value=F.from;$('#fTo').value=F.to;$('#fWiki').checked=F.wiki;$('#fNoBase').checked=F.nobase;$('#fText').value=F.text;$('#fTopic').value=F.topic;}
+const EXB=$$('[data-find],[data-topic],[data-service]');
+EXB.forEach(b=>{const save={...F};applyBtn(b);const n=filtered().length;Object.assign(F,save);b.insertAdjacentHTML('beforeend',` <span class="small" style="opacity:.7">${fmt(n)}</span>`);if(!n)b.disabled=true;});
+EXB.forEach(b=>b.onclick=()=>{applyBtn(b);pieDrill=null;syncControls();sortK='t';sortDir=1;$$('#tabs button').find(x=>x.dataset.tab==='links').click();update();});
+renderOther(); renderRaw(); renderTopicTab(); update();
+// tab routing: #tab in the URL wins, then the last-used tab from localStorage
+const TABS=$$('#tabs button').map(b=>b.dataset.tab);
+function gotoHash(){const h=(location.hash||'').replace(/^#/,'');if(TABS.includes(h)){$$('#tabs button').find(b=>b.dataset.tab===h)?.click();return true;}return false;}
+if(!gotoHash()){try{const t=localStorage.getItem('ssl-tab');if(t)$$('#tabs button').find(b=>b.dataset.tab===t)?.click();}catch(e){}}
+window.addEventListener('hashchange',gotoHash);
+}
+</script>

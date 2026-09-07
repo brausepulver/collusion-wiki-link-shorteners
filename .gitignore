@@ -1,0 +1,5 @@
+collusion-wiki.db
+__pycache__/
+raw_artifacts/shorteners/vanderbi.lt/referrers/raw/
+raw_artifacts/shorteners/vanderbi.lt/referrers/harvest.log
+/*.md

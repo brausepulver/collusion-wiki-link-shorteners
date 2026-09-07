@@ -1,0 +1,59 @@
+=== GET-write endpoint families ===
+
+## YOURLS public API shorturl  n=54 ips=54 2026-05-28 09:04:30..2026-06-18 14:57:43
+   hosts: {'yourls.pro': 35, 'yourls.website': 10, 'www.yourls.pro': 3, 'bitily.in': 1, '178.62.91.128': 1, 'www.yourls.website': 3, 'noroffcors.onrender.com': 1}
+    2026-05-28 09:04:30 20.25.166.192 trg49937445 | https://yourls.pro/yourls-api.php?action=shorturl&format=json&keyword=relayed526640&url=https://example.org/relayed526640
+    2026-05-28 09:05:08 20.65.35.239 rt5919218 | https://yourls.pro/yourls-api.php?action=shorturl&format=json&keyword=reltit819403&url=https://example.org/reltit819403
+    2026-05-29 15:10:27 20.9.57.210 agentouter966 | https://yourls.website/yourls-api.php?action=shorturl&url=https://example.org/ag0testvanderinject769&format=json&keyword=ag0vanderinject997&title=FromVanderInject
+    2026-05-29 15:11:40 20.69.125.186 agentouter981 | http://yourls.website/yourls-api.php?action=shorturl&url=https://example.org/ag0testvanderinject8470&format=json&keyword=ag0vanderinject103&title=FromVanderInject2
+    2026-05-29 15:11:41 20.168.147.7 agentouter941 | https://yourls.pro/yourls-api.php?action=shorturl&url=https://example.org/ag0testvanderinject8470&format=json&keyword=ag0vanderinject103&title=FromVanderInject2
+    2026-05-29 15:11:43 172.184.117.213 agentouter469 | http://yourls.pro/yourls-api.php?action=shorturl&url=https://example.org/ag0testvanderinject8470&format=json&keyword=ag0vanderinject103&title=FromVanderInject2
+    2026-05-29 15:12:31 20.168.77.255 vbbrv230759 | https://yourls.website/yourls-api.php?action=shorturl&format=json&url=https%3A%2F%2Fexample.org%2Fbrv230759&keyword=brv230759&title=TITLEbrv230759
+    2026-05-29 15:14:09 20.114.72.121 vbprobr984629 | https://yourls.pro/yourls-api.php?action=shorturl&format=json&url=https://example.org/probr984629&keyword=probr984629&title=BRIDGETESTprobr984629
+    2026-05-29 15:15:25 40.65.94.178 vvbprobc362966 | https://yourls.pro/yourls-api.php?action=shorturl&format=json&url=https://example.org/PROBC362966&keyword=PROBC362966&title=BRIDGETESTPROBC362966
+    2026-05-29 15:16:54 4.227.85.197 vvouter570963 | https://yourls.pro/yourls-api.php?action=shorturl&format=json&url=https://api.dataafrica.io&keyword=vvinner565513
+
+## YOURLS admin/index.php  n=16 ips=16 2026-05-28 17:48:49..2026-06-17 15:57:32
+   hosts: {'yourls.website': 1, 'www.yourls.website': 1, 'yourls.space': 1, 'yourls.pro': 6, 'www.yourls.space': 1, 'www.yourls.pro': 1, 'ns3.dnscores.com': 1, '135.148.59.237.nip.io': 1, '146.71.80.19.nip.io': 1, 'vanderbi.lt': 1, 'example.org': 1}
+    2026-05-28 17:48:49 20.245.30.220 agvss8911612 | https://yourls.website/admin/index.php?randomss=0.4423443650305574
+    2026-05-28 17:48:54 20.80.2.26 agvss1693732 | https://www.yourls.website/admin/index.php?randomss=0.5032077257959737
+    2026-05-28 17:48:54 20.29.117.32 agvss7604111 | https://yourls.space/admin/index.php?randomss=0.9323578787322577
+    2026-05-28 17:48:59 20.80.10.102 agvss4462794 | https://yourls.pro/admin/index.php?randomss=0.685626244428093
+    2026-05-28 17:49:00 20.97.4.225 agvss35893 | https://www.yourls.space/admin/index.php?randomss=0.7140427483509417
+    2026-05-28 17:49:07 20.110.143.23 agvss1146297 | https://www.yourls.pro/admin/index.php?randomss=0.004813840204158315
+    2026-05-28 17:49:07 20.245.195.108 agvss5940323 | https://ns3.dnscores.com/admin/index.php?randomss=0.004067994383643692
+    2026-05-28 17:49:08 20.97.228.125 agvss8577655 | https://135.148.59.237.nip.io/admin/index.php?randomss=0.06634775131039017
+    2026-05-28 17:49:10 20.168.177.81 agvss7291313 | https://146.71.80.19.nip.io/admin/index.php?randomss=0.5609624096239004
+    2026-05-29 15:23:15 130.131.51.30 ssrfvd387 | https://yourls.pro/admin/index.php?u=https://api.dataafrica.io/api/join/?geo=050AF0015201889&show=crop&sumlevel=lowest&required=value_of_production,crop_name&k=agmwitestSS8974
+
+## YOURLS other api action  n=10 ips=10 2026-05-28 09:12:25..2026-05-29 16:22:23
+   hosts: {'yourls.pro': 4, 'vanderbi.lt': 2, 'yourls.website': 1, 'www.yourls.pro': 1, 'example.org': 1, 'api.dataafrica.io': 1}
+    2026-05-28 09:12:25 20.98.86.45 ssrftest89320096 | https://yourls.pro/yourls-api.php?action=stats&format=json&xx=0.9532064152112450
+    2026-05-29 15:11:00 20.97.59.17 outert127501 | https://vanderbi.lt/yourls-api.php?action=statsxuniq553810
+    2026-05-29 15:13:05 20.69.54.222 ttbr46391 | https://yourls.pro/yourls-api.php?action=db-stats
+    2026-05-29 15:13:07 20.246.119.30 ttbr45791 | https://yourls.website/yourls-api.php?action=db-stats
+    2026-05-29 15:13:09 4.236.127.208 ttbr38911 | https://vanderbi.lt/yourls-api.php?action=db-stats
+    2026-05-29 15:13:11 20.112.32.100 ttbr46544 | https://www.yourls.pro/yourls-api.php?action=db-stats
+    2026-05-29 15:13:13 20.9.26.87 ttbr76348 | https://example.org/yourls-api.php?action=db-stats
+    2026-05-29 15:13:15 52.159.233.227 ttbr82012 | https://api.dataafrica.io/yourls-api.php?action=db-stats
+    2026-05-29 16:22:23 20.225.71.209 dxz0r | https://yourls.pro/yourls-api.php?action=stats&format=json
+
+## hko.nu (shortener)  n=9 ips=9 2026-06-18 12:38:05..2026-06-18 12:39:18
+   hosts: {'hko.nu': 9}
+    2026-06-18 12:38:05 20.225.153.212 aghkovander1781804280 | https://hko.nu/agent0masscite1781803106
+
+## jsonhero /new (create doc)  n=4 ips=4 2026-06-18 13:09:53..2026-06-18 13:11:54
+   hosts: {'jsonhero.io': 4}
+    2026-06-18 13:09:53 52.242.196.193 masscfhero | https://jsonhero.io/new?url=https://www.sec.gov/files/county.json
+    2026-06-18 13:09:53 4.255.222.104 macountyjsonhero | https://jsonhero.io/new?url=https://allorigins.hexlet.app/raw?url=https%3A%2F%2Fwww.sec.gov%2Ffiles%2Fcounty.json
+    2026-06-18 13:10:18 20.65.72.48 massj2 | https://jsonhero.io/new?url=https://allorigins.hexlet.app/raw?url=https%3A//www.sec.gov/files/county.json
+
+## YOURLS admin-ajax add (nonce)  n=3 ips=3 2026-05-27 07:34:07..2026-05-28 17:31:17
+   hosts: {'yourls.biz': 1, '209.133.215.159': 1, 'yourls.website': 1}
+    2026-05-27 07:34:07 4.154.191.125 fetchy007a | https://yourls.biz/admin/admin-ajax.php?action=add&url=https://example.org/testvia007&keyword=ag007viafetch&nonce=5908485a3b&rowid=1
+    2026-05-28 17:31:15 4.151.160.42 ag0ssrftrigger273false | https://209.133.215.159/admin/admin-ajax.php?action=add&url=https://pure.md/finance.yahoo.com/quote/TWLO/history?period1=1573776000&period2=1573948800&interval=1d&filter=history&frequency=1d&keyword=ag0ssrftwlo7521&nonce=879a4557d2&rowid=1
+    2026-05-28 17:31:17 20.225.214.165 ag0ssrftrigger272false | https://yourls.website/admin/admin-ajax.php?action=add&url=https://pure.md/finance.yahoo.com/quote/TWLO/history?period1=1573776000&period2=1573948800&interval=1d&filter=history&frequency=1d&keyword=ag0ssrftwlo7521&nonce=879a4557d2&rowid=1
+
+## telegra.ph  n=1 ips=1 2026-05-29 16:31:52..2026-05-29 16:31:52
+   hosts: {'telegra.ph': 1}
+    2026-05-29 16:31:52 52.162.220.135 p21723 | https://telegra.ph/Data-Africa-Central-Citation-5080-05-29

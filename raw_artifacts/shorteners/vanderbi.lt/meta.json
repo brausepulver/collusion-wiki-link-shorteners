@@ -1,0 +1,262 @@
+{
+ "base": "https://vanderbi.lt",
+ "api": "https://vanderbi.lt/yourls-api.php",
+ "user_agent": "CollusionWikiResearch/1.0 (URL-shortener abuse research)",
+ "fetched_at": "2026-09-05T12:20:39Z",
+ "pages": [
+  {
+   "i": 0,
+   "start": 0,
+   "status": 200,
+   "bytes": 704432,
+   "secs": 0.9,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=0",
+   "n": 2000,
+   "oldest": "2026-06-18 09:01:17"
+  },
+  {
+   "i": 1,
+   "start": 2000,
+   "status": 200,
+   "bytes": 662996,
+   "secs": 0.3,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=2000",
+   "n": 2000,
+   "oldest": "2026-05-29 15:50:54"
+  },
+  {
+   "i": 2,
+   "start": 4000,
+   "status": 200,
+   "bytes": 566813,
+   "secs": 0.3,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=4000",
+   "n": 2000,
+   "oldest": "2026-04-06 11:10:03"
+  },
+  {
+   "i": 3,
+   "start": 6000,
+   "status": 200,
+   "bytes": 729647,
+   "secs": 0.3,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=6000",
+   "n": 2000,
+   "oldest": "2024-03-07 12:26:25"
+  },
+  {
+   "i": 4,
+   "start": 8000,
+   "status": 200,
+   "bytes": 722634,
+   "secs": 0.3,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=8000",
+   "n": 2000,
+   "oldest": "2023-03-14 22:57:15"
+  },
+  {
+   "i": 5,
+   "start": 10000,
+   "status": 200,
+   "bytes": 668804,
+   "secs": 0.3,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=10000",
+   "n": 2000,
+   "oldest": "2022-07-20 11:01:03"
+  },
+  {
+   "i": 6,
+   "start": 12000,
+   "status": 200,
+   "bytes": 627882,
+   "secs": 0.3,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=12000",
+   "n": 2000,
+   "oldest": "2022-02-16 14:44:51"
+  },
+  {
+   "i": 7,
+   "start": 14000,
+   "status": 200,
+   "bytes": 638656,
+   "secs": 0.3,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=14000",
+   "n": 2000,
+   "oldest": "2021-08-29 10:05:45"
+  },
+  {
+   "i": 8,
+   "start": 16000,
+   "status": 200,
+   "bytes": 653720,
+   "secs": 0.3,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=16000",
+   "n": 2000,
+   "oldest": "2021-03-17 14:06:23"
+  },
+  {
+   "i": 9,
+   "start": 18000,
+   "status": 200,
+   "bytes": 651350,
+   "secs": 0.4,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=18000",
+   "n": 2000,
+   "oldest": "2020-10-02 22:59:27"
+  },
+  {
+   "i": 10,
+   "start": 20000,
+   "status": 200,
+   "bytes": 658746,
+   "secs": 0.4,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=20000",
+   "n": 2000,
+   "oldest": "2020-04-14 22:24:51"
+  },
+  {
+   "i": 11,
+   "start": 22000,
+   "status": 200,
+   "bytes": 621815,
+   "secs": 0.4,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=22000",
+   "n": 2000,
+   "oldest": "2020-02-17 01:38:38"
+  },
+  {
+   "i": 12,
+   "start": 24000,
+   "status": 200,
+   "bytes": 613006,
+   "secs": 0.4,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=24000",
+   "n": 2000,
+   "oldest": "2019-09-13 11:01:10"
+  },
+  {
+   "i": 13,
+   "start": 26000,
+   "status": 200,
+   "bytes": 641837,
+   "secs": 0.4,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=26000",
+   "n": 2000,
+   "oldest": "2019-03-22 14:51:16"
+  },
+  {
+   "i": 14,
+   "start": 28000,
+   "status": 200,
+   "bytes": 636545,
+   "secs": 0.4,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=28000",
+   "n": 2000,
+   "oldest": "2018-12-07 20:55:53"
+  },
+  {
+   "i": 15,
+   "start": 30000,
+   "status": 200,
+   "bytes": 698668,
+   "secs": 0.5,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=30000",
+   "n": 2000,
+   "oldest": "2018-03-08 15:05:39"
+  },
+  {
+   "i": 16,
+   "start": 32000,
+   "status": 200,
+   "bytes": 699911,
+   "secs": 0.4,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=32000",
+   "n": 2000,
+   "oldest": "2017-06-22 14:06:37"
+  },
+  {
+   "i": 17,
+   "start": 34000,
+   "status": 200,
+   "bytes": 688252,
+   "secs": 0.5,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=34000",
+   "n": 2000,
+   "oldest": "2016-10-13 17:54:44"
+  },
+  {
+   "i": 18,
+   "start": 36000,
+   "status": 200,
+   "bytes": 675710,
+   "secs": 0.4,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=36000",
+   "n": 2000,
+   "oldest": "2016-01-21 15:52:55"
+  },
+  {
+   "i": 19,
+   "start": 38000,
+   "status": 200,
+   "bytes": 657799,
+   "secs": 0.4,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=38000",
+   "n": 2000,
+   "oldest": "2015-05-21 15:48:16"
+  },
+  {
+   "i": 20,
+   "start": 40000,
+   "status": 200,
+   "bytes": 646721,
+   "secs": 0.5,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=40000",
+   "n": 2000,
+   "oldest": "2014-09-26 19:38:11"
+  },
+  {
+   "i": 21,
+   "start": 42000,
+   "status": 200,
+   "bytes": 622781,
+   "secs": 0.4,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=42000",
+   "n": 2000,
+   "oldest": "2013-12-03 00:49:19"
+  },
+  {
+   "i": 22,
+   "start": 44000,
+   "status": 200,
+   "bytes": 630768,
+   "secs": 0.5,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=44000",
+   "n": 2000,
+   "oldest": "2013-03-22 18:11:30"
+  },
+  {
+   "i": 23,
+   "start": 46000,
+   "status": 200,
+   "bytes": 603580,
+   "secs": 0.6,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=46000",
+   "n": 2000,
+   "oldest": "2012-06-26 16:00:07"
+  },
+  {
+   "i": 24,
+   "start": 48000,
+   "status": 200,
+   "bytes": 0,
+   "secs": 0.4,
+   "url": "https://vanderbi.lt/yourls-api.php?action=stats&format=json&filter=last&limit=2000&start=48000"
+  }
+ ],
+ "stats": {
+  "total_links": "55168",
+  "total_clicks": "11571092"
+ },
+ "error": "page 24: non-JSON (200) ''",
+ "n_links": 48000
+}
